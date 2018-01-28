@@ -4,9 +4,7 @@ from . import views
 
 app_name = 'accounts'
 urlpatterns = [
-    url('login/',
-        auth_views.LoginView.as_view(temmpale_name='accounts.login.html'),
-        name='login'),
-    url('logout/', auth_views.LogoutView(), name='logout'),
-    url('signup', views.SingUp.as_view(), name='signup')
+    url("login/", auth_views.LoginView.as_view(template_name="accounts/login.html"), name='login'),
+    url("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    url("signup/", views.SignUp.as_view(), name="signup"),
 ]
