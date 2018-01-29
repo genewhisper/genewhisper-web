@@ -5,51 +5,117 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <!-- Title -->
+    <title>Classic Header - Semitransparent Dark Background | Unify - Responsive Website Template</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/bootstrap/offcanvas.css' %}">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+    <!-- CSS Unify -->
+    <link rel="stylesheet" href="{% static 'genewhisper/assets/css/unify-core.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets/css/unify-components.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets/css/unify-globals.css' %}">
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'genewhisper/css/master.css' %}"/>
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="../../../assets/css/custom.css">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets/css/custom.css' %}">
+
 
 </head>
 
 <body>
-<nav class="navbar  mynav" role="navigation" id="navbar">
-    <div class="container">
+<!-- Header -->
+<header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance"
+        data-header-fix-moment="300">
+    <div class="u-header__section u-header__section--dark g-bg-black-opacity-0_4 g-transition-0_3 g-py-10"
+         data-header-fix-moment-exclude="g-bg-black-opacity-0_4 g-py-10"
+         data-header-fix-moment-classes="g-bg-black-opacity-0_7 g-py-0">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Responsive Toggle Button -->
+                <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-3 g-right-0"
+                        type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar"
+                        data-toggle="collapse" data-target="#navBar">
+              <span class="hamburger hamburger--slider">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+              </span>
+              </span>
+                </button>
+                <!-- End Responsive Toggle Button -->
 
-        <a class="navbar-brand mynav" href="{% url 'home' %}">GeneWhisper</a>
+                <!-- Logo -->
+                <a href="{% url 'home' %}" class="navbar-brand">
+                    <img src="#" alt="GeneWhisper">
+                </a>
+                <!-- End Logo -->
 
-        <ul class="nav navbar-nav navbar-right">
-            {% if user.is_authenticated %}
-                <li><a href="#" class="btn btn-simple">Create Project</a></li>
-                <li><a href="{% url 'accounts:logout' %}" class="btn btn-simple">Log out</a></li>
-
-            {% else %}
-
-                <li><a href="{% url 'accounts:login' %}" class="btn btn-simple">Log in</a></li>
-                <li><a href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a></li>
-            {% endif %}
-        </ul>
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg" id="navBar">
+                    <ul class="navbar-nav text-uppercase g-font-weight-600 ml-auto">
 
 
+                        {% if user.is_authenticated %}
+                            <li class="nav-item g-mx-20--lg">
+                                <a href="{% url 'home' %}" class="nav-link px-0">Home</a>
+                            </li>
+
+                            <li class="nav-item g-mx-20--lg">
+                                <a href="#" class="nav-link px-0">Create Project</a>
+                            </li>
+
+                            <li class="nav-item g-mx-20--lg">
+                                <a href="{% url 'accounts:logout' %}" class="nav-link px-0">LogOut</a>
+                            </li>
+
+                        {% else %}
+
+                            <li class="nav-item g-mx-20--lg">
+                                <a href="{% url 'home' %}" class="nav-link px-0">Home</a>
+                            </li>
+
+                            <li class="nav-item g-mx-20--lg">
+                                <a href="{% url 'accounts:login' %}" class="nav-link px-0">Login</a>
+                            </li>
+
+                            <li class="nav-item g-mx-20--lg">
+                                <a href="{% url 'accounts:signup' %}" class="nav-link px-0">SingUp</a>
+                            </li>
+
+                        {% endif %}
+                    </ul>
+                </div>
+                <!-- End Navigation -->
+            </div>
+        </nav>
     </div>
-</nav>
+</header>
+<!-- End Header -->
+
+
+
+
+
+
+
+
 <div class="container mycontent">
 
     {% block content %}
 
     {% endblock %}
 </div>
+
+
+
 </body>
 </html>

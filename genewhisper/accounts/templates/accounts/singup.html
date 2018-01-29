@@ -2,15 +2,35 @@
 {% load bootstrap3 %}
 
 {% block content %}
-    <div class="container">
-<h1>Sign Up</h1>
-    <form method="post">
-        {% csrf_token %}
-        {% bootstrap_form form %}
+    <!-- Signup -->
+    <section class="g-bg-gray-light-v5">
+        <div class="container g-py-100">
+            <div class="row justify-content-center">
+                <div class="col-sm-10 col-md-9 col-lg-6">
+                    <div class="u-shadow-v21 g-bg-white rounded g-py-40 g-px-30">
+                        <header class="text-center mb-4">
+                            <h2 class="h2 g-color-black g-font-weight-600">Signup</h2>
+                        </header>
 
-        <input type="submit" value="Sing Up">
+                        <!-- Form -->
+                        <form method="post" class="g-py-15">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
 
-    </form>
+                            <input type="submit" value="Sing Up">
+                        </form>
+                        <!-- End Form -->
 
-    </div>
+                        <footer class="text-center">
+                            <p class="g-color-gray-dark-v5 g-font-size-13 mb-0">Already have an account? <a
+                                    class="g-font-weight-600" href="page-login-2.html">signin</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Signup -->
+
 {% endblock %}
