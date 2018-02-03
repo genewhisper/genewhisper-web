@@ -1,63 +1,51 @@
-<!DOCTYPE html>
 {% load staticfiles %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
     <!-- Title -->
-    <title>Classic Header - Semitransparent Dark Background | Unify - Responsive Website Template</title>
+    <title>Base</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="#">
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/bootstrap/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/bootstrap/offcanvas.css' %}">
-
 
     <!-- CSS Global Icons -->
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/icon-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/icon-line/css/simple-line-icons.css' %}">
-    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/icon-line/css/simple-line-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/icon-etlinefont/style.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/icon-line-pro/style.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/icon-hs/style.css' %}">
-    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/dzsparallaxer/dzsparallaxer.css' %}">
-    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/dzsparallaxer/dzsscroller/scroller.css' %}">
-    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/dzsparallaxer/advancedscroller/plugin.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/animate.css' %}">
-    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/fancybox/jquery.fancybox.min.css' %}">
-    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/slick-carousel/slick/slick.css' %}">
-    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/typedjs/typed.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/hs-megamenu/src/hs.megamenu.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/hamburgers/hamburgers.min.css' %}">
 
+
     <!-- CSS Unify -->
+
     <link rel="stylesheet" href="{% static 'genewhisper/assets/css/unify-core.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/css/unify-components.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/css/unify-globals.css' %}">
 
-
     <!-- CSS Customization -->
     <link rel="stylesheet" href="{% static 'genewhisper/assets/css/custom.css' %}">
-
 
 </head>
 
 <body>
 <main>
     <!-- Header -->
-    <header id="js-header" class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance"
-            data-header-fix-moment="300">
-        <div class="u-header__section u-header__section--dark g-bg-black-opacity-0_4 g-transition-0_3 g-py-10"
-             data-header-fix-moment-exclude="g-bg-black-opacity-0_4 g-py-10"
-             data-header-fix-moment-classes="g-bg-black-opacity-0_7 g-py-0">
-            <nav class="navbar navbar-expand-lg">
+    <header id="js-header" class="u-header u-header--static">
+        <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10">
+            <nav class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal">
                 <div class="container">
                     <!-- Responsive Toggle Button -->
                     <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-3 g-right-0"
@@ -73,14 +61,14 @@
 
                     <!-- Logo -->
                     <a href="{% url 'home' %}" class="navbar-brand">GeneWhisper
-{#                        <img src="#" alt="GeneWhisper">#}
+                        {#                        <img src="../../assets/img/logo/logo-1.png" alt="Image Description">#}
                     </a>
                     <!-- End Logo -->
 
                     <!-- Navigation -->
-                    <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg" id="navBar">
-                        <ul class="navbar-nav text-uppercase g-font-weight-600 ml-auto">
-
+                    <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg"
+                         id="navBar">
+                        <ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600 ml-auto">
 
                             {% if user.is_authenticated %}
                                 <li class="nav-item g-mx-20--lg">
@@ -113,6 +101,7 @@
                         </ul>
                     </div>
                     <!-- End Navigation -->
+
                 </div>
             </nav>
         </div>
@@ -363,59 +352,67 @@
 
 
 <!-- JS Global Compulsory -->
+<script src="../../assets/vendor/jquery/jquery.min.js"></script>
 <script src="{% static 'genewhisper/assets/vendor/jquery/jquery.min.js' %}"></script>
+
+
+<script src="../../assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
 <script src="{% static 'genewhisper/assets/vendor/jquery-migrate/jquery-migrate.min.js' %}"></script>
+
+<script src="../../assets/vendor/popper.min.js"></script>
 <script src="{% static 'genewhisper/assets/vendor/popper.min.js' %}"></script>
+
+<script src="../../assets/vendor/bootstrap/bootstrap.min.js"></script>
 <script src="{% static 'genewhisper/assets/vendor/bootstrap/bootstrap.min.js' %}"></script>
 
 <!-- JS Implementing Plugins -->
-<script src="{% static 'genewhisper/assets/vendor/slick-carousel/slick/slick.js' %}"></script>
+<script src="../../assets/vendor/appear.js"></script>
+<script src="{% static 'genewhisper/assets/vendor/appear.js' %}"></script>
+
+
+<script src="../../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
 <script src="{% static 'genewhisper/assets/vendor/hs-megamenu/src/hs.megamenu.js' %}"></script>
-<script src="{% static 'genewhisper/assets/vendor/dzsparallaxer/dzsparallaxer.js' %}"></script>
-<script src="{% static 'genewhisper/assets/vendor/dzsparallaxer/dzsscroller/scroller.js' %}"></script>
-<script src="{% static 'genewhisper/assets/vendor/dzsparallaxer/advancedscroller/plugin.js' %}"></script>
-<script src="{% static 'genewhisper/assets/vendor/fancybox/jquery.fancybox.min.js' %}"></script>
-<script src="{% static 'genewhisper/assets/vendor/typedjs/typed.min.js' %}"></script>
+
+
+<script src="../../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="{% static 'genewhisper/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
 
 <!-- JS Unify -->
 <script src="{% static 'genewhisper/assets/js/hs.core.js' %}"></script>
-<script src="{% static 'genewhisper/assets/js/components/hs.carousel.js' %}"></script>
-<script src="{% static 'genewhisper/assets/js/components/hs.header.js' %}"></script>
 <script src="{% static 'genewhisper/assets/js/helpers/hs.hamburgers.js' %}"></script>
+<script src="{% static 'genewhisper/assets/js/components/hs.header.js' %}"></script>
 <script src="{% static 'genewhisper/assets/js/components/hs.tabs.js' %}"></script>
-<script src="{% static 'genewhisper/assets/js/components/hs.popup.js' %}"></script>
-<script src="{% static 'genewhisper/assets/js/components/text-animation/hs.text-slideshow.js' %}"></script>
+<script src="{% static 'genewhisper/assets/js/components/hs.counter.js' %}"></script>
+<script src="{% static 'genewhisper/assets/js/components/hs.progress-bar.js' %}"></script>
+<script src="{% static 'genewhisper/assets/js/components/hs.rating.js' %}"></script>
+<script src="{% static 'genewhisper/assets/js/components/hs.scrollbar.js' %}"></script>
 <script src="{% static 'genewhisper/assets/js/components/hs.go-to.js' %}"></script>
 
+
 <!-- JS Customization -->
+
 <script src="{% static 'genewhisper/assets/js/custom.js' %}"></script>
 
 <!-- JS Plugins Init. -->
 <script>
     $(document).on('ready', function () {
-        // initialization of carousel
-        $.HSCore.components.HSCarousel.init('.js-carousel');
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
 
         // initialization of tabs
         $.HSCore.components.HSTabs.init('[role="tablist"]');
 
-        // initialization of popups
-        $.HSCore.components.HSPopup.init('.js-fancybox');
+        // initialization of counters
+        var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
 
-        // initialization of go to
-        $.HSCore.components.HSGoTo.init('.js-go-to');
-
-        // initialization of text animation (typing)
-        $(".u-text-animation.u-text-animation--typing").typed({
-            strings: [
-                "an awesome template",
-                "perfect template",
-                "just like a boss"
-            ],
-            typeSpeed: 60,
-            loop: true,
-            backDelay: 1500
+        // initialization of rating
+        $.HSCore.components.HSRating.init($('.js-rating'), {
+            spacing: 2
         });
+
+        // initialization of HSScrollBar component
+        $.HSCore.components.HSScrollBar.init($('.js-scrollbar'));
     });
 
     $(window).on('load', function () {
@@ -429,14 +426,25 @@
             pageContainer: $('.container'),
             breakpoint: 991
         });
+
+        // initialization of horizontal progress bars
+        setTimeout(function () { // important in this case
+            var horizontalProgressBars = $.HSCore.components.HSProgressBar.init('.js-hr-progress-bar', {
+                direction: 'horizontal',
+                indicatorSelector: '.js-hr-progress-bar-indicator'
+            });
+        }, 1);
     });
 
     $(window).on('resize', function () {
         setTimeout(function () {
-            $.HSCore.components.HSTabs.init('[role="tablist"]');
+            $.HSCore.components.HSTabs.init('[role="tablist"]')
         }, 200);
     });
 </script>
+
+
+
 
 
 </body>
