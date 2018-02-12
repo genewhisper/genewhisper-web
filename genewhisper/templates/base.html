@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <!-- Title -->
-    <title>Base</title>
+    <title>GeneWhisper</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -42,6 +42,7 @@
 
 <body>
 <main>
+
     <!-- Header -->
     <header id="js-header" class="u-header u-header--static">
         <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10">
@@ -76,12 +77,17 @@
                                 </li>
 
                                 <li class="nav-item g-mx-20--lg">
-                                    <a href="#" class="nav-link px-0">Create Project</a>
+                                    <a href="{% url 'projects:new_project_form' %}" class="nav-link px-0">Create Project</a>
                                 </li>
 
                                 <li class="nav-item g-mx-20--lg">
                                     <a href="{% url 'accounts:logout' %}" class="nav-link px-0">LogOut</a>
                                 </li>
+
+                                <li class="nav-item g-mx-20--lg">
+                                    <a href="{% url 'profile' %}" class="nav-link px-0">Hello, {{ user.first_name }}</a>
+                                </li>
+
 
                             {% else %}
 
