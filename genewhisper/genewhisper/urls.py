@@ -26,4 +26,5 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('profile/projects/', include('projects.urls'))
 
+
 ]
