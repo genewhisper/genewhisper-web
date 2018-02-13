@@ -1,8 +1,7 @@
 from django.views.generic import TemplateView
-
-
-# class ProfilePage(TemplateView):
-#     template_name = 'profiles/profile.html'
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+from django.views.generic import TemplateView
 
 
 class ThanksPage(TemplateView):
@@ -11,3 +10,7 @@ class ThanksPage(TemplateView):
 
 class HomePage(TemplateView):
     template_name = 'index.html'
+
+
+class TestPage(TemplateView):
+    template_name = 'test.html'

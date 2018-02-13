@@ -22,9 +22,10 @@ urlpatterns = [
     path('', views.HomePage.as_view(), name='home'),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
+
+    path('profile/', include('profiles.urls'), name='profile_main'),
+    path('profile/projects/', include('projects.urls')),
+
     path('thanks/', views.ThanksPage.as_view(), name='thanks'),
-    path('profile/', include('profiles.urls')),
-    path('profile/projects/', include('projects.urls'))
-
-
+    path('test/', views.TestPage.as_view(), name='test_1'),
 ]
