@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     'accounts',
     'projects',
+    'profiles'
+    
 ]
 
 MIDDLEWARE = [

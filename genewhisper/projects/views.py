@@ -38,18 +38,21 @@ class ProjectList(LoginRequiredMixin, ListView):
         return Project.objects.filter(username=self.request.user)
 
 
-class ProjectDetails(DetailView):
+class ProjectDetails(LoginRequiredMixin, DetailView):
+    login_url = reverse_lazy('login')
     model = Project
     template_name = 'projects/project_details.html'
     context_object_name = 'project_details'
 
 
-class ProjectUpdate(UpdateView):
+class ProjectUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Project
     template_name = 'projects/new_project_form.html'
     fields = ['name', 'company']
 
 
-class ProjectDelete(DeleteView):
+class ProjectDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Project
     success_url = reverse_lazy('projects:list_all_projects')

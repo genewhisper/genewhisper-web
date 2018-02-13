@@ -1,8 +1,8 @@
 from django.views.generic import TemplateView
 
 
-class ProfilePage(TemplateView):
-    template_name = 'profile.html'
+# class ProfilePage(TemplateView):
+#     template_name = 'profiles/profile.html'
 
 
 class ThanksPage(TemplateView):
