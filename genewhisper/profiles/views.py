@@ -1,6 +1,11 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from projects.models import Project
 
-class ProfilePage(TemplateView):
-    template_name = 'profiles/profile.html'
 
+class ProfilePage(ListView,LoginRequiredMixin ):
+    login_url = reverse_lazy('login')
+    template_name = 'profiles/profile.html'
+    model = Project
+    context_object_name = 'all_projects_list'

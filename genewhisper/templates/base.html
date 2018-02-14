@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/hs-megamenu/src/hs.megamenu.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/hamburgers/hamburgers.min.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets/vendor/jquery-ui/themes/base/jquery-ui.min.css' %}">
 
 
     <!-- CSS Unify -->
@@ -77,7 +78,8 @@
                                 </li>
 
                                 <li class="nav-item g-mx-20--lg">
-                                    <a href="{% url 'projects:new_project_form' %}" class="nav-link px-0">Create Project</a>
+                                    <a href="{% url 'profiles:new_project_form' %}" class="nav-link px-0">Create
+                                        Project</a>
                                 </li>
 
                                 <li class="nav-item g-mx-20--lg">
@@ -85,7 +87,8 @@
                                 </li>
 
                                 <li class="nav-item g-mx-20--lg">
-                                    <a href="{% url 'profiles:main_profile_page' %}" class="nav-link px-0">Hello, {{ user.first_name }}</a>
+                                    <a href="{% url 'profiles:main_profile_page' %}"
+                                       class="nav-link px-0">Hello, {{ user.first_name }}</a>
                                 </li>
 
 
@@ -394,11 +397,14 @@
 <script src="{% static 'genewhisper/assets/js/components/hs.rating.js' %}"></script>
 <script src="{% static 'genewhisper/assets/js/components/hs.scrollbar.js' %}"></script>
 <script src="{% static 'genewhisper/assets/js/components/hs.go-to.js' %}"></script>
+<script src="{% static 'genewhisper/assets/vendor/jquery.filer/js/jquery.filer.min.js' %}"></script>
+<script src="{% static 'genewhisper/assets/js/helpers/hs.focus-state.js' %}"></script>
+<script src="{% static 'genewhisper/assets/js/components/hs.file-attachement.js' %}"></script>
+<script src="{% static 'genewhisper/assets/js/custom.js' %}"></script>
 
 
 <!-- JS Customization -->
 
-<script src="{% static 'genewhisper/assets/js/custom.js' %}"></script>
 
 <!-- JS Plugins Init. -->
 <script>
@@ -447,6 +453,15 @@
             $.HSCore.components.HSTabs.init('[role="tablist"]')
         }, 200);
     });
+
+
+    $(document).on('ready', function () {
+        // initialization of forms
+        $.HSCore.components.HSFileAttachment.init('.js-file-attachment');
+        $.HSCore.helpers.HSFocusState.init();
+    });
+
+
 </script>
 </body>
 </html>

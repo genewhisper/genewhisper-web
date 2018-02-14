@@ -159,28 +159,30 @@
 
 
                             {% for project in all_projects_list %}
-
-
-
                                 <!-- Web Design -->
 
-                                <li>
-                                    <div class="g-mb-20">
+                                <div class="g-mb-20">
+                                    <h6 class="g-mb-10">
 
-                                        <h6 class="g-mb-10">Project {{ project.name }}<span
-                                                class="float-right g-ml-10">68%</span>
-                                        </h6>
-                                        <div class="js-hr-progress-bar progress g-bg-black-opacity-0_1 rounded-0 g-mb-5">
-                                            <div class="js-hr-progress-bar-indicator progress-bar g-bg-cyan u-progress-bar--xs"
-                                                 role="progressbar" style="width: 68%;" aria-valuenow="68"
-                                                 aria-valuemin="0"
-                                                 aria-valuemax="100"></div>
+
+                                        <a href="{% url 'projects:project_details' project.id %}">
+                                            Project {{ project.id }}
+                                        </a>
+
+
+                                        <span class="float-right g-ml-10">68%</span>
+                                    </h6>
+                                    <div class="js-hr-progress-bar progress g-bg-black-opacity-0_1 rounded-0 g-mb-5">
+                                        <div class="js-hr-progress-bar-indicator progress-bar g-bg-cyan u-progress-bar--xs"
+                                             role="progressbar" style="width: 68%;" aria-valuenow="68"
+                                             aria-valuemin="0"
+                                             aria-valuemax="100">
                                         </div>
-                                        <small class="g-font-size-12">11% more than last week</small>
-
                                     </div>
-                                    <!-- End Web Design -->
-                                </li>
+                                    <small class="g-font-size-12">11% more than last week</small>
+
+                                </div>
+                                <!-- End Web Design -->
                             {% endfor %}
 
 
@@ -384,8 +386,7 @@
                                                         <h5 class="h6 g-font-weight-600 g-color-black">Project 1</h5>
                                                         <span class="small text-nowrap g-color-blue">2 min ago</span>
                                                     </div>
-                                                    <p>Curabitur hendrerit dolor sit amet consectetur. Adipiscing elitut
-                                                        leosit amet, consectetur eleifend.</p>
+                                                    <p>Some Description here.</p>
 
                                                     <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">FASTQ</span>
                                                     <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">VCF</span>

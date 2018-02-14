@@ -134,25 +134,11 @@
                     <!-- Panel Body -->
                     <div class="js-scrollbar card-block u-info-v1-1 g-bg-white-gradient-v1--after g-height-400 g-pa-0">
                         <ul class="list-unstyled">
-                            <li class="media g-brd-around g-brd-gray-light-v4 g-brd-left-3 g-brd-blue-left rounded g-pa-20 g-mb-10">
-                                <div class="d-flex g-mt-2 g-mr-15">
-                                    <img class="g-width-40 g-height-40 rounded-circle"
-                                         src="{% static 'genewhisper/assets/img-temp/100x100/img1.jpg' %}"
-                                         alt="Image Description">
-                                </div>
-                                <div class="media-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="h6 g-font-weight-600 g-color-black">Project 1</h5>
-                                        <span class="small text-nowrap g-color-blue">2 min ago</span>
-                                    </div>
-                                    <p>Curabitur hendrerit dolor sit amet consectetur. Adipiscing elitut
-                                        leosit amet, consectetur eleifend.</p>
 
-                                    <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">FASTQ</span>
-                                    <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">VCF</span>
-                                    <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">ClinVar</span>
-                                </div>
-                            </li>
+
+                            {% for project in all_projects_list %}
+
+
 
                             <li class="media g-brd-around g-brd-gray-light-v4 g-brd-left-3 g-brd-pink-left rounded g-pa-20 g-mb-10">
                                 <div class="d-flex g-mt-2 g-mr-15">
@@ -162,36 +148,26 @@
                                 </div>
                                 <div class="media-body">
                                     <div class="d-flex justify-content-between">
-                                        <h5 class="h6 g-font-weight-600 g-color-black">Project 3</h5>
+                                        <h5 class="h6 g-font-weight-600 g-color-black">
+
+                                        <a href="{% url 'projects:project_details' project.id %}">Project {{ project.id }}</a>
+
+
+                                        </h5>
                                         <span class="small text-nowrap g-color-pink">16 min ago</span>
                                     </div>
-                                    <p>Hac consectetur habitasse platea dictumst, adipiscing elitut
-                                        leosit
-                                        amet, consectetur eleifend.</p>
+
+                                    <p>{{ project.description }}</p>
+
                                     <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">FASTQ</span>
                                     <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">VCF</span>
                                     <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">ClinVar</span>
                                 </div>
                             </li>
 
-                            <li class="media g-brd-around g-brd-gray-light-v4 g-brd-left-3 g-brd-black-left rounded g-pa-20 g-mb-10">
-                                <div class="d-flex g-mt-2 g-mr-15">
-                                    <img class="g-width-40 g-height-40 rounded-circle"
-                                         src="{% static 'genewhisper/assets/img-temp/100x100/img1.jpg' %}"
-                                         alt="Image Description">
-                                </div>
-                                <div class="media-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="h6 g-font-weight-600 g-color-black">Project 4 </h5>
-                                        <span class="small text-nowrap g-color-blue">2 min ago</span>
-                                    </div>
-                                    <p>Curabitur hendrerit dolor sit amet consectetur. Adipiscing elitut
-                                        leosit amet, consectetur eleifend.</p>
-                                    <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">FASTQ</span>
-                                    <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">VCF</span>
-                                    <span class="u-label u-label--sm g-bg-gray-light-v4 g-color-main g-rounded-20 g-px-10">ClinVar</span>
-                                </div>
-                            </li>
+
+                            {% endfor %}
+
                         </ul>
                     </div>
                     <!-- End Panel Body -->
@@ -857,6 +833,37 @@
 
     </div>
     <!-- End Profile Content -->
+    <h1>Hello world</h1>
+
+    <h1>{{ user.email }}</h1><br>
+    <h1>{{ user.first_name }}</h1>
+{{ all_projects_list }}
+    <h1>{{ all_project_list.name }}</h1>
+
+    <table >
+    <tr >
+        <th>ID</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Submitted</th>
+
+        <th>Project Date</th>
+        <th>Project Prise</th>
+    </tr>
+    <tr>
+        {% for project in all_projects_list %}
+
+            <td><a href="{% url 'projects:project_details' project.id %}">{{ project.id }}</a></td>
+            <td>{{ project.name }}</td>
+            <td>{{ project.company }}</td>
+            <td>{{ project.submitted|date:"m-d-y" }}</td>
+            <td>{{ project.project_date|date:"m-d-y" }}</td>
+            <td>{{ project.project_price }}</td>
+
+            </tr>
+        {% endfor %}
+</table>
+    <h2>End Hello</h2>
 
 {% endblock profile_content %}
 

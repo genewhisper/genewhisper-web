@@ -1,0 +1,95 @@
+{% extends 'profile_base.html' %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% load staticfiles %}
+{% block profile_content %}
+
+
+    <div class="col-lg-9">
+        <h2 style="text-align: center">Creation a new Project</h2>
+
+        {% if submitted %}
+            <p class="success">
+                Your project was created successfully. Thank you.
+            </p>
+
+        {% else %}
+            <form action="" enctype="multipart/form-data" method="post" novalidate
+                  class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30">
+
+{#                <!-- Text Input -->#}
+{#                <div class="form-group g-mb-20">#}
+{#                    <label class="g-mb-10" for="inputGroup1_1">Name</label>#}
+{#                    {{ form.name|add_class:"form-control form-control-md rounded-0" }}#}
+{#                    <small class="form-text text-muted g-font-size-default g-mt-10"></small>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group g-mb-20">#}
+{#                    <label class="g-mb-10" for="inputGroup1_1">Position</label>#}
+{#                    {{ form.email|add_class:"form-control form-control-md rounded-0" }}#}
+{#                    <small class="form-text text-muted g-font-size-default g-mt-10"></small>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group g-mb-20">#}
+{#                    <label class="g-mb-10" for="inputGroup1_1">Company</label>#}
+{#                    {{ form.company|add_class:"form-control form-control-md rounded-0" }}#}
+{#                    <small class="form-text text-muted g-font-size-default g-mt-10"></small>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group g-mb-20">#}
+{#                    <label class="g-mb-10" for="inputGroup1_1">Address</label>#}
+{#                    {{ form.address|add_class:"form-control form-control-md rounded-0" }}#}
+{#                    <small class="form-text text-muted g-font-size-default g-mt-10"></small>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group g-mb-20">#}
+{#                    <label class="g-mb-10" for="inputGroup1_1">Phone</label>#}
+{#                    {{ form.phone|add_class:"form-control form-control-md rounded-0" }}#}
+{#                    <small class="form-text text-muted g-font-size-default g-mt-10"></small>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group g-mb-20">#}
+{#                    <label class="g-mb-10" for="inputGroup1_1">Website</label>#}
+{#                    {{ form.web|add_class:"form-control form-control-md rounded-0" }}#}
+{#                    <small class="form-text text-muted g-font-size-default g-mt-10"></small>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group g-mb-20">#}
+{#                    <label class="g-mb-10" for="inputGroup1_1">Description</label>#}
+{#                    {{ form.description|add_class:"form-control form-control-md rounded-0" }}#}
+{#                    <small class="form-text text-muted g-font-size-default g-mt-10"></small>#}
+{##}
+{#                </div>#}
+{##}
+{#                <div class="form-group g-mb-20">#}
+{#                    <label class="g-mb-10" for="inputGroup1_1">Project Status</label>#}
+{#                    {{ form.project_status|add_class:"form-control form-control-md rounded-0" }}#}
+{#                    <small class="form-text text-muted g-font-size-default g-mt-10"></small>#}
+{##}
+{#                </div>#}
+{#                <!-- End Text Input -->#}
+{##}
+{#                <div class="form-group g-mb-20">#}
+{#                    <label class="g-mb-10" for="inputGroup1_1">File format for upload</label>#}
+{#                    {{ form.file_format|add_class:"form-control form-control-md rounded-0" }}#}
+{#                    <small class="form-text text-muted g-font-size-default g-mt-10"></small>#}
+{##}
+{#                </div>#}
+{##}
+{##}
+{#                {{ form.as_p|add_class:"form-control form-control-md rounded-0" }}#}
+                    {{ form.as_table}}
+                <input type="submit" value="Submit"/>
+                {% csrf_token %}
+            </form>
+        {% endif %}
+
+
+    </div>
+
+
+
+
+
+{% endblock profile_content %}

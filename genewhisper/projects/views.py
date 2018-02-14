@@ -26,16 +26,21 @@ def create_new_project(request):
         if 'submitted' in request.GET:
             submitted = True
 
-    return render(request, 'projects/new_project_form.html', {'form': form, 'submitted': submitted})
+    return render(request, 'profiles/new_project.html', {'form': form, 'submitted': submitted})
 
 
 class ProjectList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    # model = Project
+    model = Project
     context_object_name = 'all_projects_list'
 
     def get_queryset(self):
         return Project.objects.filter(username=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectList, self).get_context_data(**kwargs)
+        context['project_list'] = Project.objects.all()
+        return context
 
 
 class ProjectDetails(LoginRequiredMixin, DetailView):
