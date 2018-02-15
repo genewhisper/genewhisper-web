@@ -20,7 +20,7 @@ PRIORITY_CHOICES = (
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100 )
     position = models.CharField(max_length=60, blank=True)
     company = models.CharField(max_length=60, blank=True)
     address = models.CharField(max_length=200, blank=True)

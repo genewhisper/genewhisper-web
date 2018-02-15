@@ -6,6 +6,5 @@ from projects.models import Project
 
 class ProfilePage(ListView,LoginRequiredMixin ):
     login_url = reverse_lazy('login')
-    template_name = 'profiles/profile.html'
     model = Project
     context_object_name = 'all_projects_list'
