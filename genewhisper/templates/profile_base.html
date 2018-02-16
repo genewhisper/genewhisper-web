@@ -622,6 +622,12 @@
 
 <!-- JS Custom -->
 <script src="{% static 'genewhisper/assets_website/js/custom.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/vendor/jquery.filer/js/jquery.filer.min.js' %}"></script>
+
+<!-- JS Unify -->
+<script src="{% static 'genewhisper/assets_website/js/helpers/hs.focus-state.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/components/hs.file-attachement.js' %}"></script>
+
 
 <!-- JS Plugins Init. -->
 <script>
@@ -669,6 +675,14 @@
             }
         });
     });
+
+
+    $(document).on('ready', function () {
+        // initialization of forms
+        $.HSCore.components.HSFileAttachment.init('.js-file-attachment');
+        $.HSCore.helpers.HSFocusState.init();
+    });
+
 </script>
 
 
