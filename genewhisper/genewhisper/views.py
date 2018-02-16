@@ -14,3 +14,7 @@ class HomePage(TemplateView):
 
 class TestPage(TemplateView):
     template_name = 'test.html'
+#
+#
+# class ProfileTest(TemplateView):
+#     template_name = 'profile_base.html'

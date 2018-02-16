@@ -26,7 +26,6 @@ class Project(models.Model):
     address = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=30, blank=True)
     email = models.EmailField()
-    web = models.URLField(blank=True)
     description = models.TextField()
     project_status = models.CharField(max_length=20, choices=STATUS_CHOICES)
     priority = models.CharField(max_length=40, choices=PRIORITY_CHOICES)

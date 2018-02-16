@@ -27,5 +27,4 @@ urlpatterns = [
     path('profile/projects/', include('projects.urls')),
 
     path('thanks/', views.ThanksPage.as_view(), name='thanks'),
-    path('test/', views.TestPage.as_view(), name='test_1'),
 ]
