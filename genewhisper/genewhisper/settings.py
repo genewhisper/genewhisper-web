@@ -41,7 +41,9 @@ INSTALLED_APPS = [
 
     'accounts',
     'projects',
-    'profiles'
+    'profiles',
+    'pathogenicity',
+
 
 ]
 
