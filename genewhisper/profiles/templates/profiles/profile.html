@@ -368,8 +368,8 @@
                     <div class="card g-brd-gray-light-v7 g-mb-30">
                         <header class="media g-pa-15 g-pa-25-30-0--md g-mb-20">
                             <div class="media-body align-self-center">
-                                <h3 class="text-uppercase g-font-size-default g-color-black g-mb-8">Total
-                                    Income</h3>
+                                <h3 class="text-uppercase g-font-size-default g-color-black g-mb-8">List of
+                                    Projects</h3>
 
                                 <div id="rangePickerWrapper3"
                                      class="u-datepicker-left u-datepicker--v3 g-pr-10">
@@ -383,7 +383,7 @@
                             </div>
 
                             <div class="d-flex align-self-end align-items-center">
-                                <span class="g-line-height-1 g-font-weight-300 g-font-size-28 g-color-lightblue-v4">$48,200</span>
+                                <span class="g-line-height-1 g-font-weight-300 g-font-size-28 g-color-lightblue-v4">Some value here</span>
                                 <span class="d-flex align-self-center g-font-size-0 g-ml-10">
         <i class="g-fill-gray-dark-v9">
           <svg width="12px" height="20px" viewBox="0 0 12 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -436,185 +436,32 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        1
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Business Cards
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">approved</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Aug 12, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $2045
-                                    </td>
-                                </tr>
 
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        2
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Advertising Outdoors
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-lightred-v2 g-bg-lightred-v2 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">pending</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Jun 6, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $995
-                                    </td>
-                                </tr>
+                                {% for project in all_projects_list %}
 
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        3
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Freelance Design
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-teal-v2 g-bg-teal-v2 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">done</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Sep 8, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $1025
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
+                                            {{ project.id }}
+                                        </td>
+                                        <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
+                                            {{ project.name }}
+                                        </td>
+                                        <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
+                                            <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
+                                                {{ project.project_status }}
+                                            </span>
+                                        </td>
+                                        <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
+                                            {{ project.submitted|date:"M d, Y" }}
+                                        </td>
+                                        <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
+                                            ${{ project.project_price }}
+                                        </td>
+                                    </tr>
 
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        4
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Music Improvement
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">approved</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Dec 20, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $9562
-                                    </td>
-                                </tr>
 
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        5
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Truck Advertising
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-teal-v2 g-bg-teal-v2 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">done</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Dec 24, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $5470
-                                    </td>
-                                </tr>
+                                {% endfor %}
 
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        6
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Business Cards
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">approved</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Aug 12, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $2045
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        7
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Advertising Outdoors
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-lightred-v2 g-bg-lightred-v2 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">pending</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Jun 6, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $995
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        8
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Freelance Design
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-teal-v2 g-bg-teal-v2 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">done</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Sep 8, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $1025
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        9
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Music Improvement
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">approved</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Dec 20, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $9562
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                        10
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Truck Advertising
-                                    </td>
-                                    <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-teal-v2 g-bg-teal-v2 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">done</span>
-                                    </td>
-                                    <td class="g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        Dec 24, 2016
-                                    </td>
-                                    <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom--md g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                        $5470
-                                    </td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -862,7 +709,7 @@
                                             <img class="g-width-30 g-width-40--md g-height-30 g-height-40--md rounded-circle"
                                                  src="{% static 'genewhisper/assets_website/img-temp/100x100/img1.jpg' %}"
 
-                                                         alt="Image Description">
+                                                 alt="Image Description">
                                         </li>
                                         <li class="list-inline-item g-mb-10 g-mb-0--sm g-ml-7 mr-0">
                                             <div class="d-flex align-items-center justify-content-center g-width-30 g-width-40--md g-height-30 g-height-40--md g-bg-gray-light-v8 g-font-size-14 g-font-size-16--md g-color-lightblue-v3 rounded-circle">
@@ -1046,7 +893,8 @@
                             <section class="media">
                                 <div class="d-flex g-mr-12">
                                     <img class="g-width-40 g-width-48--md g-height-40 g-height-48--md rounded-circle"
-                                          src="{% static 'genewhisper/assets_website/img-temp/100x100/img1.jpg' %}" alt="Image Description">
+                                         src="{% static 'genewhisper/assets_website/img-temp/100x100/img1.jpg' %}"
+                                         alt="Image Description">
                                 </div>
 
                                 <div class="media-body">
@@ -1078,7 +926,8 @@
                             <section class="media">
                                 <div class="d-flex g-mr-12">
                                     <img class="g-width-40 g-width-48--md g-height-40 g-height-48--md rounded-circle"
-                                          src="{% static 'genewhisper/assets_website/img-temp/100x100/img1.jpg' %}" alt="Image Description">
+                                         src="{% static 'genewhisper/assets_website/img-temp/100x100/img1.jpg' %}"
+                                         alt="Image Description">
                                 </div>
 
                                 <div class="media-body">
@@ -1110,7 +959,8 @@
                             <section class="media">
                                 <div class="d-flex g-mr-12">
                                     <img class="g-width-40 g-width-48--md g-height-40 g-height-48--md rounded-circle"
-                                         src="{% static 'genewhisper/assets_website/img-temp/100x100/img1.jpg' %}" alt="Image Description">
+                                         src="{% static 'genewhisper/assets_website/img-temp/100x100/img1.jpg' %}"
+                                         alt="Image Description">
                                 </div>
 
                                 <div class="media-body">
@@ -1149,43 +999,5 @@
 
 
 {% endblock profile_content %}
-
-
-
-
-<h1>Hello world</h1>
-
-<h1>{{ user.email }}</h1><br>
-<h1>{{ user.first_name }}</h1>
-{{ all_projects_list }}
-<h1>{{ all_project_list.name }}</h1>
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Company</th>
-        <th>Submitted</th>
-
-        <th>Project Date</th>
-        <th>Project Prise</th>
-    </tr>
-    <tr>
-        {% for project in all_projects_list %}
-
-            <td><a href="{% url 'projects:project_details' project.id %}">{{ project.id }}</a></td>
-            <td>{{ project.name }}</td>
-            <td>{{ project.company }}</td>
-            <td>{{ project.submitted|date:"m-d-y" }}</td>
-            <td>{{ project.project_date|date:"m-d-y" }}</td>
-            <td>{{ project.project_price }}</td>
-
-            </tr>
-        {% endfor %}
-</table>
-<h2>End Hello</h2>
-
-
-
 
 

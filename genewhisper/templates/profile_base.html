@@ -40,6 +40,7 @@
     <!-- CSS Unify -->
     <link rel="stylesheet" href="{% static 'genewhisper/assets_profile/css/unify-admin.css' %}">
 
+
     <!-- CSS Customization -->
     <link rel="stylesheet" href="{% static 'genewhisper/assets_website/css/custom.css' %}">
 
@@ -446,11 +447,11 @@
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
                        href="#!" data-hssm-target="#subMenu2">
               <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
-      <i class="hs-admin-settings"></i>
+      <i class="hs-admin-layout-grid-2"></i>
     </span>
                         <span class="media-body align-self-center">Projects</span>
                         <span class="d-flex align-self-center u-side-nav--control-icon">
-      <i class="hs-admin-angle-right"></i>
+      <i class=""></i>
     </span>
                         <span class="u-side-nav--has-sub-menu__indicator"></span>
                     </a>
@@ -460,9 +461,9 @@
                         style="display: block;">
                         <!-- Projects List -->
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
-                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="#">
+                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12" href="{% url 'profiles:all_projects_list' %}">
                   <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
-          <i class="hs-admin-layout-media-center-alt"></i>
+          <i class="hs-admin-menu"></i>
         </span>
                                 <span class="media-body align-self-center">Projects List</span>
                             </a>
@@ -475,7 +476,7 @@
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12 active"
                                href="{% url 'profiles:new_project_form' %}">
                   <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
-          <i class="hs-admin-layout-media-left-alt"></i>
+          <i class="hs-admin-file"></i>
         </span>
                                 <span class="media-body align-self-center">Create New Project</span>
                             </a>

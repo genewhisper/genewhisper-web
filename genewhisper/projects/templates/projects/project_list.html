@@ -1,42 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'profile_base.html' %}
 
-<style>
-    table, th, td {
-    border: 1px solid black;
-}
+{% block profile_content %}
 
-</style>
-</head>
-<body>
+
+
+    <!-- Breadcrumb-v1 -->
+    <div class="g-hidden-sm-down g-bg-gray-light-v8 g-pa-20">
+        <ul class="u-list-inline g-color-gray-dark-v6">
+
+            <li class="list-inline-item g-mr-10">
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle" href="{% url 'profiles:main_profile_page' %}">Dashboard</a>
+                <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
+            </li>
+
+            <li class="list-inline-item g-mr-10">
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle" href="{% url 'profiles:main_profile_page' %}">
+                    List of Projects
+                </a>
+                <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
+            </li>
+
+
+        </ul>
+    </div>
+    <!-- End Breadcrumb-v1 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Submitted</th>
+
+            <th>Project Date</th>
+            <th>Project Prise</th>
+        </tr>
+        <tr>
+            {% for project in all_projects_list %}
+
+                <td><a href="{% url 'projects:project_details' project.id %}">{{ project.id }}</a></td>
+                <td>{{ project.name }}</td>
+                <td>{{ project.company }}</td>
+                <td>{{ project.submitted|date:"m-d-y" }}</td>
+                <td>{{ project.project_date|date:"m-d-y" }}</td>
+                <td>{{ project.project_price }}</td>
+
+                </tr>
+            {% endfor %}
+    </table>
+
+
+
+
+
+{% endblock profile_content %}
+
 <h1>List of all the projects</h1>
 
-<table >
-    <tr >
-        <th>ID</th>
-        <th>Name</th>
-        <th>Company</th>
-        <th>Submitted</th>
 
-        <th>Project Date</th>
-        <th>Project Prise</th>
-    </tr>
-    <tr>
-        {% for project in all_projects_list %}
-
-            <td><a href="{% url 'projects:project_details' project.id %}">{{ project.id }}</a></td>
-            <td>{{ project.name }}</td>
-            <td>{{ project.company }}</td>
-            <td>{{ project.submitted|date:"m-d-y" }}</td>
-            <td>{{ project.project_date|date:"m-d-y" }}</td>
-            <td>{{ project.project_price }}</td>
-
-            </tr>
-        {% endfor %}
-</table>
-
-</body>
-</html>
