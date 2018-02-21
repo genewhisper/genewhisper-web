@@ -1,3 +1,4 @@
+from pathogenicity.models import OncotatorOutput
 import random
 
 
@@ -22,12 +23,13 @@ def PVS1(item):
       - Use caution in the presence of multiple
         transcripts
     """
-    if (item["Variant_Classification"] in [
+
+    if (item["variant_classification"] in [
         "Nonsense_Mutation"
         "Frame_Shift_Ins", "Frame_Shift_Del"
     ]):
         return True
-    elif (item["Variant_Classification"] in [
+    elif (item["variant_classification"] in [
         "Intron", "5'UTR", "3'UTR", "IGR", "5'Flank", "Missense_Mutation"
     ]):
         return False
@@ -41,8 +43,8 @@ def PM1(item):
     well-established functional domain (e.g., active
     site of an enzyme) without benign variation
     """
-    if (item["UniProt_Region"] and
-            item["Variant_Classification"] == "Missense_Mutation"):
+    if (item["uniprot_region"] and
+            item["variant_classification"] == "Missense_Mutation"):
         return True
     else:
         return False
@@ -59,8 +61,8 @@ def PM2(item):
     1000gp3_AF: anything < 0.005 to absent is disease-causing
     """
     try:
-        if (float(item["ExAC_AF"]) < 0.005 and
-                float(item["1000gp3_AF"]) < 0.005):
+        if (float(item["exac_af"]) < 0.005 and
+                float(item["1000gp3_af"]) < 0.005):
             return True
         else:
             return False
@@ -124,10 +126,12 @@ def PS3(item):
     """
     # return random value and link for Google Scholar
     list = [True, False, "TBD"]
-    return [
-        random.choice(list),
-        "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C21&q=" + item["Hugo_Symbol"] + "+gene&btnG="
-    ]
+    # return [
+    #     random.choice(list),
+    #     "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C21&q=" + item["hugo_symbol"] + "+gene&btnG="
+    # ]
+
+    return "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C21&q=" + item["hugo_symbol"] + "+gene&btnG="
 
 
 def PS4(item):
@@ -188,35 +192,35 @@ def PP3(item):
     max_value_dbNSFP_phyloP46way_placental = 3
     max_value_dbNSFP_phyloP100way_vertebrate = 10
 
-    if item["dbNSFP_MutationTaster_pred"] in ["A", "D"]:
+    if item["dbnsfp_mutationtaster_pred"] in ["A", "D"]:
         counter_1.append(True)
     else:
         counter_1.append(False)
 
-    if item["dbNSFP_Polyphen2_HVAR_pred"] in ["D", "P"]:
+    if item["dbnsfp_polyphen2_hvar_pred"] in ["D", "P"]:
         counter_1.append(True)
     else:
         counter_1.append(False)
 
-    if (item["dbNSFP_SIFT_pred"] == "D"):
+    if (item["dbnsfp_sift_pred"] == "D"):
         counter_1.append(True)
     else:
         counter_1.append(False)
 
     try:
-        if (float(item["dbNSFP_phastCons46way_placental"]) >
+        if (float(item["dbnsfp_phastcons46way_placental"]) >
                 max_value_dbNSFP_phastCons46way_placental * 0.8):
             counter_2.append(True)
         else:
             counter_2.append(False)
 
-        if (float(item["dbNSFP_phyloP46way_placental"]) >
+        if (float(item["dbnsfp_phylop46way_placental"]) >
                 max_value_dbNSFP_phyloP46way_placental * 0.8):
             counter_2.append(True)
         else:
             counter_2.append(False)
 
-        if (float(item["dbNSFP_phyloP100way_vertebrate"]) >
+        if (float(item["dbnsfp_phylop100way_vertebrate"]) >
                 max_value_dbNSFP_phyloP100way_vertebrate * 0.8):
             counter_2.append(True)
         else:
@@ -271,7 +275,8 @@ def BP3(item):
     known function
     """
 
-    if (item["Variant_Classification"] in ["Frame_Shift_Ins", "Frame_Shift_Del"] and item["UniProt_Region"] == ""):
+    if (item["variant_classification"] in ["Frame_Shift_Ins", "Frame_Shift_Del"]
+            and item["uniprot_region"] == ""):
         return True
     else:
         return "TBD"
@@ -359,8 +364,8 @@ def BA1(item):
     Project, or Exome Aggregation Consortium
     """
     try:
-        if (float(item["ExAC_AF"]) >= 0.05 or
-                float(item["1000gp3_AF"]) >= 0.05):
+        if (float(item["exac_af"]) >= 0.05 or
+                float(item["1000gp3_af"]) >= 0.05):
             return True
         else:
             return False

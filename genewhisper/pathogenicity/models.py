@@ -3,8 +3,7 @@ from projects.models import Project
 
 
 class OncotatorOutput(models.Model):
-    # id = models.IntegerField()
-    project = models.OneToOneField(Project, on_delete=models.CASCADE, primary_key=True, )
+    project = models.ForeignKey(Project, blank=True, null=True, on_delete=models.CASCADE)
     hugo_symbol = models.TextField(blank=True, null=True)  # This field type is a guess.
     entrez_gene_id = models.TextField(blank=True, null=True)  # This field type is a guess.
     center = models.TextField(blank=True, null=True)  # This field type is a guess.
@@ -420,4 +419,44 @@ class OncotatorOutput(models.Model):
     t_lod_fstar = models.TextField(blank=True, null=True)  # This field type is a guess.
     t_ref_count = models.TextField(blank=True, null=True)  # This field type is a guess.
     tumor_f = models.TextField(blank=True, null=True)  # This field type is a guess.
+
+    def __str__(self):
+        return str(self.hugo_symbol)
+
+
+class Pathogenicity(models.Model):
+    oncotatoroutput = models.OneToOneField(OncotatorOutput, on_delete=models.CASCADE)
     PVS1 = models.TextField(blank=True, null=True)
+    PM1 = models.TextField(blank=True, null=True)
+    PM2 = models.TextField(blank=True, null=True)
+    PM3 = models.TextField(blank=True, null=True)
+    PM4 = models.TextField(blank=True, null=True)
+    PM5 = models.TextField(blank=True, null=True)
+    PM6 = models.TextField(blank=True, null=True)
+    PS1 = models.TextField(blank=True, null=True)
+    PS2 = models.TextField(blank=True, null=True)
+    PS3 = models.TextField(blank=True, null=True)
+    PS4 = models.TextField(blank=True, null=True)
+    PP1 = models.TextField(blank=True, null=True)
+    PP2 = models.TextField(blank=True, null=True)
+    PP3 = models.TextField(blank=True, null=True)
+    PP4 = models.TextField(blank=True, null=True)
+    PP5 = models.TextField(blank=True, null=True)
+    BP1 = models.TextField(blank=True, null=True)
+    BP2 = models.TextField(blank=True, null=True)
+    BP3 = models.TextField(blank=True, null=True)
+    BP4 = models.TextField(blank=True, null=True)
+    BP5 = models.TextField(blank=True, null=True)
+    BP6 = models.TextField(blank=True, null=True)
+    BP7 = models.TextField(blank=True, null=True)
+    BS1 = models.TextField(blank=True, null=True)
+    BS2 = models.TextField(blank=True, null=True)
+    BS3 = models.TextField(blank=True, null=True)
+    BS4 = models.TextField(blank=True, null=True)
+    BA1 = models.TextField(blank=True, null=True)
+    Pathogenicity = models.TextField(blank=True, null=True)
+    Pathogenicity_Rule = models.TextField(blank=True, null=True)
+    Google_Scholar = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return str(self.id)
