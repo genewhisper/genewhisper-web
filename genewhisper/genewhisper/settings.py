@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'bootstrap3', 'widget_tweaks',
 
     'accounts',
-    'projects',
+    'genomic_profiles',
     'profiles',
     'pathogenicity',
 

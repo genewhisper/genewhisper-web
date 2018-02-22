@@ -24,7 +24,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 
     path('profile/', include('profiles.urls'), name='profile_main'),
-    path('profile/projects/', include('projects.urls')),
+    path('profile/genomic_profiles/', include('genomic_profiles.urls')),
 
     path('thanks/', views.ThanksPage.as_view(), name='thanks'),
 ]

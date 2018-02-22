@@ -1,9 +1,9 @@
 from django.db import models
-from projects.models import Project
+from genomic_profiles.models import GenomicProfile
 
 
 class OncotatorOutput(models.Model):
-    project = models.ForeignKey(Project, blank=True, null=True, on_delete=models.CASCADE)
+    project = models.ForeignKey(GenomicProfile, blank=True, null=True, on_delete=models.CASCADE)
     hugo_symbol = models.TextField(blank=True, null=True)  # This field type is a guess.
     entrez_gene_id = models.TextField(blank=True, null=True)  # This field type is a guess.
     center = models.TextField(blank=True, null=True)  # This field type is a guess.

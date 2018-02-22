@@ -427,35 +427,35 @@
                                         #
                                     </th>
                                     <th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">Name</th>
-                                    <th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">Status
+                                    <th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">File Format
                                     </th>
-                                    <th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">Date</th>
+                                    <th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">Submitted Date</th>
                                     <th class="text-right g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">
-                                        Price
+                                        Priority
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                {% for project in all_projects_list %}
+                                {% for profile in all_genomic_profile_list %}
 
                                     <tr>
                                         <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10 g-pl-20">
-                                            {{ project.id }}
+                                            {{ profile.id }}
                                         </td>
                                         <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                            {{ project.name }}
+                                            {{ profile.first_name }} {{ profile.last_name }}
                                         </td>
                                         <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
                                             <span class="u-tags-v1 text-center g-width-100 g-brd-around g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
-                                                {{ project.project_status }}
+                                                {{ profile.file_format }}
                                             </span>
                                         </td>
                                         <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                            {{ project.submitted|date:"M d, Y" }}
+                                            {{ profile.submitted_date|date:"M d, Y" }}
                                         </td>
                                         <td class="text-right g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                            ${{ project.project_price }}
+                                            {{ profile.get_priority_display }}
                                         </td>
                                     </tr>
 
