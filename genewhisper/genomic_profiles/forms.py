@@ -42,6 +42,6 @@ class NewGenomicProfileForm(ModelForm):
             'referral_contact': forms.TextInput(attrs={'class': 'form-control u-form-control rounded-0', }),
             'priority': forms.Select(attrs={'class': 'form-control u-form-control rounded-0', }),
             'job_file': forms.FileInput(attrs={'class': 'form-control u-form-control rounded-0', }),
-            'file_format': forms.FileInput(attrs={'class': 'form-control u-form-control rounded-0', }),
+            'file_format': forms.Select(attrs={'class': 'form-control u-form-control rounded-0', }),
 
         }
