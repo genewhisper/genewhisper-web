@@ -395,6 +395,7 @@
 <script src="{% static 'genewhisper/assets_website/js/helpers/hs.focus-state.js' %}"></script>
 <script src="{% static 'genewhisper/assets_website/js/components/hs.file-attachement.js' %}"></script>
 <script src="{% static 'genewhisper/assets_website/js/custom.js' %}"></script>
+<script src = {% static 'genewhisper/assets_profile/js/components/hs.pie-chart.js' %}></script>
 
 
 <!-- JS Customization -->
@@ -455,6 +456,13 @@
         $.HSCore.helpers.HSFocusState.init();
     });
 
+
+
+      // initialization of charts
+      $.HSCore.components.HSAreaChart.init('.js-area-chart');
+      $.HSCore.components.HSPieChart.init('.js-pie-chart');
+      $.HSCore.components.HSDonutChart.init('.js-donut-chart');
+      $.HSCore.components.HSBarChart.init('.js-bar-chart');
 
 </script>
 </body>
