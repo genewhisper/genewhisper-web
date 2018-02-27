@@ -17,7 +17,7 @@
             <li class="list-inline-item g-mr-10">
                 <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle"
                    href="{% url 'profiles:main_profile_page' %}">
-                    List of Projects
+                    List of Genomic Reports
                 </a>
                 <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
             </li>
@@ -30,12 +30,12 @@
     <div class="g-pa-20">
 
 
-        <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-30">Genomic Profiles</h1>
+        <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-30">Genomic Reports</h1>
 
 
         <div class="media-md align-items-center g-mb-30">
             <div class="d-flex g-mb-15 g-mb-0--md">
-                <h3 class="g-font-weight-400 g-font-size-16 g-color-black mb-0">This is a List of All Genomic Profiles</h3>
+                <h3 class="g-font-weight-400 g-font-size-16 g-color-black mb-0">This is a List of All Genomic Reports</h3>
             </div>
 
             <div class="media d-md-flex align-items-center ml-auto">
@@ -103,7 +103,7 @@
 
 
                                 <div class="media">
-                                    <div class="d-flex align-self-center">ID</div>
+                                    <div class="d-flex align-self-center">Genomic Profile ID</div>
 
                                     <div class="d-flex align-self-center ml-auto">
                             <span class="d-inline-block g-width-10 g-line-height-1 g-font-size-10">
@@ -255,13 +255,13 @@
                         <tr role="row" class="odd">
                             <td class="sorting_1">
 
-                            <a href="{% url 'profiles:genomic_profile_details' profile.id %}">{{ profile.id }}</a>
+                            <a href="{% url 'profiles:report' profile.id %}">{{ profile.id }}</a>
 
                             </td>
 
                             <td>
 
-                               <a href="{% url 'profiles:genomic_profile_details' profile.id %}">{{ profile.first_name }} {{ profile.last_name }}</a>
+                               <a href="{% url 'profiles:report' profile.id %}">{{ profile.first_name }} {{ profile.last_name }}</a>
 
                             </td>
 
@@ -300,33 +300,26 @@
                                         <ul class="list-unstyled g-nowrap mb-0">
                                             <li>
                                                 <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                   href="{% url 'profiles:genomic_profile_update' profile.id %}">
+                                                   href="{% url 'profiles:report' profile.id %}">
                                                     <i class="hs-admin-pencil g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                    Edit
+                                                    Details
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
                                                    href="{% url 'profiles:report' profile.id %}">
                                                     <i class="hs-admin-archive g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                    See Report
+                                                    Print
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
                                                    href="#!">
                                                     <i class="hs-admin-check g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                    Mark as Done
+                                                    Send To
                                                 </a>
                                             </li>
 
-                                            <li>
-                                                <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                   href="{% url 'profiles:genomic_profile_delete' profile.id %}">
-                                                    <i class="hs-admin-trash g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                    Delete
-                                                </a>
-                                            </li>
                                         </ul>
                                     </div>
                                 </div>
