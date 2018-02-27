@@ -23,7 +23,7 @@ df2['PM6'] = df1.apply(lambda item: gvit_categorizers.PM6(item), axis=1)
 
 df2['PS1'] = df1.apply(lambda item: gvit_categorizers.PS1(item), axis=1)
 df2['PS2'] = df1.apply(lambda item: gvit_categorizers.PS2(item), axis=1)
-df2['PS3'] = df1.apply(lambda item: gvit_categorizers.PS3(item), axis=1)
+df2['PS3'] = df1.apply(lambda item: gvit_categorizers.PS3(item)[0], axis=1)
 df2['PS4'] = df1.apply(lambda item: gvit_categorizers.PS4(item), axis=1)
 
 df2['PP1'] = df1.apply(lambda item: gvit_categorizers.PP1(item), axis=1)
@@ -46,6 +46,7 @@ df2['BS3'] = df1.apply(lambda item: gvit_categorizers.BS3(item), axis=1)
 df2['BS4'] = df1.apply(lambda item: gvit_categorizers.BS4(item), axis=1)
 
 df2['BA1'] = df1.apply(lambda item: gvit_categorizers.BA1(item), axis=1)
+df2['Google_Scholar'] = df1.apply(lambda item: gvit_categorizers.PS3(item)[1], axis=1)
 
 df2.to_sql('pathogenicity_pathogenicity', connection, if_exists="replace", index=False)
 

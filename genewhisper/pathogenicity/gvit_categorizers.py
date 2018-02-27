@@ -23,18 +23,19 @@ def PVS1(item):
       - Use caution in the presence of multiple
         transcripts
     """
-
-    if (item["variant_classification"] in [
-        "Nonsense_Mutation"
-        "Frame_Shift_Ins", "Frame_Shift_Del"
-    ]):
-        return True
-    elif (item["variant_classification"] in [
-        "Intron", "5'UTR", "3'UTR", "IGR", "5'Flank", "Missense_Mutation"
-    ]):
-        return False
-    else:
-        return "TBD"
+    #
+    # if (item["variant_classification"] in [
+    #     "Nonsense_Mutation"
+    #     "Frame_Shift_Ins", "Frame_Shift_Del"
+    # ]):
+    #     return True
+    # elif (item["variant_classification"] in [
+    #     "Intron", "5'UTR", "3'UTR", "IGR", "5'Flank", "Missense_Mutation"
+    # ]):
+    #     return False
+    # else:
+    #     return "TBD"
+    return True
 
 
 def PM1(item):
@@ -125,13 +126,11 @@ def PS3(item):
     a damaging effect on the gene or gene product
     """
     # return random value and link for Google Scholar
-    list = [True, False, "TBD"]
-    # return [
-    #     random.choice(list),
-    #     "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C21&q=" + item["hugo_symbol"] + "+gene&btnG="
-    # ]
-
-    return "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C21&q=" + item["hugo_symbol"] + "+gene&btnG="
+    random_list = [True, False, "TBD"]
+    return [
+        random.choice(random_list),
+        "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C21&q=" + item["hugo_symbol"] + "+gene&btnG="
+    ]
 
 
 def PS4(item):

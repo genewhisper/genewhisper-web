@@ -27,7 +27,7 @@
 
     <div class="g-pa-20">
 
-        <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-28">Genomic Report for Profile # </h1>
+        <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-28">Genomic Report for Profile # {{ genomic_profile_id }}</h1>
         <div class="row g-mb-35">
 
 
@@ -37,37 +37,18 @@
                 <div class="card h-100 g-brd-gray-light-v7 rounded">
                     <div class="card-block g-pa-20">
                         <h4 class="media g-font-weight-300 g-font-size-16 g-mb-10 g-mb-20--md">
-                            <span class="d-flex align-self-center g-color-gray-dark-v6 g-font-weight-400">Not Significant</span>
-                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">32%</span>
+                            <span class="d-flex align-self-center g-color-gray-dark-v6 g-font-weight-400">Benign</span>
+                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">{{ benign_variants_procent }}%</span>
                         </h4>
 
                         <div class="progress g-height-6 g-rounded-3 g-mb-10 g-mb-15--md">
                             <div class="progress-bar g-bg-teal-v2 g-rounded-3" role="progressbar"
-                                 style="width: 32%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                 style="width: {{ benign_variants_procent }}%" aria-valuenow="0" aria-valuemin="0"
+                                 aria-valuemax="100"></div>
                         </div>
 
-                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">99999999 of 3m Variants </p>
-                    </div>
-                </div>
-                <!-- End Panel -->
-            </div>
-
-            <div class="col">
-                <!-- Panel -->
-                <div class="card h-100 g-brd-gray-light-v7 rounded">
-                    <div class="card-block g-pa-20">
-                        <h4 class="media g-font-weight-300 g-font-size-16 g-mb-10 g-mb-20--md">
-                            <span class="d-flex align-self-center g-color-gray-dark-v6 g-font-weight-400">Benign</span>
-                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">20%</span>
-                        </h4>
-
-                        <div class="progress g-height-6 g-rounded-3 g-mb-10 g-mb-15--md">
-                            <div class="progress-bar g-bg-lightblue-v5 g-rounded-3" role="progressbar"
-                                 style="width: 20%"
-                                 aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-
-                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">99999999 of 3m Variants </p>
+                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">{{ benign_variants_number }}
+                            of {{ all_variants_number }} variants</p>
                     </div>
                 </div>
                 <!-- End Panel -->
@@ -79,16 +60,39 @@
                     <div class="card-block g-pa-20">
                         <h4 class="media g-font-weight-300 g-font-size-16 g-mb-10 g-mb-20--md">
                             <span class="d-flex align-self-center g-color-gray-dark-v6 g-font-weight-400">Likely Benign</span>
-                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">20%</span>
+                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">{{ likely_benign_variants_procent }}%</span>
+                        </h4>
+
+                        <div class="progress g-height-6 g-rounded-3 g-mb-10 g-mb-15--md">
+                            <div class="progress-bar g-bg-lightblue-v5 g-rounded-3" role="progressbar"
+                                 style="width: {{ likely_benign_variants_procent }}%"
+                                 aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">{{ likely_benign_variants_number }}
+                            of {{ all_variants_number }} </p>
+                    </div>
+                </div>
+                <!-- End Panel -->
+            </div>
+
+            <div class="col">
+                <!-- Panel -->
+                <div class="card h-100 g-brd-gray-light-v7 rounded">
+                    <div class="card-block g-pa-20">
+                        <h4 class="media g-font-weight-300 g-font-size-16 g-mb-10 g-mb-20--md">
+                            <span class="d-flex align-self-center g-color-gray-dark-v6 g-font-weight-400">Uncertain Significance</span>
+                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">{{ uncertain_significance_variants_procent }}%</span>
                         </h4>
 
                         <div class="progress g-height-6  g-rounded-3 g-mb-10 g-mb-15--md">
                             <div class="progress-bar  g-bg-darkblue-v2 g-rounded-3" role="progressbar"
-                                 style="width: 20%"
+                                 style="width: {{ uncertain_significance_variants_procent }}%"
                                  aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
 
-                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">99999999 of 3m Variants </p>
+                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">{{ uncertain_significanse_variants_number }}
+                            of {{ all_variants_number }} </p>
                     </div>
                 </div>
                 <!-- End Panel -->
@@ -100,16 +104,17 @@
                     <div class="card-block g-pa-20">
                         <h4 class="media g-font-weight-300 g-font-size-16 g-mb-10 g-mb-20--md">
                             <span class="d-flex align-self-center g-color-gray-dark-v6 g-font-weight-400">Likely Pathogenic</span>
-                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">20%</span>
+                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">{{ likely_pathogenic_variants_procent }}%</span>
                         </h4>
 
                         <div class="progress g-height-6 g-rounded-3 g-mb-10 g-mb-15--md">
                             <div class="progress-bar g-bg-deeporange g-rounded-3" role="progressbar"
-                                 style="width: 20%"
+                                 style="width: {{ likely_pathogenic_variants_procent }}%"
                                  aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
 
-                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">99999999 of 3m Variants </p>
+                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">{{ likely_pathogenic_variants_number }}
+                            of {{ all_variants_number }} Variants </p>
                     </div>
                 </div>
                 <!-- End Panel -->
@@ -121,16 +126,17 @@
                     <div class="card-block g-pa-20">
                         <h4 class="media g-font-weight-300 g-font-size-16 g-mb-10 g-mb-20--md">
                             <span class="d-flex align-self-center g-color-gray-dark-v6 g-font-weight-400">Pathogenic</span>
-                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">20%</span>
+                            <span class="media-body align-self-center text-right g-font-size-18--md g-color-black">{{ pathogenic_variants_procent }}%</span>
                         </h4>
 
                         <div class="progress g-height-6 g-rounded-3 g-mb-10 g-mb-15--md">
                             <div class="progress-bar g-bg-primary g-rounded-3" role="progressbar"
-                                 style="width: 20%"
+                                 style="width: {{ pathogenic_variants_procent }}%"
                                  aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
 
-                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">99999999 of 3m Variants </p>
+                        <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">{{ pathogenic_variants_number }}
+                            of {{ all_variants_number }} Variants </p>
                     </div>
                 </div>
                 <!-- End Panel -->
@@ -193,7 +199,8 @@
                 <div class="card g-brd-gray-light-v7 g-mb-30">
                     <header class="media g-pa-15 g-pa-25-30-0--md g-mb-20">
                         <div class="media-body align-self-center">
-                            <h3 class="text-uppercase g-font-size-default g-color-black g-mb-8">Pathogenicity Types Description </h3>
+                            <h3 class="text-uppercase g-font-size-default g-color-black g-mb-8">Pathogenicity Types
+                                Description </h3>
                         </div>
 
                     </header>
@@ -202,7 +209,8 @@
                         <table class="table table-responsive-sm w-100">
                             <thead>
                             <tr>
-                                <th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">Type
+                                <th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none" style="width: 25%">
+                                    Type
                                 </th>
                                 <th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">Description
                                 </th>
@@ -213,21 +221,7 @@
 
                             <tr>
                                 <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                            <span class="u-tags-v1 text-center g-width-100 g-bg-teal-v2 g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
-                                                Not Significant
-                                            </span>
-                                </td>
-                                <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.
-                                </td>
-
-                            </tr>
-
-
-                             <tr>
-                                <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                            <span class="u-tags-v1 text-center g-width-100 g-bg-lightblue-v5 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
+                                            <span class="u-tags-v1 text-center g-width-150 g-bg-teal-v2 g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
                                                 Benign
                                             </span>
                                 </td>
@@ -239,9 +233,9 @@
                             </tr>
 
 
-                             <tr>
+                            <tr>
                                 <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                            <span class="u-tags-v1 text-center g-width-100 g-bg-darkblue-v2 g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
+                                            <span class="u-tags-v1 text-center g-width-150 g-bg-lightblue-v5 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
                                                 Likely Benign
                                             </span>
                                 </td>
@@ -253,9 +247,23 @@
                             </tr>
 
 
-                             <tr>
+                            <tr>
                                 <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                            <span class="u-tags-v1 text-center g-width-100 g-bg-deeporange  g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
+                                            <span class="u-tags-v1 text-center g-width-150 g-bg-darkblue-v2 g-brd-lightblue-v3 g-bg-lightblue-v3 g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
+                                                Uncertain Significance
+                                            </span>
+                                </td>
+                                <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
+                                            <span class="u-tags-v1 text-center g-width-150 g-bg-deeporange  g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
                                                 Likely Pathogenic
                                             </span>
                                 </td>
@@ -267,9 +275,9 @@
                             </tr>
 
 
-                             <tr>
+                            <tr>
                                 <td class="g-font-size-default g-color-black g-valign-middle g-brd-top-none g-brd-bottom g-brd-2 g-brd-gray-light-v4 g-py-10">
-                                            <span class="u-tags-v1 text-center g-width-100  g-bg-primary g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
+                                            <span class="u-tags-v1 text-center g-width-150  g-bg-primary g-font-size-default g-color-white g-rounded-50 g-py-4 g-px-15">
                                                 Pathogenic
                                             </span>
                                 </td>
@@ -315,9 +323,12 @@
         </div>
     </div>
 
+    {{ all_variants_number }}
+    {{ uncertain_significanse_variants_number }}
+    {{ likely_pathogenic_variants_number }}
 
     {% for variants in data %}
-    <h1>{{ variants.id }}</h1>
+        <h1>{{ variants.id }}</h1>
         <h1>{{ variants.Pathogenicity }}</h1>
     {% endfor %}
 
