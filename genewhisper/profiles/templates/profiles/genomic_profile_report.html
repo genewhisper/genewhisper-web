@@ -27,7 +27,8 @@
 
     <div class="g-pa-20">
 
-        <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-28">Genomic Report for Profile # {{ genomic_profile_id }}</h1>
+        <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-28">Genomic Report for Profile
+            # {{ genomic_profile_id }}</h1>
         <div class="row g-mb-35">
 
 
@@ -163,29 +164,43 @@
                         </div>
                     </header>
 
-                    <section class="g-mb-40">
-                        <div class="js-donut-chart g-pos-rel mx-auto" style="width: 250px; height: 250px;"
-                             data-series="[45, 60, 30, 45]" data-border-width="8" data-start-angle="0"
-                             data-fill-colors="[&quot;#3dd1e8&quot;,&quot;#1d75e5&quot;,&quot;#e62154&quot;,&quot;#f1f5f5&quot;]"
-                             id="pieCharts0">
-                            <i class="hs-admin-clipboard g-absolute-centered g-font-size-40 g-color-gray-light-v3"></i>
-                        </div>
-                        <style id="donutChartsStyle0">#pieCharts0 .ct-series:nth-child(1) .ct-slice-donut-solid {
-                            fill: #3dd1e8
-                        }
 
-                        #pieCharts0 .ct-series:nth-child(2) .ct-slice-donut-solid {
-                            fill: #1d75e5
-                        }
+                    <div id="piechart" align='center'></div>
 
-                        #pieCharts0 .ct-series:nth-child(3) .ct-slice-donut-solid {
-                            fill: #e62154
-                        }
 
-                        #pieCharts0 .ct-series:nth-child(4) .ct-slice-donut-solid {
-                            fill: #f1f5f5
-                        }</style>
-                    </section>
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                        google.charts.load('current', {'packages': ['corechart']});
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+
+                            var data = google.visualization.arrayToDataTable([
+                                ['Variant Type', 'Number of Variants'],
+                                ['Benign', {{ benign_variants_number }}],
+                                ['Likely Benign', {{ likely_benign_variants_number }}],
+                                ['Uncertain Significance', {{ uncertain_significanse_variants_number }}],
+                                ['Likely Pathogenic', {{ likely_pathogenic_variants_number }}],
+                                ['Pathogenic', {{ pathogenic_variants_number }}]
+                            ]);
+
+                            var options = {
+                                title: 'My Daily Activities',
+                                legend: {position: 'none'},
+                                chartArea:{left:5, right:25, top:10,width:"100%",height:"100%"},
+                                height: 400,
+                                width: 350,
+
+
+                                colors: ['#15d3b2', '#13b2ca', '#1d75e5', '#fe541e', '#e62154']
+                            };
+
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                            chart.draw(data, options);
+                        }
+                    </script>
+
 
                 </div>
                 <!-- Round Diagram Report -->
@@ -205,7 +220,7 @@
 
                     </header>
 
-                    <div class="js-custom-scroll  g-height-300 g-pa-15 g-pa-0-30-25--md">
+                    <div class="js-custom-scroll  g-height-400 g-pa-15 g-pa-0-30-25--md">
                         <table class="table table-responsive-sm w-100">
                             <thead>
                             <tr>
@@ -331,6 +346,10 @@
         <h1>{{ variants.id }}</h1>
         <h1>{{ variants.Pathogenicity }}</h1>
     {% endfor %}
+
+
+
+
 
 
 

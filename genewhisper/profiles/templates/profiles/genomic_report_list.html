@@ -35,7 +35,8 @@
 
         <div class="media-md align-items-center g-mb-30">
             <div class="d-flex g-mb-15 g-mb-0--md">
-                <h3 class="g-font-weight-400 g-font-size-16 g-color-black mb-0">This is a List of All Genomic Reports</h3>
+                <h3 class="g-font-weight-400 g-font-size-16 g-color-black mb-0">This is a List of All Genomic
+                    Reports</h3>
             </div>
 
             <div class="media d-md-flex align-items-center ml-auto">
@@ -60,7 +61,7 @@
             </div>
         </div>
 
-        {#Table element#}
+                       {#Table element#}
         <div class="g-mb-40">
             <div class="table-responsive">
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
@@ -252,79 +253,79 @@
 
                         {% for profile in all_genomic_profile_list %}
 
-                        <tr role="row" class="odd">
-                            <td class="sorting_1">
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">
 
-                            <a href="{% url 'profiles:report' profile.id %}">{{ profile.id }}</a>
+                                    <a href="{% url 'profiles:report' profile.id %}">{{ profile.id }}</a>
 
-                            </td>
+                                </td>
 
-                            <td>
+                                <td>
 
-                               <a href="{% url 'profiles:report' profile.id %}">{{ profile.first_name }} {{ profile.last_name }}</a>
+                                    <a href="{% url 'profiles:report' profile.id %}">{{ profile.first_name }} {{ profile.last_name }}</a>
 
-                            </td>
+                                </td>
 
 
-
-                            <td>
-                                <div class="d-inline-block">
+                                <td>
+                                    <div class="d-inline-block">
                           <span class="d-flex align-items-center justify-content-center u-tags-v1 g-brd-around g-bg-gray-light-v8 g-bg-gray-light-v8 g-font-size-default g-color-gray-dark-v6 g-rounded-50 g-py-4 g-px-15">
                           <span class="u-badge-v2--md g-pos-stc g-transform-origin--top-left g-bg-lightblue-v3 g-mr-8"></span>
-                          {{ profile.get_priority_display}}
+                          {{ profile.get_priority_display }}
                           </span>
-                                </div>
-                            </td>
-                            <td>{{ profile.submitted_date|date:"M d, Y"}}</td>
-                            <td>{{ profile.email }}</td>
-                            <td>
-                                <div class="progress g-height-6 g-rounded-3">
-                                    <div class="progress-bar g-bg-lightbrown g-rounded-3" role="progressbar"
-                                         style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                                         aria-valuemax="100"></div>
-                                </div>
-                            </td>
-                            <td class="text-right">
-                                <div class="g-pos-rel g-top-3 d-inline-block">
-                                    <a id="dropDown1Invoker"
-                                       class="u-link-v5 g-line-height-0 g-font-size-24 g-color-gray-light-v6 g-color-lightblue-v3--hover"
-                                       href="#!" aria-controls="dropDown1" aria-haspopup="true" aria-expanded="false"
-                                       data-dropdown-event="click" data-dropdown-target="#dropDown1">
-                                        <i class="hs-admin-more-alt"></i>
-                                    </a>
-
-                                    <div id="dropDown1"
-                                         class="u-shadow-v31 g-pos-abs g-right-0 g-z-index-2 g-bg-white u-dropdown--css-animation u-dropdown--hidden u-dropdown--reverse-y"
-                                         aria-labelledby="dropDown1Invoker"
-                                         style="animation-duration: 300ms; right: 0px;">
-                                        <ul class="list-unstyled g-nowrap mb-0">
-                                            <li>
-                                                <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                   href="{% url 'profiles:report' profile.id %}">
-                                                    <i class="hs-admin-pencil g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                    Details
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                   href="{% url 'profiles:report' profile.id %}">
-                                                    <i class="hs-admin-archive g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                    Print
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                   href="#!">
-                                                    <i class="hs-admin-check g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                    Send To
-                                                </a>
-                                            </li>
-
-                                        </ul>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                                <td>{{ profile.submitted_date|date:"M d, Y" }}</td>
+                                <td>{{ profile.email }}</td>
+                                <td>
+                                    <div class="progress g-height-6 g-rounded-3">
+                                        <div class="progress-bar g-bg-lightbrown g-rounded-3" role="progressbar"
+                                             style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <div class="g-pos-rel g-top-3 d-inline-block">
+                                        <a id="dropDown1Invoker"
+                                           class="u-link-v5 g-line-height-0 g-font-size-24 g-color-gray-light-v6 g-color-lightblue-v3--hover"
+                                           href="#!" aria-controls="dropDown1" aria-haspopup="true"
+                                           aria-expanded="false"
+                                           data-dropdown-event="click" data-dropdown-target="#dropDown1">
+                                            <i class="hs-admin-more-alt"></i>
+                                        </a>
+
+                                        <div id="dropDown1"
+                                             class="u-shadow-v31 g-pos-abs g-right-0 g-z-index-2 g-bg-white u-dropdown--css-animation u-dropdown--hidden u-dropdown--reverse-y"
+                                             aria-labelledby="dropDown1Invoker"
+                                             style="animation-duration: 300ms; right: 0px;">
+                                            <ul class="list-unstyled g-nowrap mb-0">
+                                                <li>
+                                                    <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
+                                                       href="{% url 'profiles:report' profile.id %}">
+                                                        <i class="hs-admin-pencil g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
+                                                        Details
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
+                                                       href="{% url 'profiles:report' profile.id %}">
+                                                        <i class="hs-admin-archive g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
+                                                        Print
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
+                                                       href="#!">
+                                                        <i class="hs-admin-check g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
+                                                        Send To
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
 
 
                         {% endfor %}
@@ -352,7 +353,7 @@
                 </div>
             </div>
         </div>
-        {#            End Table element#}
+{#                    End Table element#}
 
 
         {#        pagination element#}
