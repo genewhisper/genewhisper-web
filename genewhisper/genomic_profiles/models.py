@@ -13,6 +13,11 @@ PRIORITY_CHOICES = (
     ('L', 'Low - Still Researching'),
 )
 
+ALLOW_SALE = (
+    ('YES', 'Allow Sale'),
+    ('NO', 'Don Allow To Sale'),
+)
+
 RACE_CHOICES = (
     ('C', 'Caucasian'),
     ('AA', 'African American '),
@@ -61,6 +66,7 @@ class GenomicProfile(models.Model):
     job_file = models.FileField(upload_to='uploads/', blank=True)
     file_format = models.CharField(max_length=56, choices=FILE_TYPE_CHOICES, blank=False)
     submitted_date = models.DateField(auto_now_add=True)
+    allow_sale = models.CharField(max_length=56, choices=ALLOW_SALE, blank=False)
 
     def get_absolute_url(self):
         return reverse("profiles:genomic_profile_details", kwargs={'pk': self.pk})

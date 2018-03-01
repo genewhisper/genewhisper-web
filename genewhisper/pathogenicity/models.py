@@ -3,7 +3,7 @@ from genomic_profiles.models import GenomicProfile
 
 
 class OncotatorOutput(models.Model):
-    project = models.ForeignKey(GenomicProfile, blank=True, null=True, on_delete=models.CASCADE)
+    genomicprofile = models.OneToOneField(GenomicProfile, blank=True, null=True, on_delete=models.CASCADE)
     hugo_symbol = models.TextField(blank=True, null=True)  # This field type is a guess.
     entrez_gene_id = models.TextField(blank=True, null=True)  # This field type is a guess.
     center = models.TextField(blank=True, null=True)  # This field type is a guess.
@@ -425,7 +425,7 @@ class OncotatorOutput(models.Model):
 
 
 class Pathogenicity(models.Model):
-    oncotatoroutput = models.OneToOneField(OncotatorOutput, null=True, on_delete=models.CASCADE)
+    oncotatoroutput = models.OneToOneField(OncotatorOutput, default=1, null=True, on_delete=models.CASCADE)
     PVS1 = models.TextField(blank=True, null=True)
     PM1 = models.TextField(blank=True, null=True)
     PM2 = models.TextField(blank=True, null=True)

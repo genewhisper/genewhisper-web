@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'genomic_profiles',
     'profiles',
     'pathogenicity',
+    'marketplace',
 
 
 ]

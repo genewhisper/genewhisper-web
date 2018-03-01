@@ -12,7 +12,7 @@ class NewGenomicProfileForm(ModelForm):
             'last_name', 'first_name', 'middle_init', 'physical_address', 'apt_number',
             'city', 'state', 'country', 'zip', 'phone', 'email', 'alternate_contact_name_and_number',
             'relationship', 'mailing_address', 'height_ft', 'height_inch', 'weight', 'dob', 'age', 'race',
-            'gender', 'referral_name', 'referral_contact', 'priority', 'job_file', 'file_format'
+            'gender', 'referral_name', 'referral_contact', 'priority', 'job_file', 'file_format', 'allow_sale'
         ]
         widgets = {
 

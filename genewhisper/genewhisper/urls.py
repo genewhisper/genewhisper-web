@@ -27,4 +27,7 @@ urlpatterns = [
     path('profile/genomic_profiles/', include('genomic_profiles.urls')),
 
     path('thanks/', views.ThanksPage.as_view(), name='thanks'),
+
+    path('profile/marketplace', include('marketplace.urls'))
+
 ]
