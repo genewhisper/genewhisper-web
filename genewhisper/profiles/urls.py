@@ -2,6 +2,7 @@ from django.urls import path
 from profiles import views
 from genomic_profiles import views as genomic_profile_views
 from pathogenicity import views as pathogenicity_views
+from marketplace import views as marketplace_views
 
 app_name = 'profiles'
 
@@ -30,5 +31,4 @@ urlpatterns = [
     path('genomic-report-list',
          genomic_profile_views.GenomicProfileListView.as_view(template_name='profiles/genomic_report_list.html'),
          name='all_genomic_report_list'),
-
 ]

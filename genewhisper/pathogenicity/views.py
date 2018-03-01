@@ -3,9 +3,6 @@ from pathogenicity.models import Pathogenicity
 from genomic_profiles.models import GenomicProfile
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, DetailView, UpdateView, DeleteView
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 @login_required(login_url=reverse_lazy('login'))

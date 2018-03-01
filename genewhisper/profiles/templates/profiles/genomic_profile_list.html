@@ -262,7 +262,7 @@
 
                                 <td>
 
-                                    <a href="{% url 'profiles:genomic_profile_details' profile.id %}">{{ profile.first_name }} {{ profile.last_name }}</a>
+                                    <a href="{% url 'profiles:genomic_profile_details' profile.id %}", style="text-decoration: none">{{ profile.first_name }} {{ profile.last_name }}</a>
 
                                 </td>
 
@@ -302,15 +302,14 @@
                                                 <li>
                                                     <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
                                                        href="{% url 'profiles:genomic_profile_update' profile.id %}">
-                                                        <i class="hs-admin-pencil g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                        Edit
+                                                        <i class="hs-admin-pencil g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>Edit
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
                                                        href="{% url 'profiles:report' profile.id %}">
                                                         <i class="hs-admin-archive g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                          See Report
+                                                        See Report
                                                     </a>
                                                 </li>
                                                 <li>
