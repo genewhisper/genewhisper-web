@@ -10,8 +10,3 @@ from django.urls import reverse_lazy
 
 
 # Create your views here.
-
-def all_products_list(request):
-    product = GenomicProfile.objects.all()
-    return render(request, 'marketplace/all_products.html', {'product': product})
-

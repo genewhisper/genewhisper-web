@@ -3,7 +3,6 @@
 {% block profile_content %}
 
 
-
     <!-- Breadcrumb-v1 -->
     <div class="g-hidden-sm-down g-bg-gray-light-v8 g-pa-20">
         <ul class="u-list-inline g-color-gray-dark-v6">
@@ -35,7 +34,8 @@
 
             <div class="media-body align-self-center text-right">
                 <a class="btn btn-xl u-btn-lightblue-v3 g-width-160--md g-font-size-default g-ml-10"
-                   href="{% url 'profiles:new_genomic_profile_form' %}" data-src="#new-project-form" data-modal-target="#modal1" data-modal-effect="fadein"
+                   href="{% url 'profiles:new_genomic_profile_form' %}" data-src="#new-project-form"
+                   data-modal-target="#modal1" data-modal-effect="fadein"
                    data-speed="350" data-options="{&quot;touch&quot; : false}">
                     Add New Product
                 </a>
@@ -65,15 +65,13 @@
         <div class="row">
 
 
-            {% for item in product %}
+            {% for item in genomic_profile_data %}
                 {% if item.allow_sale == 'YES' %}
-
-
-
 
 
                     <div class="col-md-6 col-lg-4 g-mb-30">
                         <div class="card h-100 g-brd-gray-light-v7 rounded">
+
                             <header class="card-header g-bg-transparent g-brd-bottom-none g-pa-20 g-pa-30--sm">
                                 <div class="media g-mb-15">
                                     <div class="d-flex align-self-center">GeneWhisper</div>
@@ -84,43 +82,50 @@
                                                class="g-line-height-0 g-font-size-24 g-color-gray-light-v6 g-color-lightblue-v3--hover u-link-v5"
                                                href="#!" aria-controls="dropDown2" aria-haspopup="true"
                                                aria-expanded="false"
-                                               data-dropdown-event="click" data-dropdown-target="#dropDown2"
+                                               data-dropdown-event="click" data-dropdown-target="#dropDown{{ item.id }}"
                                                data-dropdown-type="jquery-slide">
                                                 <i class="hs-admin-more-alt g-ml-20"></i>
                                             </a>
 
-                                            <div id="dropDown2"
+                                            <div id="dropDown{{ item.id }}"
                                                  class="u-shadow-v31 g-pos-abs g-right-0 g-bg-white u-dropdown--jquery-slide u-dropdown--hidden"
                                                  aria-labelledby="dropDown2Invoker" style="display: none; right: 0px;">
                                                 <ul class="list-unstyled g-nowrap mb-0">
+
+
                                                     <li>
                                                         <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                           href="#!">
+                                                           href="
+                                                                   {% url 'profiles:genomic_profile_update' item.id %}">
                                                             <i class="hs-admin-pencil g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
                                                             Edit
                                                         </a>
                                                     </li>
+
                                                     <li>
                                                         <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                           href="#!">
+                                                           href="{% url 'profiles:genomic_profile_details' item.id %}">
                                                             <i class="hs-admin-archive g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                            Archive
+                                                            Details
                                                         </a>
                                                     </li>
+
                                                     <li>
                                                         <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                           href="#!">
+                                                           href="{% url 'profiles:report' item.id %}">
                                                             <i class="hs-admin-check g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                            Mark as Done
+                                                            Report
                                                         </a>
                                                     </li>
+
                                                     <li>
                                                         <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                           href="#!">
+                                                           href="{% url 'profiles:new_genomic_profile_form' %}">
                                                             <i class="hs-admin-plus g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                            New Task
+                                                            New Product
                                                         </a>
                                                     </li>
+
                                                     <li>
                                                         <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
                                                            href="#!">
@@ -128,83 +133,143 @@
                                                             Delete
                                                         </a>
                                                     </li>
+
+
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h3 class="g-font-weight-300 g-font-size-20 g-color-black g-mb-15">Genomic Profile # {{ item.id }}</h3>
+                                <h3 class="g-font-weight-300 g-font-size-20 g-color-black g-mb-15">Genomic Profile
+                                    # {{ item.id }}</h3>
                                 <span class="u-tags-v1 text-center g-width-130 g-brd-around g-brd-teal-v2 g-bg-teal-v2 g-color-white g-rounded-50 g-py-4 g-px-15">Done</span>
                             </header>
 
                             <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
 
                             <div class="card-block g-px-20 g-px-30--sm g-py-10 g-py-15--sm">
+
+
                                 <div class="media align-self-center g-mb-5">
-                                    <div class="d-flex g-width-100 g-font-weight-300 g-color-gray-dark-v10">Pending
+                                    <div class="d-flex g-width-100 g-font-weight-300 g-color-gray-dark-v10">Pathogenic
                                     </div>
 
                                     <div class="media-body align-self-center">
                                         <div class="progress g-height-4 g-rounded-2">
-                                            <div class="progress-bar g-bg-lightred-v2 g-rounded-2" role="progressbar"
-                                                 style="width: 65%" aria-valuenow="65" aria-valuemin="0"
+                                            <div class="progress-bar g-bg-primary g-rounded-2" role="progressbar"
+                                                 style="width: {{ pathogenic_variants_procent }}%"
+                                                 aria-valuenow="{{ pathogenic_variants_procent }}" aria-valuemin="0"
                                                  aria-valuemax="100"></div>
                                         </div>
                                     </div>
 
-                                    <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black g-width-40">
-                                        25
+                                    <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black g-width-55">
+                                        {{ pathogenic_variants_procent }}%
                                     </div>
                                 </div>
 
+
                                 <div class="media align-self-center g-mb-5">
-                                    <div class="d-flex g-width-100 g-font-weight-300 g-color-gray-dark-v10">In
-                                        Progress
+                                    <div class="d-flex g-width-100 g-font-weight-300 g-color-gray-dark-v10">Likely
+                                        Pathogenic
                                     </div>
 
                                     <div class="media-body align-self-center">
                                         <div class="progress g-height-4 g-rounded-2">
-                                            <div class="progress-bar g-bg-lightblue-v3 g-rounded-2" role="progressbar"
-                                                 style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+                                            <div class="progress-bar g-bg-deeporange g-rounded-2" role="progressbar"
+                                                 style="width: {{ likely_pathogenic_variants_procent }}%"
+                                                 aria-valuenow="{{ likely_pathogenic_variants_procent }}"
+                                                 aria-valuemin="0"
                                                  aria-valuemax="100"></div>
                                         </div>
                                     </div>
 
-                                    <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black g-width-40">
-                                        16
+                                    <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black g-width-55">
+                                        {{ likely_pathogenic_variants_procent }}%
                                     </div>
                                 </div>
+
 
                                 <div class="media align-self-center">
-                                    <div class="d-flex g-width-100 g-font-weight-300 g-color-gray-dark-v10">Done</div>
+                                    <div class="d-flex g-width-100 g-font-weight-300 g-color-gray-dark-v10">Uncertain
+                                        Significance
+                                    </div>
+
+                                    <div class="media-body align-self-center">
+                                        <div class="progress g-height-4 g-rounded-2">
+                                            <div class="progress-bar g-bg-darkblue-v2 g-rounded-2" role="progressbar"
+                                                 style="width: {{ uncertain_significance_variants_procent }}%"
+                                                 aria-valuenow="{{ uncertain_significance_variants_procent }}"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black g-width-55">
+                                        {{ uncertain_significance_variants_procent }}%
+                                    </div>
+                                </div>
+
+
+                                <div class="media align-self-center">
+                                    <div class="d-flex g-width-100 g-font-weight-300 g-color-gray-dark-v10">Likely <br>Benign
+                                    </div>
+
+                                    <div class="media-body align-self-center">
+                                        <div class="progress g-height-4 g-rounded-2">
+                                            <div class="progress-bar g-bg-lightblue-v5 g-rounded-2" role="progressbar"
+                                                 style="width: {{ likely_benign_variants_procent }}%"
+                                                 aria-valuenow="{{ likely_benign_variants_procent }}" aria-valuemin="0"
+                                                 aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black g-width-55">
+                                        {{ likely_benign_variants_procent }}%
+                                    </div>
+                                </div>
+
+
+                                <div class="media align-self-center">
+                                    <div class="d-flex g-width-100 g-font-weight-300 g-color-gray-dark-v10">Benign
+                                    </div>
 
                                     <div class="media-body align-self-center">
                                         <div class="progress g-height-4 g-rounded-2">
                                             <div class="progress-bar g-bg-teal-v2 g-rounded-2" role="progressbar"
-                                                 style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                                                 style="width: {{ benign_variants_procent }}%"
+                                                 aria-valuenow="{{ benign_variants_procent }}" aria-valuemin="0"
                                                  aria-valuemax="100"></div>
                                         </div>
                                     </div>
 
-                                    <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black g-width-40">
-                                        8
+                                    <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black g-width-55">
+                                        {{ benign_variants_procent }}%
                                     </div>
                                 </div>
+
+
                             </div>
+
 
                             <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
 
                             <div class="card-block g-px-20 g-px-30--sm g-py-15 g-py-20--sm">
                                 <div class="row g-mb-25">
                                     <div class="col-md-6 g-mb-25 g-mb-0--md">
-                                        <h5 class="g-font-size-default g-color-gray-dark-v6 g-mb-5 g-mb-5">Submitted Date</h5>
+                                        <h5 class="g-font-size-default g-color-gray-dark-v6 g-mb-5 g-mb-5">Submitted
+                                            Date</h5>
+
                                         <p class="g-color-black mb-0">{{ item.submitted_date|date:"M d, Y" }}</p>
                                     </div>
+
 
                                     <div class="col-md-6">
                                         <h5 class="g-font-size-default g-color-gray-dark-v6 g-mb-5 g-mb-5">Owner</h5>
                                         <p class="g-color-black mb-0">
+
+
                                             <span class="g-hidden-md-down">{{ item.first_name }} {{ item.last_name }}&nbsp;</span>
                                             <span class="g-hidden-md-up">.</span>
 
@@ -213,6 +278,7 @@
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
 
@@ -221,7 +287,7 @@
 
             <div class="col-md-6 col-lg-4 g-mb-30">
                 <a class="d-flex align-items-center justify-content-center u-link-v5 g-parent h-100 g-brd-around g-brd-style-dashed g-brd-gray-light-v7 rounded g-pa-30"
-                   href="{% url 'profiles:new_genomic_profile_form' %}" >
+                   href="{% url 'profiles:new_genomic_profile_form' %}">
                   <span class="text-center">
                   <span class="d-inline-block g-pos-rel g-width-50 g-height-50 g-font-size-default g-color-lightblue-v4 g-brd-around g-brd-lightblue-v4 rounded-circle g-mb-5">
                     <i class="hs-admin-plus g-absolute-centered"></i>

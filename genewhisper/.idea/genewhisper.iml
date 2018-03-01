@@ -16,6 +16,7 @@
     <orderEntry type="jdk" jdkName="Python 3.6 (virtual_environment)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="genewhisper-web" />
+    <orderEntry type="library" name="loader" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />

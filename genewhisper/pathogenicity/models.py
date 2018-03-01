@@ -425,7 +425,7 @@ class OncotatorOutput(models.Model):
 
 
 class Pathogenicity(models.Model):
-    oncotatoroutput = models.OneToOneField(OncotatorOutput, default=1, null=True, on_delete=models.CASCADE)
+    oncotatoroutput = models.OneToOneField(OncotatorOutput, default=1, null=True, blank=False, on_delete=models.CASCADE)
     PVS1 = models.TextField(blank=True, null=True)
     PM1 = models.TextField(blank=True, null=True)
     PM2 = models.TextField(blank=True, null=True)
