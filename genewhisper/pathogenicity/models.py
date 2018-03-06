@@ -3,7 +3,7 @@ from genomic_profiles.models import GenomicProfile
 
 
 class OncotatorOutput(models.Model):
-    id = models.OneToOneField(GenomicProfile, primary_key=True, on_delete=models.CASCADE)
+    genomicprofile = models.OneToOneField(GenomicProfile, primary_key=True, on_delete=models.CASCADE)
     hugo_symbol = models.TextField(blank=True, null=True)  # This field type is a guess.
     entrez_gene_id = models.TextField(blank=True, null=True)  # This field type is a guess.
     center = models.TextField(blank=True, null=True)  # This field type is a guess.
@@ -425,7 +425,7 @@ class OncotatorOutput(models.Model):
 
 
 class Pathogenicity(models.Model):
-    id = models.OneToOneField(OncotatorOutput, primary_key=True, on_delete=models.CASCADE)
+    oncotatoroutput = models.OneToOneField(OncotatorOutput, primary_key=True, on_delete=models.CASCADE)
     PVS1 = models.TextField(blank=True, null=True)
     PM1 = models.TextField(blank=True, null=True)
     PM2 = models.TextField(blank=True, null=True)
@@ -459,4 +459,4 @@ class Pathogenicity(models.Model):
     Google_Scholar = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return str(self.id)
+        return str(self.pk)
