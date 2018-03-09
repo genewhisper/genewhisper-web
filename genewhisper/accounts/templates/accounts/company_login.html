@@ -9,22 +9,41 @@
                 <div class="col-sm-8 col-lg-5">
                     <div class="u-shadow-v21 g-bg-white rounded g-py-40 g-px-30">
                         <header class="text-center mb-4">
-                            <h2 class="h2 g-color-black g-font-weight-600">Company Login</h2>
+                            <h2 class="h2 g-color-black g-font-weight-600">Login</h2>
                         </header>
 
                         <!-- Form -->
-                        <form class="g-py-15" method="post">
-
-                            {% csrf_token %}
-                            {% bootstrap_form form %}
-
-                            <input type="submit" value="Login">
-                        </form>
-                        <!-- End Form -->
+                                        {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="{% url 'accounts:login_company'%}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_username">
+                                Username:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_username" maxlength="30" name="username" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_password">
+                                Password:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_password" maxlength="30" name="password" type="password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">Login</button>
+                            </div>
+                        </div>
+                    </form>
 
                         <footer class="text-center">
                             <p class="g-color-gray-dark-v5 g-font-size-13 mb-0">Don't have an account? <a
-                                    class="g-font-weight-600" href="page-signup-2.html">signup</a>
+                                    class="g-font-weight-600" href="{% url 'accounts:company_signup'%}">signup</a>
                             </p>
                         </footer>
                     </div>

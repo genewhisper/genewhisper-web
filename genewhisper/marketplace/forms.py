@@ -1,16 +1,17 @@
 from django import forms
 from django.forms import ModelForm
 from django.forms.widgets import Select
-from genomic_profiles.models import GenomicProfile
+from marketplace.models import ClinicalTrial
 
 
-class AddProductForm(forms.Form):
-    product = forms.ModelChoiceField(queryset=GenomicProfile.objects.values('id', 'first_name', 'last_name'))
-# class Meta:
-#     CHOICES = GenomicProfile.objects.all()
-#
-#     model = GenomicProfile
-#     fields = ('first_name',)
-#     widgets = {
-#         'first_name': Select(choices=((x.id, x.first_name) for x in CHOICES)),
-#     }
+class ClinicalTrialForm(ModelForm):
+    class Meta:
+        model = ClinicalTrial
+
+        fields = [
+
+            'identifier', 'official_title', 'variants', 'genes',
+            'start_date', 'end_date', 'number_of_participants',
+            'offer_price', 'max_age', 'race', 'gender', 'clinical_trial_type',
+            'min_age', 'brief_summary', 'detailed_description'
+        ]

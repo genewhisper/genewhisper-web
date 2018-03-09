@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth import login
 from django.contrib.auth import authenticate
 from django.contrib.auth import authenticate
 from django.urls import reverse_lazy
@@ -7,13 +8,28 @@ from django.contrib.auth.models import User
 # Create your views here.
 from django.shortcuts import redirect
 
-from accounts.forms import UserCreateForm, CompanyCreateForm
+from .forms import UserCreateForm, CompanyCreateForm
 
 
 class SignUp(CreateView):
     form_class = UserCreateForm
     success_url = reverse_lazy('login')
     template_name = 'accounts/singup.html'
+
+def login_company(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return render(request, 'accounts/company_dashboard.html', {"message": "success"})
+            else:
+                return render(request, 'accounts/company_login.html', {'error_message': 'Your account has been disabled'})
+        else:
+            return render(request, 'accounts/company_login.html', {"error_message": "Username and password are not valid!"})
+    return render(request, 'accounts/company_login.html',{"error_message": ""})
 
 
 def company_register(request):
