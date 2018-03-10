@@ -10,12 +10,13 @@ from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from marketplace.models import ClinicalTrial
 from django.views.generic import CreateView
 from marketplace.forms import ClinicalTrialForm
+from django.forms import ModelForm
 
 
 # Create your views here.
 class ClinicalTrialView(CreateView):
     model = ClinicalTrial
-    form_class = ClinicalTrialForm
+    success_url = reverse_lazy('home')
     fields = [
 
         'identifier', 'official_title', 'variants', 'genes',

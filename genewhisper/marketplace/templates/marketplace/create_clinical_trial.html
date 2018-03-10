@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-<form action="" method="post">
-    {% csrf_token %}
+{% extends 'company_base.html' %}
 
 
-    {{ form.as_p }}
-    <input type="submit" value="Save" />
-</form>
+{% block company_profile_content %}
 
-</body>
-</html>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save"/>
+    </form>
+
+
+
+{% endblock company_profile_content %}
+

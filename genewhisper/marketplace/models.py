@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from accounts.models import Company
+from django.core.exceptions import ValidationError
 
 RACE_CHOICES = (
     ('C', 'Caucasian'),
@@ -31,9 +32,9 @@ CLINICAL_TRIAL_TYPE_CHOICES = (
 class ClinicalTrial(models.Model):
     company = models.ForeignKey(Company, blank=True, null=True, on_delete=models.CASCADE)
     identifier = models.CharField(max_length=24, blank=False)
-    official_title = models.TextField(blank=False)
-    variants = models.TextField(blank=False)
-    genes = models.TextField(blank=False)
+    official_title = models.TextField(blank=True)
+    variants = models.CharField(blank=True, null=False, max_length=24)
+    genes = models.CharField(blank=True, null=False, max_length=24)
     start_date = models.DateField(blank=False)
     end_date = models.DateField(blank=False)
     number_of_participants = models.PositiveIntegerField(blank=False)
@@ -49,10 +50,12 @@ class ClinicalTrial(models.Model):
     brief_summary = models.TextField(blank=True)
     detailed_description = models.TextField(blank=True)
 
+    def get_absolute_url(self):
+        return reverse("marketplace:clinical_trial_details", kwargs={'pk': self.pk})
 
-def get_absolute_url(self):
-    return reverse("profiles:genomic_profile_details", kwargs={'pk': self.pk})
+    def __str__(self):
+        return str(self.id)
 
-
-def __str__(self):
-    return str(self.id)
+    def clean(self):
+        if self.variants == '' and self.genes == '':
+            raise ValidationError('Genes or Variants should be submitted')
