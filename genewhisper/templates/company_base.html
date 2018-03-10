@@ -31,8 +31,6 @@
     <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/custombox/custombox.min.css' %}">
 
 
-
-
     <link rel="stylesheet"
           href="{% static 'genewhisper/assets_website/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets_profile/vendor/flatpickr/dist/css/flatpickr.min.css' %}">
@@ -457,7 +455,7 @@
                         <!-- Dashboards v1 -->
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="{% url 'profiles:main_profile_page' %}">
+                               href="{% url 'accounts:company_profile' %}">
                   <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
           <i class="hs-admin-user"></i>
         </span>
@@ -483,14 +481,14 @@
                 <!-- End Dashboard -->
 
 
-                <!-- Genomic Profile -->
+                <!-- Clinical Trial -->
                 <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item has-active">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
                        href="#!" data-hssm-target="#subMenu2">
               <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
       <i class="hs-admin-layout-grid-2"></i>
     </span>
-                        <span class="media-body align-self-center">Genomic Profiles</span>
+                        <span class="media-body align-self-center">Clinical Trial</span>
                         <span class="d-flex align-self-center u-side-nav--control-icon">
       <i class="hs-admin-angle-right"></i>
     </span>
@@ -503,11 +501,11 @@
                         <!-- Dashboards v1 -->
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="{% url 'profiles:all_genomic_profiles_list' %}">
+                               href="#!">
                   <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
           <i class="hs-admin-align-justify"></i>
         </span>
-                                <span class="media-body align-self-center">List Of Genomic Profiles</span>
+                                <span class="media-body align-self-center">List Of Clinical Trials</span>
                             </a>
                         </li>
                         <!-- End Dashboards v1 -->
@@ -515,111 +513,18 @@
                         <!-- Dashboards v2 -->
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12 active"
-                               href="{% url 'profiles:new_genomic_profile_form' %}">
+                               href="{% url 'marketplace:new_clinical_trial' %}">
                   <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
           <i class="hs-admin-clipboard"></i>
         </span>
-                                <span class="media-body align-self-center">New Genomic Profile</span>
+                                <span class="media-body align-self-center">New Clinical Trial</span>
                             </a>
                         </li>
                         <!-- End Dashboards v2 -->
                     </ul>
                     <!-- End Dashboards: Submenu-1 -->
                 </li>
-                <!-- End Genomic Profile -->
-
-
-                <!-- Genomic Report -->
-                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item has-active">
-                    <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="#!" data-hssm-target="#subMenu3">
-              <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
-      <i class="hs-admin-pencil-alt"></i>
-    </span>
-                        <span class="media-body align-self-center">Genomic Reports</span>
-                        <span class="d-flex align-self-center u-side-nav--control-icon">
-      <i class="hs-admin-angle-right"></i>
-    </span>
-                        <span class="u-side-nav--has-sub-menu__indicator"></span>
-                    </a>
-
-                    <!-- Dashboards: Submenu-1 -->
-                    <ul id="subMenu3" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0"
-                        style="display: none;">
-                        <!-- Dashboards v1 -->
-                        <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
-                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="{% url 'profiles:all_genomic_report_list' %}">
-                  <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
-          <i class="hs-admin-align-justify"></i>
-        </span>
-                                <span class="media-body align-self-center">List Of Genomic Reports</span>
-                            </a>
-                        </li>
-                        <!-- End Dashboards v1 -->
-
-                    </ul>
-                    <!-- End Dashboards: Submenu-1 -->
-                </li>
-                <!-- End Genomic Report -->
-
-
-
-                <!-- Market Plase -->
-                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item has-active">
-                    <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
-                       href="#!" data-hssm-target="#subMenu4">
-              <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
-      <i class="hs-admin-money"></i>
-    </span>
-                        <span class="media-body align-self-center">Market Place</span>
-                        <span class="d-flex align-self-center u-side-nav--control-icon">
-      <i class="hs-admin-angle-right"></i>
-    </span>
-                        <span class="u-side-nav--has-sub-menu__indicator"></span>
-                    </a>
-
-                    <!-- Dashboards: Submenu-1 -->
-                    <ul id="subMenu4" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0"
-                        style="display: none;">
-
-                        <!-- My Products -->
-                        <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
-                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="{% url 'marketplace:all_products' %}">
-                  <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
-          <i class="hs-admin-briefcase"></i>
-        </span>
-                                <span class="media-body align-self-center">My Products</span>
-                            </a>
-                        </li>
-                        <!-- End My Products -->
-
-                        <!-- My Offers -->
-
-                        <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
-                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="{% url 'profiles:all_genomic_report_list' %}">
-                  <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
-          <i class="hs-admin-align-justify"></i>
-        </span>
-                                <span class="media-body align-self-center">My Offers</span>
-                            </a>
-                        </li>
-                        <!-- End My Offers -->
-
-
-
-
-
-
-
-                    </ul>
-                    <!-- End Dashboards: Submenu-1 -->
-                </li>
-                <!-- End Genomic Report -->
-
-
+                <!-- End Clinical Trial -->
 
 
             </ul>
@@ -627,10 +532,10 @@
 
 
         <div class="col g-ml-45 g-ml-0--lg g-pb-65--md">
-            {% block profile_content %}
+            {% block company_profile_content %}
 
 
-            {% endblock profile_content %}
+            {% endblock company_profile_content %}
 
 
             <!-- Footer -->
@@ -767,9 +672,6 @@
 <script src="{% static 'genewhisper/assets_website/js/components/hs.modal-window.js' %}"></script>
 
 
-
-
-
 <!-- JS Plugins Init. -->
 <script>
     $(document).on('ready', function () {
@@ -825,14 +727,14 @@
     });
 
 
-<!-- JS Implementing Plugins -->
-<!-- JS Unify -->
+    <!-- JS Implementing Plugins -->
+    <!-- JS Unify -->
 
-<!-- JS Plugins Init. -->
-  $(document).on('ready', function () {
-    // initialization of popups
-    $.HSCore.components.HSModalWindow.init('[data-modal-target]');
-  });
+    <!-- JS Plugins Init. -->
+    $(document).on('ready', function () {
+        // initialization of popups
+        $.HSCore.components.HSModalWindow.init('[data-modal-target]');
+    });
 
 </script>
 

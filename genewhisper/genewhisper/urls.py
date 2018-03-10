@@ -28,6 +28,6 @@ urlpatterns = [
 
     path('thanks/', views.ThanksPage.as_view(), name='thanks'),
 
-    path('profile/marketplace', include('marketplace.urls'))
+    path('profile/marketplace/', include('marketplace.urls'))
 
 ]
