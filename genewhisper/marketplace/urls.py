@@ -1,7 +1,7 @@
 from django.urls import path
 from django.views.generic import TemplateView
 from pathogenicity.views import ReportView
-from marketplace.views import ClinicalTrialView
+from marketplace.views import ClinicalTrialView, ClinicalTrialListView
 
 app_name = 'marketplace'
 
@@ -10,6 +10,9 @@ urlpatterns = [
     path('all-products', ReportView.as_view(template_name='marketplace/all_products.html'), name='all_products'),
 
     path('new-clinical-trial', ClinicalTrialView.as_view(template_name='marketplace/create_clinical_trial.html'),
-         name='new_clinical_trial')
+         name='new_clinical_trial'),
+
+    path('clinical-trial-list', ClinicalTrialListView.as_view(template_name='marketplace/clinical_trial_list.html'),
+         name='clinical_trial_list')
 
 ]

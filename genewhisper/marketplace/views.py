@@ -11,12 +11,14 @@ from marketplace.models import ClinicalTrial
 from django.views.generic import CreateView
 from marketplace.forms import ClinicalTrialForm
 from django.forms import ModelForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
-class ClinicalTrialView(CreateView):
+class ClinicalTrialView(CreateView, LoginRequiredMixin):
+    login_url = reverse_lazy('login')
     model = ClinicalTrial
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('marketplace:clinical_trial_list')
     fields = [
 
         'identifier', 'official_title', 'variants', 'genes',
@@ -24,3 +26,10 @@ class ClinicalTrialView(CreateView):
         'offer_price', 'max_age', 'race', 'gender', 'clinical_trial_type',
         'min_age', 'brief_summary', 'detailed_description'
     ]
+
+
+class ClinicalTrialListView(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
+    model = ClinicalTrial
+    context_object_name = 'clinical_trial_list'
+
