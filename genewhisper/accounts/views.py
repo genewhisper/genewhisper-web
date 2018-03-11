@@ -55,7 +55,7 @@ def company_register(request):
 
 
     context = {"form": form, }
-    return render(request, 'accounts/singup.html', context)
+    return render(request, 'accounts/company_singup.html', context)
 
 
 class CompanyProfileView(TemplateView):
