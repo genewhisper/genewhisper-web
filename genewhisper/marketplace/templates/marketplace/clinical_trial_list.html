@@ -171,10 +171,10 @@
                     </td>
                     <td class="g-valign-middle g-brd-top-none g-brd-bottom g-brd-gray-light-v7 g-py-15 g-py-30--md g-px-5 g-px-10--sm g-pr-25">
                         <div class="d-flex align-items-center g-line-height-1">
-                            <a class="u-link-v5 g-color-gray-light-v6 g-color-lightblue-v4--hover g-mr-15" href="#!">
+                            <a class="u-link-v5 g-color-gray-light-v6 g-color-lightblue-v4--hover g-mr-15" href="{% url 'marketplace:clinical_trial_update' item.id %}">
                                 <i class="hs-admin-pencil g-font-size-18"></i>
                             </a>
-                            <a class="u-link-v5 g-color-gray-light-v6 g-color-lightblue-v4--hover" href="#!">
+                            <a class="u-link-v5 g-color-gray-light-v6 g-color-lightblue-v4--hover" href="{% url 'marketplace:clinical_trial_delete' item.id %}">
                                 <i class="hs-admin-trash g-font-size-18"></i>
                             </a>
                         </div>

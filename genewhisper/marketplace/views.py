@@ -33,3 +33,22 @@ class ClinicalTrialListView(LoginRequiredMixin, ListView):
     model = ClinicalTrial
     context_object_name = 'clinical_trial_list'
 
+
+class ClinicalTrialUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    success_url = reverse_lazy('marketplace:clinical_trial_list')
+    model = ClinicalTrial
+    template_name = 'marketplace/create_clinical_trial.html'
+    fields = [
+
+        'identifier', 'official_title', 'variants', 'genes',
+        'start_date', 'end_date', 'number_of_participants',
+        'offer_price', 'max_age', 'race', 'gender', 'clinical_trial_type',
+        'min_age', 'brief_summary', 'detailed_description'
+    ]
+
+
+class ClinicalTrialDeleteView(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
+    success_url = reverse_lazy('marketplace:clinical_trial_list')
+    model = ClinicalTrial
