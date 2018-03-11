@@ -18,3 +18,18 @@ class Company(models.Model):
 
     def __str__(self):
         return self.company_name
+
+    ##Definition of company model
+
+
+class CompanyRegistration(models.Model):
+    # required to associate Author model with User model (Important)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,null=True, blank=True)
+    companyEmail = models.CharField(max_length=100)
+    companyName = models.CharField(max_length=100)
+    address = models.CharField(max_length=300)
+    companyPhone = models.CharField(max_length=20)
+    companyUrl = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.mobile + '  , url = ' + self.url

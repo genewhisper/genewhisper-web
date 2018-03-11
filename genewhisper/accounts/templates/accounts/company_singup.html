@@ -4,29 +4,82 @@
 {% block content %}
     <!-- Signup -->
     <section class="g-bg-gray-light-v5">
-        <div class="container g-py-100">
-            <div class="row justify-content-center">
-                <div class="col-sm-10 col-md-9 col-lg-6">
-                    <div class="u-shadow-v21 g-bg-white rounded g-py-40 g-px-30">
-                        <header class="text-center mb-4">
-                            <h2 class="h2 g-color-black g-font-weight-600">Signup</h2>
+        <div class="container g-py-100" style="padding-top: 1.14286rem !important;width: 75%">
+                             <div class="u-shadow-v21 g-bg-white rounded g-py-40 g-px-30">
+                        <header class="text-left mb-4">
+                            <h2 class="h2 g-color-black g-font-weight-600">Company Signup</h2>
                         </header>
 
                         <!-- Form -->
 
+<div style="width: 800px;align-content: center">
+                 <form class="form-horizontal" role="form" action="{% url 'accounts:company_signup'%}" method="post">
+                       {% csrf_token %}
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="id_companyname">Company Name:</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="id_companyname" name="companyName" required>
+    </div>
+  </div>
+                       <div class="form-group">
+    <label class="control-label col-sm-3" for="id_companyurl">Address:</label>
+    <div class="col-sm-9">
+      <input type="text" id="id_address" class="form-control" name="address" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="id_companyurl">Company Url:</label>
+    <div class="col-sm-9">
+      <input type="text" id="id_companyurl" class="form-control" name="companyUrl" required>
+    </div>
+  </div
 
-                        <form method="POST" class="g-py-15">
+<div class="form-group">
+    <label class="control-label col-sm-3" for="id_companyemail">Company Email:</label>
+    <div class="col-sm-9">
+      <input type="text" id="id_companyemail" class="form-control" name="companyEmail" required >
+    </div>
+  </div>
+    <div class="form-group">
+    <label class="control-label col-sm-3" for="id_companyurl">Company Phone:</label>
+    <div class="col-sm-9">
+      <input type="text" id="id_companyphone" class="form-control" name="companyPhone" style="width: 108%;">
+    </div>
+  </div>
 
 
-                            {% csrf_token %}
-                            {{ company_form.as_p }}
-                            {{ user_form.as_p }}
+                     <div class="form-group">
+    <label class="control-label col-sm-3" for="id_username">Username:</label>
+    <div class="col-sm-9">
+      <input type="text" id="id_username" class="form-control" name="username"   style="width: 108%;">
+    </div>
+  </div>
 
-                            <input type="submit" value="Sing Up">
-                        </form>
+                     <div class="form-group">
+    <label class="control-label col-sm-3" for="id_password">Password</label>
+    <div class="col-sm-9">
+      <input type="password" id="id_password" class="form-control" name="password" required   style="width: 108%;">
+    </div>
+  </div>
 
 
-                        </form>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+        <hr/>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+</div>
+
+
                         <!-- End Form -->
 
                         <footer class="text-center">
@@ -36,8 +89,7 @@
                         </footer>
                     </div>
                 </div>
-            </div>
-        </div>
+
     </section>
     <!-- End Signup -->
 

@@ -1,8 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from accounts.models import Company
-from accounts.models import UserInfo
+from .models import CompanyRegistration
+from .models import UserInfo
 
 
 class UserCreateForm(UserCreationForm):
@@ -16,9 +16,9 @@ class UserCreateForm(UserCreationForm):
         self.fields['email'].label = 'Email address'
 
 
-class CompanyCreateForm(forms.ModelForm):
+class CompanyRegistrationForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
-        fields = ('company_name', 'company_url', 'company_phone_number')
-        model = Company
-
+        fields = ('companyName', 'address', 'companyUrl','companyEmail','companyPhone')
+        model = CompanyRegistration
 

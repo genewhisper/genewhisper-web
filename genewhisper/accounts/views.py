@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 
 
-from .forms import UserCreateForm, CompanyCreateForm
+from .forms import UserCreateForm, CompanyRegistrationForm,CompanyRegistration
 
 
 class SignUp(CreateView):
@@ -37,36 +37,25 @@ def login_company(request):
 
 
 def company_register(request):
-    registered = False
-    success_url = reverse_lazy('login')
-    if request.method == 'POST':
-        user_form = UserCreateForm(data=request.POST)
-        company_form = CompanyCreateForm(data=request.POST)
+    form = CompanyRegistrationForm(request.POST or None)
 
-        if user_form.is_valid() and company_form.is_valid():
-            user = user_form.save()
-            company = company_form.save(commit=False)
-            user.set_password(user.password)  # hashing the password
-            user.save()
+    if form.is_valid():
+        u = User.objects.create_user(
+            request.POST['username'], request.POST['companyEmail'], request.POST['password'], is_active=1)
+        companyRegistration = CompanyRegistration()
+        companyRegistration.companyName = request.POST['companyName']
+        companyRegistration.address = request.POST['address']
+        companyRegistration.companyUrl = request.POST['companyUrl']
+        companyRegistration.companyEmail = request.POST['companyEmail']
+        companyRegistration.companyPhone = request.POST['companyPhone']
+        companyRegistration.user = u
+        companyRegistration.save()
+        form = CompanyRegistrationForm()
+        return render(request, 'accounts/company_login.html', {"error_message": ""})
 
-            company.user = user  # seting up one to one relationship with user
-            company.save()
 
-            registered = True
-
-            return redirect('login')
-
-        else:
-            print(user_form.errors, company_form.errors)
-    else:
-        user_form = UserCreateForm()
-        company_form = CompanyCreateForm()
-
-    return render(request, 'accounts/company_singup.html',
-                  {'user_form': user_form,
-                   'company_form': company_form,
-                   'registered': registered}
-                  )
+    context = {"form": form, }
+    return render(request, 'accounts/singup.html', context)
 
 
 class CompanyProfileView(TemplateView):
