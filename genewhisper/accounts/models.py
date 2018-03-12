@@ -32,4 +32,4 @@ class CompanyRegistration(models.Model):
     companyUrl = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.mobile + '  , url = ' + self.url
+        return self.companyPhone + '  , url = ' + self.companyUrl

@@ -8,8 +8,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 from django.shortcuts import redirect
 
-
-from .forms import UserCreateForm, CompanyRegistrationForm,CompanyRegistration
+from .forms import UserCreateForm, CompanyRegistrationForm, CompanyRegistration
 
 
 class SignUp(CreateView):
@@ -52,7 +51,6 @@ def company_register(request):
         companyRegistration.save()
         form = CompanyRegistrationForm()
         return render(request, 'accounts/company_login.html', {"error_message": ""})
-
 
     context = {"form": form, }
     return render(request, 'accounts/singup.html', context)

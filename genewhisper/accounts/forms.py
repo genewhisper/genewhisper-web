@@ -18,7 +18,7 @@ class UserCreateForm(UserCreationForm):
 
 class CompanyRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
-    class Meta:
-        fields = ('companyName', 'address', 'companyUrl','companyEmail','companyPhone')
-        model = CompanyRegistration
 
+    class Meta:
+        fields = ('companyName', 'address', 'companyUrl', 'companyEmail', 'companyPhone')
+        model = CompanyRegistration
