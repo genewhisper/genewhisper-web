@@ -53,7 +53,7 @@ def company_register(request):
         return render(request, 'accounts/company_login.html', {"error_message": ""})
 
     context = {"form": form, }
-    return render(request, 'accounts/singup.html', context)
+    return render(request, 'accounts/company_singup.html', context)
 
 
 class CompanyProfileView(TemplateView):
