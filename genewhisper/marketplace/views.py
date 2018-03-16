@@ -7,26 +7,40 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from pathogenicity.models import Pathogenicity, OncotatorOutput
 from accounts.models import CompanyRegistration
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from marketplace.forms import ClinicalTrialForm
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 
-# Create your views here.
-class ClinicalTrialView(CreateView, LoginRequiredMixin):
-    login_url = reverse_lazy('login')
-    model = ClinicalTrial
-    success_url = reverse_lazy('marketplace:clinical_trial_list')
-    fields = [
+@login_required(login_url=reverse_lazy('login'))
+def create_new_clinical_trial(request):
+    submitted = False
+    if request.method == 'POST':
+        form = ClinicalTrialForm(request.POST, request.FILES)
+        if form.is_valid():
+            clinical_trial = form.save(commit=False)
+            try:
+                clinical_trial.username = request.user
+            except Exception:
+                pass
+            clinical_trial.save()
+            return HttpResponseRedirect('clinical-trial-list')
+    else:
+        form = ClinicalTrialForm()
+        if 'submitted' in request.GET:
+            submitted = True
 
-        'identifier', 'official_title', 'variants', 'genes',
-        'start_date', 'end_date', 'number_of_participants',
-        'offer_price', 'max_age', 'race', 'gender', 'clinical_trial_type',
-        'min_age', 'brief_summary', 'detailed_description'
-    ]
+    return render(request, 'marketplace/create_clinical_trial.html', {'form': form, 'submitted': submitted})
 
 
 class ClinicalTrialListView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = ClinicalTrial
     context_object_name = 'clinical_trial_list'
+
+    def get_queryset(self):
+        return ClinicalTrial.objects.filter(username=self.request.user)
 
 
 class ClinicalTrialUpdateView(LoginRequiredMixin, UpdateView):

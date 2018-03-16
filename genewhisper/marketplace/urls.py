@@ -9,9 +9,10 @@ urlpatterns = [
 
     path('all-products', ReportView.as_view(template_name='marketplace/all_products.html'), name='all_products'),
 
-    path('new-clinical-trial', views.ClinicalTrialView.as_view(template_name='marketplace/create_clinical_trial.html'),
-         name='new_clinical_trial'),
+    # path('new-clinical-trial', views.ClinicalTrialView.as_view(template_name='marketplace/create_clinical_trial.html'),
+    #      name='new_clinical_trial'),
 
+    path('new-clinical-trial', views.create_new_clinical_trial, name='new_clinical_trial'),
     path('clinical-trial-list',
          views.ClinicalTrialListView.as_view(template_name='marketplace/clinical_trial_list.html'),
          name='clinical_trial_list'),
