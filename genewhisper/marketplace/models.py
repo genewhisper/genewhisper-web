@@ -1,7 +1,9 @@
 from django.db import models
 from django.urls import reverse
-from accounts.models import Company
+from accounts.models import CompanyRegistration
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
+
 
 RACE_CHOICES = (
     ('C', 'Caucasian'),
@@ -30,7 +32,9 @@ CLINICAL_TRIAL_TYPE_CHOICES = (
 
 # Create your models here.
 class ClinicalTrial(models.Model):
-    company = models.ForeignKey(Company, blank=True, null=True, on_delete=models.CASCADE)
+
+    # user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, null=True, blank=False, on_delete=models.CASCADE)
     identifier = models.CharField(max_length=24, blank=False)
     official_title = models.TextField(blank=True)
     variants = models.CharField(blank=True, null=False, max_length=24)

@@ -1,17 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from genomic_profiles.forms import NewGenomicProfileForm
-from genomic_profiles.models import GenomicProfile
-from genomic_profiles.models import GenomicProfile
-from genomic_profiles.models import GenomicProfile
 from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from marketplace.models import ClinicalTrial
 from django.views.generic import CreateView
-from marketplace.forms import ClinicalTrialForm
-from django.forms import ModelForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from pathogenicity.models import Pathogenicity, OncotatorOutput
+from accounts.models import CompanyRegistration
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -52,3 +47,19 @@ class ClinicalTrialDeleteView(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     success_url = reverse_lazy('marketplace:clinical_trial_list')
     model = ClinicalTrial
+
+
+class AllOffersView(TemplateView, LoginRequiredMixin):
+    login_url = reverse_lazy('login')
+
+    def get_context_data(self, **kwargs):
+        all_genes = OncotatorOutput.objects.values_list('hugo_symbol', flat=True)
+        # pathogenic_genes = Pathogenicity.objects.values_list('Pathogenicity', flat=True)
+        queryset = ClinicalTrial.objects.all()
+
+        for gene in all_genes:
+            if Pathogenicity.objects.filter(Pathogenicity='Pathogenic'):
+                context = queryset.filter(genes=gene)
+                company_info = CompanyRegistration.objects.filter(pk=2)
+                return {'context': context,
+                        'company': company_info}

@@ -20,4 +20,5 @@ urlpatterns = [
 
     path('clinical-trial/delete/<int:pk>', views.ClinicalTrialDeleteView.as_view(), name='clinical_trial_delete'),
 
+    path('all-offers', views.AllOffersView.as_view(template_name='marketplace/all_offers.html'), name='all_offers')
 ]
