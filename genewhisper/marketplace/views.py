@@ -77,3 +77,10 @@ class AllOffersView(TemplateView, LoginRequiredMixin):
                 company_info = CompanyRegistration.objects.filter()[0].companyName
                 return {'context': context,
                         'company': company_info}
+
+
+class FileManagerView(TemplateView, LoginRequiredMixin):
+    login_url = reverse_lazy('login')
+
+    def get_queryset(self):
+        return ClinicalTrial.objects.filter(username=self.request.user)
