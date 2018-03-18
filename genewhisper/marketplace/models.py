@@ -4,7 +4,6 @@ from accounts.models import CompanyRegistration
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 
-
 RACE_CHOICES = (
     ('C', 'Caucasian'),
     ('AA', 'African American '),
@@ -32,9 +31,8 @@ CLINICAL_TRIAL_TYPE_CHOICES = (
 
 # Create your models here.
 class ClinicalTrial(models.Model):
-
     # user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
-    username = models.ForeignKey(User, null=True, blank= True, related_name='company', on_delete=models.CASCADE)
+    username = models.ForeignKey(User, null=True, blank=True, related_name='company', on_delete=models.CASCADE)
     identifier = models.CharField(max_length=24, blank=False)
     official_title = models.TextField(blank=True)
     variants = models.CharField(blank=True, null=False, max_length=24)

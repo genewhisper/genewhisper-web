@@ -74,6 +74,6 @@ class AllOffersView(TemplateView, LoginRequiredMixin):
         for gene in all_genes:
             if Pathogenicity.objects.filter(Pathogenicity='Pathogenic'):
                 context = queryset.filter(genes=gene)
-                company_info = CompanyRegistration.objects.filter(pk=2)
+                company_info = CompanyRegistration.objects.filter()[0].companyName
                 return {'context': context,
                         'company': company_info}
