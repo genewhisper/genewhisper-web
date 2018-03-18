@@ -84,3 +84,10 @@ class FileManagerView(TemplateView, LoginRequiredMixin):
 
     def get_queryset(self):
         return ClinicalTrial.objects.filter(username=self.request.user)
+
+
+class ShoppingCartView(TemplateView, LoginRequiredMixin):
+    login_url = reverse_lazy('login')
+
+    def get_queryset(self):
+        return ClinicalTrial.objects.filter(username=self.request.user)

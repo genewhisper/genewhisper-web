@@ -24,6 +24,8 @@ urlpatterns = [
     path('all-offers', views.AllOffersView.as_view(template_name='marketplace/all_offers.html'), name='all_offers'),
 
     path('file-manager', views.FileManagerView.as_view(template_name='marketplace/file_manager.html'),
-         name='file_manager')
+         name='file_manager'),
 
+    path('shopping-cart', views.ShoppingCartView.as_view(template_name='marketplace/shopping_cart.html'),
+         name='shopping_cart')
 ]
