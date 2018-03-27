@@ -1,4 +1,8 @@
-from django.shortcuts import render
+import logging
+
+import sys
+from django.shortcuts import render, get_object_or_404
+from django.http.response import HttpResponseRedirect
 from django.contrib.auth import login
 from django.contrib.auth import authenticate
 from django.contrib.auth import authenticate
@@ -8,8 +12,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 from django.shortcuts import redirect
 
-
-from .forms import UserCreateForm, CompanyRegistrationForm,CompanyRegistration
+from .forms import UserCreateForm, CompanyRegistrationForm, CompanyRegistration
 
 
 class SignUp(CreateView):
@@ -23,17 +26,31 @@ def login_company(request):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
+        #print(user.email)
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return render(request, 'accounts/company_dashboard.html', {"message": "success"})
-            else:
-                return render(request, 'accounts/company_login.html',
-                              {'error_message': 'Your account has been disabled'})
+                try:
+                    print("user.email " + user.email);
+                    companyRegistration = get_object_or_404(CompanyRegistration, companyEmail=user.email)
+                    # companyRegistration = CompanyRegistration.objects.get(companyEmail=user.email)
+                    print(companyRegistration)
+                    if companyRegistration.role == 'company':
+                        return render(request, 'accounts/company_dashboard.html', {"message": "success"})
+                    else:
+                        return render(request, 'accounts/patient_dashboard.html', {"message": "success"})
+
+                except Exception:
+                    return HttpResponseRedirect("/profile")
+                    #return render(request, 'accounts/patient_dashboard.html', {"message": "success"})
+
         else:
             return render(request, 'accounts/company_login.html',
                           {"error_message": "Username and password are not valid!"})
-    return render(request, 'accounts/company_login.html', {"error_message": ""})
+
+    else:
+         return render(request, 'accounts/company_login.html',
+                      {"error_message": ""})
 
 
 def company_register(request):
@@ -52,7 +69,6 @@ def company_register(request):
         companyRegistration.save()
         form = CompanyRegistrationForm()
         return render(request, 'accounts/company_login.html', {"error_message": ""})
-
 
     context = {"form": form, }
     return render(request, 'accounts/company_singup.html', context)

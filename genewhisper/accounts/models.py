@@ -30,6 +30,7 @@ class CompanyRegistration(models.Model):
     address = models.CharField(max_length=300)
     companyPhone = models.CharField(max_length=20)
     companyUrl = models.CharField(max_length=100)
+    role = models.CharField(max_length=20,default='company')
 
     def __str__(self):
-        return self.mobile + '  , url = ' + self.url
+        return self.companyPhone + ' ,' + self.companyUrl+ '  , role = ' + self.role
