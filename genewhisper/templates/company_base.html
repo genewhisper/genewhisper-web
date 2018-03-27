@@ -501,7 +501,7 @@
                         <!-- Dashboards v1 -->
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="#!">
+                               href="{% url 'marketplace:clinical_trial_list' %}">
                   <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
           <i class="hs-admin-align-justify"></i>
         </span>
@@ -525,6 +525,37 @@
                     <!-- End Dashboards: Submenu-1 -->
                 </li>
                 <!-- End Clinical Trial -->
+
+
+                <!--File Manager -->
+                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item has-active">
+                    <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
+                       href="{% url 'marketplace:file_manager' %}">
+              <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+      <i class="hs-admin-folder"></i>
+    </span>
+                        <span class="media-body align-self-center">File Manager</span>
+
+                    </a>
+
+                </li>
+                <!--File Manager -->
+
+
+                <!--Shopping Cart -->
+                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item has-active">
+                    <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
+                       href="{% url 'marketplace:shopping_cart' %}">
+              <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
+      <i class="hs-admin-shopping-cart"></i>
+    </span>
+                        <span class="media-body align-self-center">Shopping Cart</span>
+
+                    </a>
+
+                </li>
+
+                <!--Shopping Cart -->
 
 
             </ul>

@@ -421,11 +421,11 @@ class OncotatorOutput(models.Model):
     tumor_f = models.TextField(blank=True, null=True)  # This field type is a guess.
 
     def __str__(self):
-        return str(self.hugo_symbol)
+        return str(self.id)
 
 
 class Pathogenicity(models.Model):
-    id = models.OneToOneField(OncotatorOutput, primary_key=True, on_delete=models.CASCADE)
+    oncotatoroutput = models.OneToOneField(OncotatorOutput, primary_key=True, null=False, on_delete=models.CASCADE)
     PVS1 = models.TextField(blank=True, null=True)
     PM1 = models.TextField(blank=True, null=True)
     PM2 = models.TextField(blank=True, null=True)
@@ -459,4 +459,4 @@ class Pathogenicity(models.Model):
     Google_Scholar = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return str(self.pk)
+        return str(self.oncotatoroutput_id)

@@ -11,7 +11,6 @@ print('Connection successful')
 
 df1 = pandas.read_sql('select * from  pathogenicity_oncotatoroutput', connection)
 df2 = pandas.read_sql('select * from  pathogenicity_pathogenicity', connection)
-df2.drop('id_id', axis=1)
 
 df2['PVS1'] = df1.apply(lambda item: gvit_categorizers.PVS1(item), axis=1)
 
@@ -48,11 +47,11 @@ df2['BS4'] = df1.apply(lambda item: gvit_categorizers.BS4(item), axis=1)
 
 df2['BA1'] = df1.apply(lambda item: gvit_categorizers.BA1(item), axis=1)
 df2['Google_Scholar'] = df1.apply(lambda item: gvit_categorizers.PS3(item)[1], axis=1)
+df2['oncotatoroutput_id'] = df1.index + 1
 
 df2.to_sql('pathogenicity_pathogenicity', connection, if_exists="replace", index=False)
 
 df3 = pandas.read_sql('select * from  pathogenicity_pathogenicity', connection)
-df3.drop('id_id', axis=1)
 
 df3['Pathogenicity'] = df3.apply(lambda item: gvit_pathogenicity.pathogenicity(item)[0], axis=1)
 df3['Pathogenicity_Rule'] = df3.apply(lambda item: gvit_pathogenicity.pathogenicity(item)[1], axis=1)

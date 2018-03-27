@@ -23,19 +23,19 @@ def PVS1(item):
       - Use caution in the presence of multiple
         transcripts
     """
-    #
-    # if (item["variant_classification"] in [
-    #     "Nonsense_Mutation"
-    #     "Frame_Shift_Ins", "Frame_Shift_Del"
-    # ]):
-    #     return True
-    # elif (item["variant_classification"] in [
-    #     "Intron", "5'UTR", "3'UTR", "IGR", "5'Flank", "Missense_Mutation"
-    # ]):
-    #     return False
-    # else:
-    #     return "TBD"
-    return True
+
+    if (item["variant_classification"] in [
+        "Nonsense_Mutation"
+        "Frame_Shift_Ins", "Frame_Shift_Del"
+    ]):
+        return True
+    elif (item["variant_classification"] in [
+        "Intron", "5'UTR", "3'UTR", "IGR", "5'Flank", "Missense_Mutation"
+    ]):
+        return False
+    else:
+        return "TBD"
+    # return True
 
 
 def PM1(item):

@@ -35,7 +35,6 @@ GENDER_CHOICES = (
 
 class GenomicProfile(models.Model):
     username = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
-
     last_name = models.CharField(max_length=100, blank=False)
     first_name = models.CharField(max_length=100, blank=False)
     middle_init = models.CharField(max_length=100, blank=True)

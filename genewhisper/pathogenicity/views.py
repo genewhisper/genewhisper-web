@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class ReportView(TemplateView, LoginRequiredMixin, ):
+class ReportView(TemplateView, LoginRequiredMixin,):
 
     def get_context_data(self, *args, **kwargs):
         genomic_profile_id = GenomicProfile(self, *args, **kwargs)
