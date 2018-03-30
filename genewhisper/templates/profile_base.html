@@ -31,8 +31,6 @@
     <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/custombox/custombox.min.css' %}">
 
 
-
-
     <link rel="stylesheet"
           href="{% static 'genewhisper/assets_website/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css' %}">
     <link rel="stylesheet" href="{% static 'genewhisper/assets_profile/vendor/flatpickr/dist/css/flatpickr.min.css' %}">
@@ -500,6 +498,21 @@
                     <!-- Dashboards: Submenu-1 -->
                     <ul id="subMenu2" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0"
                         style="display: none;">
+
+
+                        <!-- Dashboards v1 -->
+                        <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
+                               href="{% url 'profiles:my_genomic_profiles' %}">
+                  <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+          <i class="hs-admin-layout-grid-2"></i>
+        </span>
+                                <span class="media-body align-self-center">My Genomic Profiles</span>
+                            </a>
+                        </li>
+                        <!-- End Dashboards v1 -->
+
+
                         <!-- Dashboards v1 -->
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
@@ -546,6 +559,25 @@
                     <!-- Dashboards: Submenu-1 -->
                     <ul id="subMenu3" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0"
                         style="display: none;">
+
+
+                         <!-- Dashboards v1 -->
+                        <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
+                               href="{% url 'profiles:my_genomic_reports' %}">
+                  <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+          <i class="hs-admin-align-justify"></i>
+        </span>
+                                <span class="media-body align-self-center">My Genomic Reports</span>
+                            </a>
+                        </li>
+                        <!-- End Dashboards v1 -->
+
+
+
+
+
+
                         <!-- Dashboards v1 -->
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
@@ -562,7 +594,6 @@
                     <!-- End Dashboards: Submenu-1 -->
                 </li>
                 <!-- End Genomic Report -->
-
 
 
                 <!-- Market Plase -->
@@ -609,17 +640,10 @@
                         <!-- End My Offers -->
 
 
-
-
-
-
-
                     </ul>
                     <!-- End Dashboards: Submenu-1 -->
                 </li>
                 <!-- End Genomic Report -->
-
-
 
 
             </ul>
@@ -767,9 +791,6 @@
 <script src="{% static 'genewhisper/assets_website/js/components/hs.modal-window.js' %}"></script>
 
 
-
-
-
 <!-- JS Plugins Init. -->
 <script>
     $(document).on('ready', function () {
@@ -825,14 +846,14 @@
     });
 
 
-<!-- JS Implementing Plugins -->
-<!-- JS Unify -->
+    <!-- JS Implementing Plugins -->
+    <!-- JS Unify -->
 
-<!-- JS Plugins Init. -->
-  $(document).on('ready', function () {
-    // initialization of popups
-    $.HSCore.components.HSModalWindow.init('[data-modal-target]');
-  });
+    <!-- JS Plugins Init. -->
+    $(document).on('ready', function () {
+        // initialization of popups
+        $.HSCore.components.HSModalWindow.init('[data-modal-target]');
+    });
 
 </script>
 

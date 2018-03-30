@@ -13,6 +13,7 @@ urlpatterns = [
     #      name='new_clinical_trial'),
 
     path('new-clinical-trial', views.create_new_clinical_trial, name='new_clinical_trial'),
+
     path('clinical-trial-list',
          views.ClinicalTrialListView.as_view(template_name='marketplace/clinical_trial_list.html'),
          name='clinical_trial_list'),

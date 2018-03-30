@@ -3,15 +3,16 @@ from pathogenicity.models import Pathogenicity
 from genomic_profiles.models import GenomicProfile
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 
 
-class ReportView(TemplateView, LoginRequiredMixin,):
+class ReportView(TemplateView, LoginRequiredMixin):
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, *args, **kwargs, ):
         genomic_profile_id = GenomicProfile(self, *args, **kwargs)
-        genomic_profile_data = GenomicProfile.objects.all()
+        genomic_profile_data = GenomicProfile.objects.all().filter(username=self.request.user)
 
         all_variants_number = Pathogenicity.objects.all().count()
 

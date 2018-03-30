@@ -32,10 +32,10 @@ def PVS1(item):
     elif (item["variant_classification"] in [
         "Intron", "5'UTR", "3'UTR", "IGR", "5'Flank", "Missense_Mutation"
     ]):
-        return False
-    else:
-        return "TBD"
-    # return True
+        #     return False
+        # else:
+        #     return "TBD"
+        return True
 
 
 def PM1(item):
