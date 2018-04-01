@@ -14,13 +14,12 @@
             </li>
 
             <li class="list-inline-item g-mr-10">
-                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle" href="#!">Marketplace</a>
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle"
+                   href="{% url 'profiles:my_genomic_reports' %}">Genomic Reports</a>
                 <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
             </li>
 
-            <li class="list-inline-item">
-                <span class="g-valign-middle">All Products</span>
-            </li>
+
         </ul>
     </div>
     <!-- End Breadcrumb-v1 -->
@@ -29,7 +28,7 @@
     <div class="g-pa-20">
         <div class="media">
             <div class="d-flex align-self-center">
-                <h1 class="g-font-weight-300 g-font-size-28 g-color-black mb-0">My Genomic Profiles</h1>
+                <h1 class="g-font-weight-300 g-font-size-28 g-color-black mb-0">My Genomic Reports</h1>
             </div>
 
             <div class="media-body align-self-auto text-right">
@@ -45,7 +44,7 @@
 
             <div class="">
                 <a class="btn btn-xl u-btn-lightblue-v3  g-font-size-default g-ml-10"
-                   href="{% url 'profiles:all_genomic_profiles_list' %}" data-src="#new-project-form"
+                   href="{% url 'profiles:all_genomic_report_list' %}" data-src="#new-project-form"
                    data-modal-target="#modal1" data-modal-effect="fadein"
                    data-speed="350" data-options="{&quot;touch&quot; : false}">
                     View as a List
@@ -56,10 +55,10 @@
 
             <div class="">
                 <a class="btn btn-xl u-btn-lightblue-v3  g-font-size-default g-ml-10"
-                   href="{% url 'profiles:new_genomic_profile_form' %}" data-src="#new-project-form"
+                   href="#" data-src="#new-project-form"
                    data-modal-target="#modal1" data-modal-effect="fadein"
                    data-speed="350" data-options="{&quot;touch&quot; : false}">
-                    What is Genomic Profile
+                    What is Genomic Report
                 </a>
 
             </div>

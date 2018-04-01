@@ -5,7 +5,7 @@
 
     <!-- Profile Content -->
     <div>
-        <div class="g-pa-20">
+        <div class="g-bg-lightblue-v10-opacity-0_5 g-pa-20">
             <div class="row">
 
                 <div class="col-sm-6 col-lg-6 col-xl-3 g-mb-30">
@@ -304,13 +304,13 @@
                             <div class="media">
                                 <div class="d-flex g-mr-15">
                                     <div class="u-header-dropdown-icon-v1 g-pos-rel g-width-60 g-height-60 g-bg-beige g-font-size-18 g-font-size-24--md g-color-white rounded-circle">
-                                        <i class="hs-admin-pencil-alt g-absolute-centered"></i>
+                                        <a href="{% url 'profiles:my_genomic_reports' %}" style="color: inherit"><i class="hs-admin-pencil-alt g-absolute-centered"></i></a>
                                     </div>
                                 </div>
 
                                 <div class="media-body align-self-center">
                                     <div class="d-flex align-items-center g-mb-5">
-                                        <span class="g-font-size-24 g-line-height-1 g-color-black">Genomic Reports</span>
+                                        <a href="{% url 'profiles:my_genomic_reports' %}" style="text-decoration: none"><span class="g-font-size-24 g-line-height-1 g-color-black">Genomic Reports</span></a>
                                         <span class="d-flex align-self-center g-font-size-0 g-ml-5 g-ml-10--md">
                       <i class="g-fill-gray-dark-v9">
                       </i>
