@@ -25,7 +25,7 @@
     </div>
     <!-- End Breadcrumb-v1 -->
 
-    <div class="g-pa-20">
+    <div class="g-bg-lightblue-v10-opacity-0_5 g-pa-20">
 
         <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-28">Genomic Report for Profile
 
@@ -341,14 +341,7 @@
         </div>
     </div>
 
-    {{ all_variants_number }}
-    {{ uncertain_significanse_variants_number }}
-    {{ likely_pathogenic_variants_number }}
 
-    {% for variants in data %}
-        <h1>{{ variants.id }}</h1>
-        <h1>{{ variants.Pathogenicity }}</h1>
-    {% endfor %}
 
 
 

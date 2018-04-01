@@ -27,7 +27,7 @@
     </div>
     <!-- End Breadcrumb-v1 -->
 
-    <div class="g-pa-20">
+    <div class="g-bg-lightblue-v10-opacity-0_5  g-pa-20">
 
 
         <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-30">Genomic Reports</h1>
@@ -62,8 +62,8 @@
         </div>
 
                        {#Table element#}
-        <div class="g-mb-40">
-            <div class="table-responsive">
+        <div class="card g-mb-40 u-card-v1">
+            <div class="table-hover">
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
                     <div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select
                             name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="">
@@ -254,15 +254,17 @@
                         {% for profile in all_genomic_profile_list %}
 
                             <tr role="row" class="odd">
+
                                 <td class="sorting_1">
 
-                                    <a href="{% url 'profiles:report' profile.id %}">{{ profile.id }}</a>
+                                    <a href="{% url 'profiles:report' profile.id %}" style="color: inherit">{{ profile.id }}</a>
 
                                 </td>
 
+
                                 <td>
 
-                                    <a href="{% url 'profiles:report' profile.id %}">{{ profile.first_name }} {{ profile.last_name }}</a>
+                                    <a href="{% url 'profiles:report' profile.id %}" style="color: inherit">{{ profile.first_name }} {{ profile.last_name }}</a>
 
                                 </td>
 
@@ -290,11 +292,11 @@
                                            class="u-link-v5 g-line-height-0 g-font-size-24 g-color-gray-light-v6 g-color-lightblue-v3--hover"
                                            href="#!" aria-controls="dropDown1" aria-haspopup="true"
                                            aria-expanded="false"
-                                           data-dropdown-event="click" data-dropdown-target="#dropDown1">
+                                           data-dropdown-event="click" data-dropdown-target="#dropDown{{ profile.id }}">
                                             <i class="hs-admin-more-alt"></i>
                                         </a>
 
-                                        <div id="dropDown1"
+                                        <div id="dropDown{{ profile.id }}"
                                              class="u-shadow-v31 g-pos-abs g-right-0 g-z-index-2 g-bg-white u-dropdown--css-animation u-dropdown--hidden u-dropdown--reverse-y"
                                              aria-labelledby="dropDown1Invoker"
                                              style="animation-duration: 300ms; right: 0px;">
