@@ -13,10 +13,17 @@
                 <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
             </li>
 
+
             <li class="list-inline-item g-mr-10">
                 <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle"
-                   href="{% url 'profiles:my_genomic_profiles' %}">Clinical Trials</a>
+                   href="{% url 'marketplace:all_clinical_trials' %}">Marketplace</a>
                 <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
+            </li>
+
+
+            <li class="list-inline-item g-mr-10">
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle"
+                   href="{% url 'marketplace:all_offers' %}">My Offers</a>
             </li>
 
 
@@ -28,13 +35,13 @@
     <div class="g-bg-lightblue-v10-opacity-0_5 g-pa-20">
         <div class="media">
             <div class="d-flex align-self-center">
-                <h1 class="g-font-weight-300 g-font-size-28 g-color-black mb-0">All Clinical Trials</h1>
+                <h1 class="g-font-weight-300 g-font-size-28 g-color-black mb-0">My Offers</h1>
             </div>
 
 
             <div class="media-body align-self-auto text-right">
                 <a class="btn btn-xl u-btn-lightblue-v3  g-font-size-default g-ml-10"
-                   href="#" data-src="#new-project-form"
+                   href="{% url 'marketplace:all_offers_list' %}" data-src="#new-project-form"
                    data-modal-target="#modal1" data-modal-effect="fadein"
                    data-speed="350" data-options="{&quot;touch&quot; : false}">
                     View as a List
@@ -48,7 +55,7 @@
                    href="#" data-src="#new-project-form"
                    data-modal-target="#modal1" data-modal-effect="fadein"
                    data-speed="350" data-options="{&quot;touch&quot; : false}">
-                    What is Clinical Trial
+                    What is Offer
                 </a>
 
             </div>
@@ -62,7 +69,7 @@
         <div class="row">
 
 
-            {% for item in clinical_trial %}
+            {% for item in context %}
 
 
                 <div class="col-md-6 col-lg-3 g-mb-30">
@@ -190,12 +197,18 @@
 
                         <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
 
-                        <div align="center" class="card-block g-px-15">
 
-                            <a href="{% url 'profiles:report' item.id %}"
-                               class="btn btn-lg u-btn-orange u-btn-hover-v2-1 g-mr-10 g-mb-5 g-font-size-default">
-                                More Detils</a>
+                        <div class="card-block g-px-20">
+                                <span style="float: left"><a href="{% url 'profiles:genomic_profile_details' item.id %}"
+                                                             class="btn btn-lg u-btn-teal u-btn-hover-v2-1 g-mr-10 g-mb-5 g-font-size-default">
+                                   Accept Offer</a></span>
+
+
+                            <span style="float: right"><a href="{% url 'profiles:report' item.id %}"
+                                                          class="btn btn-lg u-btn-orange u-btn-hover-v2-1 g-mr-10 g-mb-5 g-font-size-default">
+                                    More Details</a></span>
                         </div>
+
                     </div>
                 </div>
 
