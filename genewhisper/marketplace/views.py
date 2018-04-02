@@ -43,6 +43,16 @@ class ClinicalTrialListView(LoginRequiredMixin, ListView):
         return ClinicalTrial.objects.filter(username=self.request.user)
 
 
+class AllClinicalTrialsView(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
+    model = ClinicalTrial
+    context_object_name = 'clinical_trial'
+
+
+
+
+
+
 class ClinicalTrialUpdateView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     success_url = reverse_lazy('marketplace:clinical_trial_list')

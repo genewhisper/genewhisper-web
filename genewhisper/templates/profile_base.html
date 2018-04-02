@@ -439,8 +439,6 @@
                 <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
 
 
-
-
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
                        href="#!" data-hssm-target="#subMenu1">
               <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
@@ -614,6 +612,22 @@
                     <ul id="subMenu4" class="u-sidebar-navigation-v1-menu u-side-nav--second-level-menu mb-0"
                         style="display: none;">
 
+
+
+                        <!-- My Products -->
+                        <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
+                            <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
+                               href="{% url 'marketplace:all_clinical_trials' %}">
+                  <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
+          <i class="hs-admin-pulse"></i>
+        </span>
+                                <span class="media-body align-self-center">All Clinical Trials</span>
+                            </a>
+                        </li>
+                        <!-- End My Products -->
+
+
+
                         <!-- My Products -->
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
@@ -630,7 +644,7 @@
 
                         <li class="u-sidebar-navigation-v1-menu-item u-side-nav--second-level-menu-item">
                             <a class="media u-side-nav--second-level-menu-link g-px-15 g-py-12"
-                               href="{% url 'marketplace:all_offers' %}">
+                               href="{% url 'marketplace:all_offers_list' %}">
                   <span class="d-flex align-self-center g-mr-15 g-mt-minus-1">
           <i class="hs-admin-align-justify"></i>
         </span>

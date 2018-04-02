@@ -1,0 +1,215 @@
+{% extends 'profile_base.html' %}
+
+{% block profile_content %}
+
+
+    <!-- Breadcrumb-v1 -->
+    <div class="g-hidden-sm-down g-bg-gray-light-v8 g-pa-20">
+        <ul class="u-list-inline g-color-gray-dark-v6">
+
+            <li class="list-inline-item g-mr-10">
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle"
+                   href="{% url 'profiles:main_profile_page' %}">Dashboard</a>
+                <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
+            </li>
+
+            <li class="list-inline-item g-mr-10">
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle"
+                   href="{% url 'profiles:my_genomic_profiles' %}">Clinical Trials</a>
+                <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
+            </li>
+
+
+        </ul>
+    </div>
+    <!-- End Breadcrumb-v1 -->
+
+
+    <div class="g-bg-lightblue-v10-opacity-0_5 g-pa-20">
+        <div class="media">
+            <div class="d-flex align-self-center">
+                <h1 class="g-font-weight-300 g-font-size-28 g-color-black mb-0">All Clinical Trials</h1>
+            </div>
+
+
+            <div class="media-body align-self-auto text-right">
+                <a class="btn btn-xl u-btn-lightblue-v3  g-font-size-default g-ml-10"
+                   href="#" data-src="#new-project-form"
+                   data-modal-target="#modal1" data-modal-effect="fadein"
+                   data-speed="350" data-options="{&quot;touch&quot; : false}">
+                    View as a List
+                </a>
+
+            </div>
+
+
+            <div class="">
+                <a class="btn btn-xl u-btn-lightblue-v3  g-font-size-default g-ml-10"
+                   href="#" data-src="#new-project-form"
+                   data-modal-target="#modal1" data-modal-effect="fadein"
+                   data-speed="350" data-options="{&quot;touch&quot; : false}">
+                    What is Clinical Trial
+                </a>
+
+            </div>
+
+
+        </div>
+
+        <hr class="d-flex g-brd-gray-light-v7 g-my-20">
+
+
+        <div class="row">
+
+
+            {% for item in clinical_trial %}
+
+
+                <div class="col-md-6 col-lg-3 g-mb-30">
+                    <div class="card h-100 g-brd-gray-light-v7 u-card-v1 g-rounded-3">
+
+                        <header class="card-header g-bg-transparent g-brd-bottom-none ">
+                            <div class="media g-mb-15">
+                                <div class="d-flex align-self-center">GeneWhisper</div>
+
+                                <div class="media-body d-flex justify-content-end">
+                                    <div class="g-pos-rel g-z-index-2">
+                                        <a id="dropDown2Invoker"
+                                           class="g-line-height-0 g-font-size-24 g-color-gray-light-v6 g-color-lightblue-v3--hover u-link-v5"
+                                           href="#!" aria-controls="dropDown2" aria-haspopup="true"
+                                           aria-expanded="false"
+                                           data-dropdown-event="click" data-dropdown-target="#dropDown{{ item.id }}"
+                                           data-dropdown-type="jquery-slide">
+                                            <i class="hs-admin-more-alt g-ml-20"></i>
+                                        </a>
+
+                                        <div id="dropDown{{ item.id }}"
+                                             class="u-shadow-v31 g-pos-abs g-right-0 g-bg-white u-dropdown--jquery-slide u-dropdown--hidden"
+                                             aria-labelledby="dropDown2Invoker" style="display: none; right: 0px;">
+                                            <ul class="list-unstyled g-nowrap mb-0">
+
+
+                                                <li>
+                                                    <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
+                                                       href="
+                                                                   {% url 'profiles:genomic_profile_update' item.id %}">
+                                                        <i class="hs-admin-pencil g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
+                                                        Edit
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
+                                                       href="{% url 'profiles:genomic_profile_details' item.id %}">
+                                                        <i class="hs-admin-archive g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
+                                                        Details
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
+                                                       href="{% url 'profiles:report' item.id %}">
+                                                        <i class="hs-admin-check g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
+                                                        Report
+                                                    </a>
+                                                </li>
+
+
+                                                <li>
+                                                    <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
+                                                       href="{% url 'profiles:genomic_profile_delete' item.id %}">
+                                                        <i class="hs-admin-trash g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
+                                                        Delete
+                                                    </a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="{% url 'profiles:genomic_profile_details' item.id %}" style="color: inherit">
+                                <h3 class="g-font-weight-300 g-font-size-20 g-color-black">Clinical
+                                    Trial {{ item.identifier }}</h3>
+
+                            </a>
+
+                        </header>
+
+                        <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
+
+                        <div class="card-block g-px-20 g-px-30--sm g-py-10 g-py-15--sm">
+
+                            <div class="media align-self-center g-mb-5">
+                                <div class="d-flex g-width-100 g-font-weight-300 g-color-gray-dark-v10">Status
+                                </div>
+
+                                <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black">
+                                    <span class="u-tags-v1 text-center  g-brd-around g-width-100 g-bg-green g-color-white g-rounded-50  g-px-5">In Process</span>
+
+                                </div>
+                            </div>
+
+
+                            <div class="media align-self-center g-mb-5">
+                                <div class="d-flex g-width-170 g-font-weight-300 g-color-gray-dark-v10">Number of
+                                    Participants
+                                </div>
+
+                                <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black">
+                                    {{ item.number_of_participants }}
+                                </div>
+                            </div>
+
+
+                            <div class="media align-self-center g-mb-5">
+                                <div class="d-flex g-width-130 g-font-weight-300 g-color-gray-dark-v10">Age of
+                                    Participants
+                                </div>
+
+                                <div class="d-flex align-self-center justify-content-end g-font-weight-300 g-color-black">
+                                    {{ item.min_age }} - {{ item.max_age }} years
+                                </div>
+                            </div>
+
+
+                            <div class="media  g-mb-5">
+                                <div class="d-flex g-width-130 g-font-weight-300 g-color-gray-dark-v10">Offer Price
+                                </div>
+
+                                <div class="g-font-weight-300">
+                                    ${{ item.offer_price }}
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
+
+                        <div align="center" class="card-block g-px-15">
+
+                            <a href="{% url 'profiles:report' item.id %}"
+                               class="btn btn-lg u-btn-orange u-btn-hover-v2-1 g-mr-10 g-mb-5 g-font-size-default">
+                                More Detils</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+
+
+
+{% endblock profile_content %}
