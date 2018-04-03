@@ -1,7 +1,7 @@
 import logging
 
 import sys
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, render_to_response
 from django.http.response import HttpResponseRedirect
 from django.contrib.auth import login
 from django.contrib.auth import authenticate
@@ -37,9 +37,9 @@ def login_company(request):
                     print(companyRegistration)
                     if companyRegistration.role == 'company':
 
-                        return render(request, 'accounts/company_dashboard.html', {"message": "success"})
+                        return redirect('/accounts/company-profile')
                     else:
-                        return render(request, 'profiles/profile.html', {"message": "success"})
+                        return render(request, 'accounts/patient_dashboard.html', {"message": "success"})
 
                 except Exception:
                     return HttpResponseRedirect("/profile")
@@ -80,5 +80,3 @@ class CompanyProfileView(ListView):
     context_object_name = 'clinical_trial_list'
     template_name = 'accounts/company_dashboard.html'
 
-    def get_queryset(self):
-        return ClinicalTrial.objects.filter(username=self.request.user)
