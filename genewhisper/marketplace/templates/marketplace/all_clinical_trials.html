@@ -34,6 +34,17 @@
 
             <div class="media-body align-self-auto text-right">
                 <a class="btn btn-xl u-btn-lightblue-v3  g-font-size-default g-ml-10"
+                   href="{% url 'marketplace:all_offers' %}" data-src="#new-project-form"
+                   data-modal-target="#modal1" data-modal-effect="fadein"
+                   data-speed="350" data-options="{&quot;touch&quot; : false}">
+                    Clinical Trials Im Qualified
+                </a>
+
+            </div>
+
+
+            <div class="">
+                <a class="btn btn-xl u-btn-lightblue-v3  g-font-size-default g-ml-10"
                    href="#" data-src="#new-project-form"
                    data-modal-target="#modal1" data-modal-effect="fadein"
                    data-speed="350" data-options="{&quot;touch&quot; : false}">
@@ -88,36 +99,18 @@
                                              aria-labelledby="dropDown2Invoker" style="display: none; right: 0px;">
                                             <ul class="list-unstyled g-nowrap mb-0">
 
-
                                                 <li>
                                                     <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                       href="
-                                                                   {% url 'profiles:genomic_profile_update' item.id %}">
-                                                        <i class="hs-admin-pencil g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                        Edit
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                       href="{% url 'profiles:genomic_profile_details' item.id %}">
+                                                       href="#">
                                                         <i class="hs-admin-archive g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
                                                         Details
                                                     </a>
                                                 </li>
 
-                                                <li>
-                                                    <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                       href="{% url 'profiles:report' item.id %}">
-                                                        <i class="hs-admin-check g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
-                                                        Report
-                                                    </a>
-                                                </li>
-
 
                                                 <li>
                                                     <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
-                                                       href="{% url 'profiles:genomic_profile_delete' item.id %}">
+                                                       href="#">
                                                         <i class="hs-admin-trash g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
                                                         Delete
                                                     </a>
@@ -200,11 +193,15 @@
 
                         <hr class="d-flex g-brd-gray-light-v7 g-mx-20 g-mx-30--sm my-0">
 
-                        <div align="center" class="card-block g-px-15">
+                        <div class="card-block g-px-10">
+                                <span style="float: left"><a href="#"
+                                                             class="btn btn-lg u-btn-teal u-btn-hover-v2-1 g-mr-10 g-mb-5 g-font-size-default">
+                                   Details</a></span>
 
-                            <a href="{% url 'profiles:report' item.id %}"
-                               class="btn btn-lg u-btn-orange u-btn-hover-v2-1 g-mr-10 g-mb-5 g-font-size-default">
-                                More Detils</a>
+
+                            <span style="float: right"><a href="#"
+                                                          class="btn btn-lg u-btn-orange u-btn-hover-v2-1 g-mr-10 g-mb-5 g-font-size-default">
+                                    Check if Im Qualified</a></span>
                         </div>
                     </div>
                 </div>
