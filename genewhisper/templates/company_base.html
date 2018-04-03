@@ -4,7 +4,7 @@
 
 <head>
     <!-- Title -->
-    <title>Profile</title>
+    <title>Company Profile</title>
 
 
     <!-- Required Meta Tags Always Come First -->
@@ -343,7 +343,7 @@
                      src="{% static 'genewhisper/assets_profile/img-temp/130x130/img1.jpg' %}" alt="Image description">
                 </span>
                             <span class="g-pos-rel g-top-2">
-        <span class="g-hidden-sm-down">{{ user.first_name }} {{ user.last_name }}</span>
+        <span class="g-hidden-sm-down">My Company</span>
                 <i class="hs-admin-angle-down g-pos-rel g-top-2 g-ml-10"></i>
                 </span>
                         </a>
@@ -371,7 +371,7 @@
                             </li>
                             <li class="g-mb-10">
                                 <a class="media g-color-lightred-v2--hover g-py-5 g-px-20"
-                                   href="{% url 'profiles:main_profile_page' %}">
+                                   href="{% url 'accounts:company_profile' %}">
                     <span class="d-flex align-self-center g-mr-12">
           <i class="hs-admin-user"></i>
         </span>
@@ -436,7 +436,7 @@
 
 
                 <!-- Dashboard -->
-                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item has-active">
+                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
                        href="#!" data-hssm-target="#subMenu1">
               <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
@@ -482,7 +482,7 @@
 
 
                 <!-- Clinical Trial -->
-                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item has-active">
+                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
                        href="#!" data-hssm-target="#subMenu2">
               <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
@@ -528,7 +528,7 @@
 
 
                 <!--File Manager -->
-                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item has-active">
+                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
                        href="{% url 'marketplace:file_manager' %}">
               <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">
@@ -543,7 +543,7 @@
 
 
                 <!--Shopping Cart -->
-                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item has-active">
+                <li class="u-sidebar-navigation-v1-menu-item u-side-nav--has-sub-menu u-side-nav--top-level-menu-item">
                     <a class="media u-side-nav--top-level-menu-link u-side-nav--hide-on-hidden g-px-15 g-py-12"
                        href="{% url 'marketplace:shopping_cart' %}">
               <span class="d-flex align-self-center g-pos-rel g-font-size-18 g-mr-18">

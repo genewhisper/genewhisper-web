@@ -7,13 +7,13 @@ from django.contrib.auth import login
 from django.contrib.auth import authenticate
 from django.contrib.auth import authenticate
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, ListView
 from django.contrib.auth.models import User
 # Create your views here.
 from django.shortcuts import redirect
 
 from .forms import UserCreateForm, CompanyRegistrationForm, CompanyRegistration
-
+from marketplace.models import ClinicalTrial
 
 class SignUp(CreateView):
     form_class = UserCreateForm
@@ -36,9 +36,10 @@ def login_company(request):
                     # companyRegistration = CompanyRegistration.objects.get(companyEmail=user.email)
                     print(companyRegistration)
                     if companyRegistration.role == 'company':
+
                         return render(request, 'accounts/company_dashboard.html', {"message": "success"})
                     else:
-                        return render(request, 'accounts/patient_dashboard.html', {"message": "success"})
+                        return render(request, 'profiles/profile.html', {"message": "success"})
 
                 except Exception:
                     return HttpResponseRedirect("/profile")
@@ -74,5 +75,10 @@ def company_register(request):
     return render(request, 'accounts/company_singup.html', context)
 
 
-class CompanyProfileView(TemplateView):
+class CompanyProfileView(ListView):
+    model = ClinicalTrial
+    context_object_name = 'clinical_trial_list'
     template_name = 'accounts/company_dashboard.html'
+
+    def get_queryset(self):
+        return ClinicalTrial.objects.filter(username=self.request.user)
