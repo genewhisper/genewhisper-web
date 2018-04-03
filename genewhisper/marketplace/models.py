@@ -4,6 +4,13 @@ from accounts.models import CompanyRegistration
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 
+
+STATUS_CHOICES = (
+    ('C', 'Completed'),
+    ('P', 'In Process'),
+    ('S', 'Stopped'),
+)
+
 RACE_CHOICES = (
     ('C', 'Caucasian'),
     ('AA', 'African American '),
@@ -51,6 +58,7 @@ class ClinicalTrial(models.Model):
 
     brief_summary = models.TextField(blank=True)
     detailed_description = models.TextField(blank=True)
+    status = models.CharField(max_length=56, choices=STATUS_CHOICES, blank=False)
 
     def get_absolute_url(self):
         return reverse("marketplace:clinical_trial_details", kwargs={'pk': self.pk})

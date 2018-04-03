@@ -13,5 +13,5 @@ class ClinicalTrialForm(ModelForm):
             'identifier', 'official_title', 'variants', 'genes',
             'start_date', 'end_date', 'number_of_participants',
             'offer_price', 'max_age', 'race', 'gender', 'clinical_trial_type',
-            'min_age', 'brief_summary', 'detailed_description'
+            'min_age', 'brief_summary', 'detailed_description', 'status'
         ]

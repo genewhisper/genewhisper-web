@@ -50,9 +50,6 @@ class AllClinicalTrialsView(LoginRequiredMixin, ListView):
 
 
 
-
-
-
 class ClinicalTrialUpdateView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     success_url = reverse_lazy('marketplace:clinical_trial_list')
