@@ -15,6 +15,7 @@ from django.shortcuts import redirect
 from .forms import UserCreateForm, CompanyRegistrationForm, CompanyRegistration
 from marketplace.models import ClinicalTrial
 
+
 class SignUp(CreateView):
     form_class = UserCreateForm
     success_url = reverse_lazy('login')
@@ -26,7 +27,7 @@ def login_company(request):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
-        #print(user.email)
+        # print(user.email)
         if user is not None:
             if user.is_active:
                 login(request, user)
@@ -43,14 +44,14 @@ def login_company(request):
 
                 except Exception:
                     return HttpResponseRedirect("/profile")
-                    #return render(request, 'accounts/patient_dashboard.html', {"message": "success"})
+                    # return render(request, 'accounts/patient_dashboard.html', {"message": "success"})
 
         else:
             return render(request, 'accounts/company_login.html',
                           {"error_message": "Username and password are not valid!"})
 
     else:
-         return render(request, 'accounts/company_login.html',
+        return render(request, 'accounts/company_login.html',
                       {"error_message": ""})
 
 
@@ -80,3 +81,5 @@ class CompanyProfileView(ListView):
     context_object_name = 'clinical_trial_list'
     template_name = 'accounts/company_dashboard.html'
 
+    def get_queryset(self):
+        return ClinicalTrial.objects.filter(username=self.request.user)
