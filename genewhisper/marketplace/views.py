@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from marketplace.forms import ClinicalTrialForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from genomic_profiles.models import GenomicProfile
 
 
 @login_required(login_url=reverse_lazy('login'))
@@ -67,6 +68,16 @@ class ClinicalTrialDetailView(LoginRequiredMixin, DetailView):
     login_url = reverse_lazy('login')
     model = ClinicalTrial
     context_object_name = 'clinical_trial'
+
+
+class ClinicalTrialParticipantsView(LoginRequiredMixin, DetailView):
+    login_url = reverse_lazy('login')
+    model = ClinicalTrial
+
+    def get_context_data(self, **kwargs):
+        context = super(ClinicalTrialParticipantsView, self).get_context_data(**kwargs)
+        context['genomic_profile'] = GenomicProfile.objects.all()
+        return context
 
 
 class ClinicalTrialDeleteView(LoginRequiredMixin, DeleteView):

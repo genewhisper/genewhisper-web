@@ -51,4 +51,8 @@ urlpatterns = [
          views.ClinicalTrialDetailView.as_view(template_name='marketplace/company_clinical_trial_details.html'),
          name='clinical_trial_details'),
 
+    path('clinical-trial-participants/<int:pk>',
+         views.ClinicalTrialParticipantsView.as_view(template_name='marketplace/clinical_trial_participans_list.html'),
+         name='clinical_trial_participants'),
+
 ]
