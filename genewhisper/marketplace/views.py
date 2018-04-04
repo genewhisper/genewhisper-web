@@ -25,7 +25,7 @@ def create_new_clinical_trial(request):
             except Exception:
                 pass
             clinical_trial.save()
-            return HttpResponseRedirect('clinical-trial-list')
+            return HttpResponseRedirect('?submitted=True')
     else:
         form = ClinicalTrialForm()
         if 'submitted' in request.GET:
@@ -49,7 +49,6 @@ class AllClinicalTrialsView(LoginRequiredMixin, ListView):
     context_object_name = 'clinical_trial'
 
 
-
 class ClinicalTrialUpdateView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     success_url = reverse_lazy('marketplace:clinical_trial_list')
@@ -60,8 +59,14 @@ class ClinicalTrialUpdateView(LoginRequiredMixin, UpdateView):
         'identifier', 'official_title', 'variants', 'genes',
         'start_date', 'end_date', 'number_of_participants',
         'offer_price', 'max_age', 'race', 'gender', 'clinical_trial_type',
-        'min_age', 'brief_summary', 'detailed_description'
+        'min_age', 'brief_summary', 'detailed_description', 'status'
     ]
+
+
+class ClinicalTrialDetailView(LoginRequiredMixin, DetailView):
+    login_url = reverse_lazy('login')
+    model = ClinicalTrial
+    context_object_name = 'clinical_trial'
 
 
 class ClinicalTrialDeleteView(LoginRequiredMixin, DeleteView):

@@ -1,0 +1,344 @@
+{% extends 'company_base.html' %}
+{% load staticfiles %}
+{% block company_profile_content %}
+
+    <!-- Breadcrumb-v1 -->
+    <div class="g-hidden-sm-down g-bg-gray-light-v8 g-pa-20">
+        <ul class="u-list-inline g-color-gray-dark-v6">
+
+            <li class="list-inline-item g-mr-10">
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle"
+                   href="{% url 'profiles:main_profile_page' %}">Dashboard</a>
+                <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
+            </li>
+
+            <li class="list-inline-item g-mr-10">
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle" href="#!">
+                    Clinical Trial Details</a>
+                <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
+            </li>
+
+
+        </ul>
+    </div>
+    <!-- End Breadcrumb-v1 -->
+
+
+
+    <div class="">
+
+
+        <div class="g-bg-lightblue-v10-opacity-0_5 g-pa-20">
+
+
+            <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-28">Clinical Trial Info</h1>
+
+            <div class="row">
+                <!-- 1-st column -->
+                <div class="col-md-8">
+                    <!-- Basic Text Inputs -->
+                    <div class=" card u-card-v1 g-brd-around g-brd-gray-light-v7 g-rounded-4 g-pa-15 g-pa-30 g-mb-30">
+                        <h3 class="d-flex align-self-auto text-uppercase g-font-size-12 g-font-size-default--md g-color-black g-mb-20">
+                            Details of Clinical Trial # {{ clinical_trial.identifier }}</h3>
+
+
+                        <div class="row g-mb-20">
+
+                            <!-- Table Striped Rows -->
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">ID</td>
+                                        <td>{{ clinical_trial.id }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Identifier</td>
+                                        <td>{{ clinical_trial.identifier }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Official Title</td>
+                                        <td>{{ clinical_trial.official_title }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Brief Summary</td>
+                                        <td>{{ clinical_trial.brief_summary }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Genes</td>
+                                        <td>{{ clinical_trial.genes }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Variants</td>
+                                        <td>{{ clinical_trial.variants }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Start Date</td>
+                                        <td>{{ clinical_trial.start_date }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">End Date</td>
+                                        <td>{{ clinical_trial.end_date }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Number of Participants</td>
+                                        <td>{{ clinical_trial.number_of_participants }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Max Age</td>
+                                        <td>{{ clinical_trial.max_age }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Min Age</td>
+                                        <td>{{ clinical_trial.min_age }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Ethnicity</td>
+                                        <td>{{ clinical_trial.get_race_display }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Gender</td>
+                                        <td>{{ clinical_trial.get_gender_display }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="font-weight: bold">Offer Prise</td>
+                                        <td>${{ clinical_trial.offer_price }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Number of Participants</td>
+                                        <td>{{ clinical_trial.number_of_participants }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Detailed Description</td>
+                                        <td>{{ clinical_trial.brief_summary }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="font-weight: bold">Status</td>
+                                        <td>{{ clinical_trial.get_status_display }}</td>
+                                    </tr>
+
+
+                                </table>
+
+
+                            </div>
+
+                            <div style="text-align: center">
+                                <button class="btn btn-md btn-xl--md u-btn-lightblue-v3  g-font-size-12 g-font-size-default--md g-mb-10"
+                                        type="submit"
+                                        onclick="location.href='{% url 'marketplace:clinical_trial_update' clinical_trial.id %}'">
+                                    Update Clinical Trial
+                                </button>
+
+                                <button class="btn btn-md btn-xl--md u-btn-primary  g-font-size-12 g-font-size-default--md g-mb-10"
+                                        type="submit"
+                                        onclick="location.href='{% url 'marketplace:clinical_trial_delete' clinical_trial.id %}'">
+                                    Delete Clinical Trial
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                    <!-- End 1-st column -->
+
+
+                </div>
+                <!-- Calendar Card -->
+                <div class="col-md-4">
+
+                    <div class="card u-card-v1 g-brd-gray-light-v7 g-mb-30">
+                        <header class="media g-pa-15 g-pa-25-30-0--md g-mb-0">
+                            <h3 class="text-uppercase g-font-size-12 g-font-size-default--md g-color-black g-mb-20">
+                                Options</h3>
+                        </header>
+
+                        <div class="js-custom-scroll g-height-500 g-pa-15 g-pa-0-30-25--md">
+                            <div>
+                                <div class="media">
+
+                                    <div class="media-body g-mb-15">
+                                        <h3 class="g-font-weight-500 g-font-size-16 g-color-black g-mb-10">
+                                            Clinical Trial Status</h3>
+
+
+                                        <div class="btn-group justified-content">
+                                            <label class="u-check">
+                                                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0"
+                                                       name="radGroupBtn1_1" type="radio" checked="">
+                                                <span class="btn btn-md btn-block u-btn-outline-lightgray g-color-white--checked g-bg-primary--checked rounded-0">In Process</span>
+                                            </label>
+                                            <label class="u-check">
+                                                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0"
+                                                       name="radGroupBtn1_1" type="radio">
+                                                <span class="btn btn-md btn-block u-btn-outline-lightgray g-color-white--checked g-bg-primary--checked g-brd-left-none--md rounded-0">Completed</span>
+                                            </label>
+                                            <label class="u-check">
+                                                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0"
+                                                       name="radGroupBtn1_1" type="radio">
+                                                <span class="btn btn-md btn-block u-btn-outline-lightgray g-color-white--checked g-bg-primary--checked g-brd-left-none--md rounded-0">Stopped</span>
+                                            </label>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row g-mb-5">
+                                    <div class="col-md-8 align-self-center g-mb-5 g-mb-0--md g-font-weight-500">
+                                        <label class="mb-0 " for="#firstName">Number of Participants</label>
+                                    </div>
+
+                                    <div class="col-md-4 align-self-center">
+                                        <div class="form-group g-pos-rel mb-0">
+                          <span class="g-pos-abs g-top-0 g-right-0 d-block g-width-40 h-100 opacity-0 g-opacity-1--success">
+                          <i class="hs-admin-check g-absolute-centered g-font-size-default g-color-lightblue-v3"></i>
+                        </span>
+                                            <input id="firstName" name="firstName"
+                                                   class="form-control form-control-md g-brd-gray-light-v7 g-brd-lightblue-v3--focus g-brd-lightred-v2--error g-rounded-4 g-px-20 g-py-12"
+                                                   type="text" value="{{ clinical_trial.number_of_participants }}"
+                                                   required="required"
+                                                   data-msg="This field is mandatory" data-error-class="u-has-error-v3"
+                                                   data-success-class="has-success" aria-required="true">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row g-mb-5">
+                                    <div class="col-md-8 align-self-center g-mb-5 g-mb-0--md g-font-weight-500">
+                                        <label class="mb-0 " for="#firstName">Max Age</label>
+                                    </div>
+
+                                    <div class="col-md-4 align-self-center">
+                                        <div class="form-group g-pos-rel mb-0">
+                          <span class="g-pos-abs g-top-0 g-right-0 d-block g-width-40 h-100 opacity-0 g-opacity-1--success">
+                          <i class="hs-admin-check g-absolute-centered g-font-size-default g-color-lightblue-v3"></i>
+                        </span>
+                                            <input id="firstName" name="firstName"
+                                                   class="form-control form-control-md g-brd-gray-light-v7 g-brd-lightblue-v3--focus g-brd-lightred-v2--error g-rounded-4 g-px-20 g-py-12"
+                                                   type="text" value="{{ clinical_trial.max_age }}"
+                                                   required="required"
+                                                   data-msg="This field is mandatory" data-error-class="u-has-error-v3"
+                                                   data-success-class="has-success" aria-required="true">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row g-mb-5">
+                                    <div class="col-md-8 align-self-center g-mb-5 g-mb-0--md g-font-weight-500">
+                                        <label class="mb-0 " for="#firstName">Min Age</label>
+                                    </div>
+
+                                    <div class="col-md-4 align-self-center">
+                                        <div class="form-group g-pos-rel mb-0">
+                          <span class="g-pos-abs g-top-0 g-right-0 d-block g-width-40 h-100 opacity-0 g-opacity-1--success">
+                          <i class="hs-admin-check g-absolute-centered g-font-size-default g-color-lightblue-v3"></i>
+                        </span>
+                                            <input id="firstName" name="firstName"
+                                                   class="form-control form-control-md g-brd-gray-light-v7 g-brd-lightblue-v3--focus g-brd-lightred-v2--error g-rounded-4 g-px-20 g-py-12"
+                                                   type="text" value="{{ clinical_trial.min_age }}"
+                                                   required="required"
+                                                   data-msg="This field is mandatory" data-error-class="u-has-error-v3"
+                                                   data-success-class="has-success" aria-required="true">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row g-mb-5">
+                                    <div class="col-md-7 align-self-center g-mb-5 g-mb-0--md g-font-weight-500">
+                                        <label class="mb-0 " for="#firstName">Offer Prise per Person</label>
+                                    </div>
+
+
+                                    <div class="col-md-5 align-self-center">
+                                        <div class="form-group g-pos-rel mb-0">
+                          <span class="g-pos-abs g-top-0 g-right-0 d-block g-width-40 h-100 opacity-0 g-opacity-1--success">
+                          <i class="hs-admin-check g-absolute-centered g-font-size-default g-color-lightblue-v3"></i>
+                        </span>
+                                            <input id="firstName" name="firstName"
+                                                   class="form-control form-control-md g-brd-gray-light-v7 g-brd-lightblue-v3--focus g-brd-lightred-v2--error g-rounded-4 g-px-20 g-py-12"
+                                                   type="text" value="${{ clinical_trial.offer_price }}"
+                                                   required="required"
+                                                   data-msg="This field is mandatory" data-error-class="u-has-error-v3"
+                                                   data-success-class="has-success" aria-required="true">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="card-block g-px-0">
+                                <span style="float: left"><a href="#"
+                                                             class="btn btn-lg u-btn-aqua u-btn-hover-v2-1 g-mr-10 g-mb-5 g-font-size-default">
+                                   Save Changes</a></span>
+
+
+                                    <span><a href="{% url 'marketplace:clinical_trial_update' clinical_trial.id %}"
+                                             class="btn btn-lg u-btn-orange u-btn-hover-v2-1 g-mr-10 g-mb-5 g-font-size-default">
+                                    Full Update</a></span>
+                                </div>
+
+
+                                <h3 class="g-font-weight-500 g-font-size-16 g-color-black g-mb-10">
+                                            View All Participants</h3>
+
+                                <a href="#!"
+                                   class="btn btn-xl btn-block u-btn-outline-teal g-font-weight-600 g-letter-spacing-0_5 text-uppercase g-brd-3 rounded-0 g-mr-10 g-mb-15">
+                                    All Participants</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Calendar Card -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock company_profile_content %}

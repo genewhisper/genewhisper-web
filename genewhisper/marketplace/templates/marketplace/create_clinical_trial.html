@@ -1,34 +1,428 @@
 {% extends 'company_base.html' %}
+{% load staticfiles %}
 
 
 {% block company_profile_content %}
 
+    <!-- Breadcrumb-v1 -->
+    <div class="g-hidden-sm-down g-bg-gray-light-v8 g-pa-20">
+        <ul class="u-list-inline g-color-gray-dark-v6">
 
-{#    <form action="" method="post">#}
-{#        {% csrf_token %}#}
-{#        {{ form.as_p }}#}
-{#        <input type="submit" value="Save"/>#}
-{#    </form>#}
+            <li class="list-inline-item g-mr-10">
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle" href="#!">Dashboard</a>
+                <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
+            </li>
 
-
-    <form action="" method="post">
-    {% csrf_token %}
-        {% for field in form %}
-
-            <div class="row">
-            <span class="text-danger small">{{ field.errors }}</span>
-
+            <li class="list-inline-item g-mr-10">
+                <a class="u-link-v5 g-color-gray-dark-v6 g-color-lightblue-v3--hover g-valign-middle" href="#!">Ne Clinical Trial</a>
+                <i class="hs-admin-angle-right g-font-size-12 g-color-gray-light-v6 g-valign-middle g-ml-10"></i>
+            </li>
 
 
-            <div class="col-3">
-                <label>{{ field.label_tag }}</label>
-            </div>
+        </ul>
+    </div>
+    <!-- End Breadcrumb-v1 -->
 
-            <div class="col-3">{{ field }}</div>
-             </div>
-        {% endfor %}
-        <input type="submit" value="Save"/>
 
-    </form>
+
+    <div class="">
+
+
+        <div class="g-bg-lightblue-v10-opacity-0_5 g-pa-20">
+
+            {% if submitted %}
+                <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-28 align-content">Success!</h1>
+                <div class="row">
+                    <!-- 1-st column -->
+                    <div class="col-md-8">
+
+                        <section class="g-bg-green g-color-white g-py-50 g-pa-30">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9 align-self-center">
+                                        <h3 class="h4">Clinical Trial has been successfully created</h3>
+                                        <p class="lead g-mb-20 g-mb-0--md">Pick the action</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-9 align-self-center">
+                                        <h3 class="h4"></h3>
+                                        <p class="lead g-mb-20 g-mb-0--md"></p>
+                                    </div>
+
+                                    <div class="col-md-3 align-self-center text-md-right">
+                                        <a class="btn btn-md u-btn-outline-white g-brd-2 rounded-0"
+                                           href="{% url 'marketplace:company_all_clinical_trials' %}">All Clinical Trials</a>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </section>
+
+
+                    </div>
+
+                    <!-- Calendar Card -->
+                    <div class="col-md-4">
+
+                        <!-- Calendar Card -->
+                        <div class="g-mb-30">
+                            <header class="u-bg-overlay g-bg-img-hero g-bg-black-opacity-0_5--after g-rounded-4 g-rounded-0--bottom-left g-rounded-0--bottom-right g-overflow-hidden"
+                                    style="background-image: url({% static 'genewhisper/assets_website/img-temp/400x270/tulips-spring-wallpaper-400x270-MM-100.jpg' %});">
+                                <div class="u-bg-overlay__inner g-color-white g-pa-30">
+                                    <h3 class="g-font-weight-300 g-font-size-28 g-color-white g-mb-35">
+                                        Friday 3rd
+                                        <span class="d-block g-font-size-16">January 2017</span>
+                                    </h3>
+                                    <a class="btn btn-md text-uppercase u-btn-outline-white" href="#">Add event</a>
+                                </div>
+                            </header>
+
+                            <section
+                                    class="g-brd-around g-brd-top-none g-brd-gray-light-v7 g-rounded-4 g-rounded-0--top-left g-rounded-0--top-right">
+                                <div class="g-pa-10 g-pa-20--md">
+                                    <div id="datepicker" class="u-datepicker--v2"></div>
+                                </div>
+
+                                <ul class="list-unstyled">
+                                    <li class="media g-bg-gray-light-v8 g-brd-left g-brd-2 g-brd-darkblue-v2 g-px-30 g-py-15 g-mb-2 g-ml-minus-1">
+                                        <strong class="d-flex align-self-center g-width-80 g-color-black">8:00am</strong>
+
+                                        <div class="media-body g-font-weight-300 g-color-black">Build My Own Website
+                                        </div>
+                                    </li>
+                                    <li class="media g-bg-gray-light-v8 g-brd-left g-brd-2 g-brd-lightblue-v4 g-px-30 g-py-15 g-mb-2 g-ml-minus-1">
+                                        <strong class="d-flex align-self-center g-width-80 g-color-black">9:00am</strong>
+
+                                        <div class="media-body g-font-weight-300 g-color-black">Create New Content
+                                        </div>
+                                    </li>
+                                    <li class="media g-bg-gray-light-v8 g-brd-left g-brd-2 g-brd-darkblue-v2 g-px-30 g-py-15 g-mb-2 g-ml-minus-1">
+                                        <strong class="d-flex align-self-center g-width-80 g-color-black">10:00am</strong>
+
+                                        <div class="media-body g-font-weight-300 g-color-black">Check Unify Profile
+                                            Updates
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                        <!-- End Calendar Card -->
+
+
+                        <div class="card g-brd-gray-light-v7 g-mb-30">
+                            <header class="media g-pa-15 g-pa-25-30-0--md g-mb-20">
+                                <h3 class="text-uppercase g-font-size-12 g-font-size-default--md g-color-black mb-0">
+                                    Tickets</h3>
+                            </header>
+
+                            <div class="js-custom-scroll g-height-400 g-pa-15 g-pa-0-30-25--md">
+                                <section>
+                                    <div class="media">
+                                        <div class="media-body g-mb-15">
+                                            <h3 class="g-font-weight-300 g-font-size-16 g-color-black g-mb-5">
+                                                Freelance
+                                                Design</h3>
+                                            <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">15 Tips To
+                                                Increase
+                                                Your Adwords</p>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <a class="u-link-v5 g-font-size-16 g-color-lightblue-v3"
+                                               href="#!">#001-3456</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <div class="media-body align-self-center" href="#!">
+                                            <span class="u-tags-v1 text-center g-width-140 g-bg-lightblue-v3 g-color-white g-brd-around g-brd-lightblue-v3 g-rounded-50 g-py-4 g-px-15">In Progress</span>
+                                        </div>
+
+                                        <em class="d-flex align-self-center align-items-center g-font-style-normal">
+                                            <i class="hs-admin-time g-font-size-default g-font-size-18--md g-color-gray-light-v3"></i>
+                                            <span class="g-font-weight-300 g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-ml-4 g-ml-8--md">45 Min <span
+                                                    class="g-hidden-md-down">ago</span></span>
+                                        </em>
+                                    </div>
+                                </section>
+
+                                <hr class="d-flex g-brd-gray-light-v4 g-my-25">
+
+                                <section>
+                                    <div class="media">
+                                        <div class="media-body g-mb-15">
+                                            <h3 class="g-font-weight-300 g-font-size-16 g-color-black g-mb-5">The
+                                                Flash
+                                                Tutorial</h3>
+                                            <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">Las Vegas How To
+                                                Have
+                                                Non Gambling</p>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <a class="u-link-v5 g-font-size-16 g-color-lightblue-v3"
+                                               href="#!">#001-3458</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <div class="media-body align-self-center" href="#!">
+                                            <span class="u-tags-v1 text-center g-width-140 g-bg-teal-v2 g-color-white g-brd-around g-brd-teal-v2 g-rounded-50 g-py-4 g-px-15">Done</span>
+                                        </div>
+
+                                        <em class="d-flex align-self-center align-items-center g-font-style-normal">
+                                            <i class="hs-admin-time g-font-size-default g-font-size-18--md g-color-gray-light-v3"></i>
+                                            <span class="g-font-weight-300 g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-ml-4 g-ml-8--md">15 Min <span
+                                                    class="g-hidden-md-down">ago</span></span>
+                                        </em>
+                                    </div>
+                                </section>
+
+                                <hr class="d-flex g-brd-gray-light-v4 g-my-25">
+
+                                <section>
+                                    <div class="media">
+                                        <div class="media-body g-mb-15">
+                                            <h3 class="g-font-weight-300 g-font-size-16 g-color-black g-mb-5">Free
+                                                Advertising</h3>
+                                            <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">How Does An Lcd
+                                                Screen Work</p>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <a class="u-link-v5 g-font-size-16 g-color-lightblue-v3"
+                                               href="#!">#001-3454</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <div class="media-body align-self-center" href="#!">
+                                            <span class="u-tags-v1 text-center g-width-140 g-bg-lightred-v2 g-color-white g-brd-around g-brd-lightred-v2 g-rounded-50 g-py-4 g-px-15">To Do</span>
+                                        </div>
+
+                                        <em class="d-flex align-self-center align-items-center g-font-style-normal">
+                                            <i class="hs-admin-time g-font-size-default g-font-size-18--md g-color-gray-light-v3"></i>
+                                            <span class="g-font-weight-300 g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-ml-4 g-ml-8--md">10 Min <span
+                                                    class="g-hidden-md-down">ago</span></span>
+                                        </em>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Calendar Card -->
+
+                </div>
+
+            {% else %}
+
+                <h1 class="g-font-weight-300 g-font-size-28 g-color-black g-mb-28">New Clinical Trial</h1>
+
+                <div class="row">
+                    <!-- 1-st column -->
+                    <div class="col-md-8">
+                        <!-- Basic Text Inputs -->
+                        <div class=" card g-brd-around g-brd-gray-light-v7 u-card-v1 g-rounded-4 g-pa-15 g-pa-20--md g-mb-30">
+                            <h3 class="d-flex align-self-auto text-uppercase g-font-size-12 g-font-size-default--md g-color-black g-mb-20">
+                                Create New Clinical Trial</h3>
+
+
+                            <form action="" method="post" class="">
+                                {% csrf_token %}
+
+                                {% for field in form %}
+
+                                    <div class="row">
+                                        <span class="text-danger small">{{ field.errors }}</span>
+
+
+                                        <div class="col-4 form-group">
+                                            <label class="col-form-label">{{ field.label_tag }}</label>
+                                        </div>
+
+                                        <div class="col-8 form-group">
+                                            {{ field }}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <input type="submit" value="Save" class="btn btn-xl u-btn-primary g-mr-10 g-mb-15"/>
+
+                            </form>
+
+
+                            <!-- End Default Input -->
+
+                        </div>
+                        <!-- End 1-st column -->
+
+
+                    </div>
+
+                    <!-- Calendar Card -->
+                    <div class="col-md-4">
+
+                        <!-- Calendar Card -->
+                        <div class="g-mb-30">
+                            <header class="u-bg-overlay g-bg-img-hero g-bg-black-opacity-0_5--after g-rounded-4 g-rounded-0--bottom-left g-rounded-0--bottom-right g-overflow-hidden"
+                                    style="background-image: url({% static 'genewhisper/assets_website/img-temp/400x270/tulips-spring-wallpaper-400x270-MM-100.jpg' %});">
+                                <div class="u-bg-overlay__inner g-color-white g-pa-30">
+                                    <h3 class="g-font-weight-300 g-font-size-28 g-color-white g-mb-35">
+                                        Friday 3rd
+                                        <span class="d-block g-font-size-16">January 2017</span>
+                                    </h3>
+                                    <a class="btn btn-md text-uppercase u-btn-outline-white" href="#">Add event</a>
+                                </div>
+                            </header>
+
+                            <section
+                                    class="g-brd-around g-brd-top-none g-brd-gray-light-v7 g-rounded-4 g-rounded-0--top-left g-rounded-0--top-right">
+                                <div class="g-pa-10 g-pa-20--md">
+                                    <div id="datepicker" class="u-datepicker--v2"></div>
+                                </div>
+
+                                <ul class="list-unstyled">
+                                    <li class="media g-bg-gray-light-v8 g-brd-left g-brd-2 g-brd-darkblue-v2 g-px-30 g-py-15 g-mb-2 g-ml-minus-1">
+                                        <strong class="d-flex align-self-center g-width-80 g-color-black">8:00am</strong>
+
+                                        <div class="media-body g-font-weight-300 g-color-black">Build My Own Website
+                                        </div>
+                                    </li>
+                                    <li class="media g-bg-gray-light-v8 g-brd-left g-brd-2 g-brd-lightblue-v4 g-px-30 g-py-15 g-mb-2 g-ml-minus-1">
+                                        <strong class="d-flex align-self-center g-width-80 g-color-black">9:00am</strong>
+
+                                        <div class="media-body g-font-weight-300 g-color-black">Create New Content
+                                        </div>
+                                    </li>
+                                    <li class="media g-bg-gray-light-v8 g-brd-left g-brd-2 g-brd-darkblue-v2 g-px-30 g-py-15 g-mb-2 g-ml-minus-1">
+                                        <strong class="d-flex align-self-center g-width-80 g-color-black">10:00am</strong>
+
+                                        <div class="media-body g-font-weight-300 g-color-black">Check Unify Profile
+                                            Updates
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                        <!-- End Calendar Card -->
+
+
+                        <div class="card g-brd-gray-light-v7 g-mb-30">
+                            <header class="media g-pa-15 g-pa-25-30-0--md g-mb-20">
+                                <h3 class="text-uppercase g-font-size-12 g-font-size-default--md g-color-black mb-0">
+                                    Tickets</h3>
+                            </header>
+
+                            <div class="js-custom-scroll g-height-400 g-pa-15 g-pa-0-30-25--md">
+                                <section>
+                                    <div class="media">
+                                        <div class="media-body g-mb-15">
+                                            <h3 class="g-font-weight-300 g-font-size-16 g-color-black g-mb-5">
+                                                Freelance
+                                                Design</h3>
+                                            <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">15 Tips To
+                                                Increase
+                                                Your Adwords</p>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <a class="u-link-v5 g-font-size-16 g-color-lightblue-v3"
+                                               href="#!">#001-3456</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <div class="media-body align-self-center" href="#!">
+                                            <span class="u-tags-v1 text-center g-width-140 g-bg-lightblue-v3 g-color-white g-brd-around g-brd-lightblue-v3 g-rounded-50 g-py-4 g-px-15">In Progress</span>
+                                        </div>
+
+                                        <em class="d-flex align-self-center align-items-center g-font-style-normal">
+                                            <i class="hs-admin-time g-font-size-default g-font-size-18--md g-color-gray-light-v3"></i>
+                                            <span class="g-font-weight-300 g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-ml-4 g-ml-8--md">45 Min <span
+                                                    class="g-hidden-md-down">ago</span></span>
+                                        </em>
+                                    </div>
+                                </section>
+
+                                <hr class="d-flex g-brd-gray-light-v4 g-my-25">
+
+                                <section>
+                                    <div class="media">
+                                        <div class="media-body g-mb-15">
+                                            <h3 class="g-font-weight-300 g-font-size-16 g-color-black g-mb-5">The
+                                                Flash
+                                                Tutorial</h3>
+                                            <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">Las Vegas How To
+                                                Have
+                                                Non Gambling</p>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <a class="u-link-v5 g-font-size-16 g-color-lightblue-v3"
+                                               href="#!">#001-3458</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <div class="media-body align-self-center" href="#!">
+                                            <span class="u-tags-v1 text-center g-width-140 g-bg-teal-v2 g-color-white g-brd-around g-brd-teal-v2 g-rounded-50 g-py-4 g-px-15">Done</span>
+                                        </div>
+
+                                        <em class="d-flex align-self-center align-items-center g-font-style-normal">
+                                            <i class="hs-admin-time g-font-size-default g-font-size-18--md g-color-gray-light-v3"></i>
+                                            <span class="g-font-weight-300 g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-ml-4 g-ml-8--md">15 Min <span
+                                                    class="g-hidden-md-down">ago</span></span>
+                                        </em>
+                                    </div>
+                                </section>
+
+                                <hr class="d-flex g-brd-gray-light-v4 g-my-25">
+
+                                <section>
+                                    <div class="media">
+                                        <div class="media-body g-mb-15">
+                                            <h3 class="g-font-weight-300 g-font-size-16 g-color-black g-mb-5">Free
+                                                Advertising</h3>
+                                            <p class="g-font-weight-300 g-color-gray-dark-v6 mb-0">How Does An Lcd
+                                                Screen Work</p>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <a class="u-link-v5 g-font-size-16 g-color-lightblue-v3"
+                                               href="#!">#001-3454</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="media">
+                                        <div class="media-body align-self-center" href="#!">
+                                            <span class="u-tags-v1 text-center g-width-140 g-bg-lightred-v2 g-color-white g-brd-around g-brd-lightred-v2 g-rounded-50 g-py-4 g-px-15">To Do</span>
+                                        </div>
+
+                                        <em class="d-flex align-self-center align-items-center g-font-style-normal">
+                                            <i class="hs-admin-time g-font-size-default g-font-size-18--md g-color-gray-light-v3"></i>
+                                            <span class="g-font-weight-300 g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-ml-4 g-ml-8--md">10 Min <span
+                                                    class="g-hidden-md-down">ago</span></span>
+                                        </em>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Calendar Card -->
+
+                </div>
+                </div>
+            {% endif %}
+    </div>
+
+
+
+
+
 {% endblock company_profile_content %}
+
+
 

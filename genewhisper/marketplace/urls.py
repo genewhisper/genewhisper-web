@@ -37,8 +37,6 @@ urlpatterns = [
     path('shopping-cart', views.ShoppingCartView.as_view(template_name='marketplace/shopping_cart.html'),
          name='shopping_cart'),
 
-
-
     # ==================================================================================================================
 
     path('clinical-trial-list',
@@ -48,5 +46,9 @@ urlpatterns = [
     path('my-clinical-trials',
          views.ClinicalTrialListView.as_view(template_name='marketplace/company_all_clinical_trials.html'),
          name='company_all_clinical_trials'),
+
+    path('clinical-trial-details/<int:pk>',
+         views.ClinicalTrialDetailView.as_view(template_name='marketplace/company_clinical_trial_details.html'),
+         name='clinical_trial_details'),
 
 ]
