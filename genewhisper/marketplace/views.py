@@ -109,8 +109,16 @@ class FileManagerView(TemplateView, LoginRequiredMixin):
         return ClinicalTrial.objects.filter(username=self.request.user)
 
 
-class ShoppingCartView(TemplateView, LoginRequiredMixin):
+class ShoppingCartView(ListView, LoginRequiredMixin):
     login_url = reverse_lazy('login')
+    model = ClinicalTrial
+
+    def get_context_data(self, **kwargs):
+        context = super(ShoppingCartView, self).get_context_data(**kwargs)
+        context['genomic_profile'] = GenomicProfile.objects.all()
+        context['genomic_profile_count'] = GenomicProfile.objects.all().count()
+        context['cart_object'] = ClinicalTrial.objects.filter(pk=1)
+        return context
 
     def get_queryset(self):
         return ClinicalTrial.objects.filter(username=self.request.user)
