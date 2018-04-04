@@ -59,17 +59,49 @@
             </div>
 
 
+             <div class="">
+                <a class="btn btn-xl u-btn-lightblue-v3  g-font-size-default g-ml-10"
+                   href="{% url 'marketplace:shopping_cart' %}" data-src="#new-project-form"
+                   data-modal-target="#modal1" data-modal-effect="fadein"
+                   data-speed="350" data-options="{&quot;touch&quot; : false}">
+                    Shopping Cart
+                </a>
+
+            </div>
+
         </div>
 
         <hr class="d-flex g-brd-gray-light-v7 g-my-20">
 
 
-        {% for item in genomic_profile %}
-            {{ item.username }}
-            {{ item.country }}
-        {% endfor %}
+        <div class="btn-group g-mr-10 g-mb-15">
+            <button class="btn u-btn-aqua  g-font-size-default btn-lg dropdown-toggle" type="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                Bulk Selection
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#!">Select All Participants</a>
+                <a class="dropdown-item" href="#!">Select Random {{ clinicaltrial.number_of_participants }}
+                    Participants</a>
+
+            </div>
+        </div>
 
 
+        <div class="btn-group g-mr-10 g-mb-15">
+            <button class="btn u-btn-aqua  g-font-size-default btn-lg dropdown-toggle" type="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                Bulk Action
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#!">Add to Cart</a>
+                <a class="dropdown-item" href="#!">Contact</a>
+                <a class="dropdown-item" href="#!">Archive</a>
+
+            </div>
+        </div>
 
 
         <div class="card  u-card-v1 g-mb-25">
@@ -269,7 +301,7 @@
                                 <td class="">{{ item.age }}</td>
                                 <td class="">{{ item.email }}</td>
 
-                                <td >
+                                <td>
                                     <a href="#!" class="btn btn-small u-btn-teal">
                                         <i class="fa fa-shopping-cart g-mr-5"></i>
                                         Add to Cart
@@ -300,7 +332,7 @@
                                                 </li>
 
 
-                                                   <li>
+                                                <li>
                                                     <a class="d-flex align-items-center u-link-v5 g-bg-gray-light-v8--hover g-font-size-12 g-font-size-default--md g-color-gray-dark-v6 g-px-25 g-py-14"
                                                        href="#!">
                                                         <i class="hs-admin-email g-font-size-18 g-color-gray-light-v6 g-mr-10 g-mr-15--md"></i>
