@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>particles.js</title>
+    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+    <meta name="author" content="Vincent Garreau"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="{% static  'genewhisper/particles.js-master/demo/css/style.css' %}">
+
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+          href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/bootstrap/bootstrap.min.css' %}">
+    <!-- CSS Global Icons -->
+    <link rel="stylesheet"
+          href="{% static 'genewhisper/assets_website/vendor/icon-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/icon-line/css/simple-line-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/icon-etlinefont/style.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/icon-line-pro/style.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/icon-hs/style.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_profile/vendor/hs-admin-icons/hs-admin-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/animate.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/custombox/custombox.min.css' %}">
+
+
+    <link rel="stylesheet"
+          href="{% static 'genewhisper/assets_website/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_profile/vendor/flatpickr/dist/css/flatpickr.min.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'genewhisper/assets_profile/vendor/bootstrap-select/css/bootstrap-select.min.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_profile/vendor/chartist-js/chartist.min.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'genewhisper/assets_profile/vendor/chartist-js-tooltip/chartist-plugin-tooltip.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_profile/vendor/fancybox/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/vendor/hamburgers/hamburgers.min.css' %}">
+
+    <!-- CSS Unify -->
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_profile/css/unify-admin.css' %}">
+
+
+    <!-- CSS Customization -->
+
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/css/unify-core.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/css/unify-components.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/css/unify-globals.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/css/unify.css' %}">
+    <link rel="stylesheet" href="{% static 'genewhisper/assets_website/css/custom.css' %}">
+
+</head>
+
+<body>
+
+<div id="particles-js">
+</div>
+
+<div class="panel">
+
+    <h1 class="g-color-green-v2 g-font-weight-600 g-font-size-80">Genewhisper</h1>
+    <div class=" u-in-viewport" style="align: center">
+
+
+        <a class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15"
+           href="{% url 'accounts:signup' %}">Individual Registration</a>
+        <a class="btn btn-lg u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15"
+           href="{% url 'accounts:company_signup' %}">Company Registration</a>
+        <p style="text-align: center"><a
+                class="btn btn-lg u-btn-outline-black g-font-weight-600 g-font-size-13 text-uppercase g-rounded-50 mx-2 g-px-25 g-py-15"
+                href="{% url 'accounts:login_company' %}">Login</a></p>
+
+    </div>
+</div>
+
+
+<!-- scripts -->
+<script src="{% static 'genewhisper/particles.js-master/particles.js' %}"></script>
+<script src="{% static 'genewhisper/particles.js-master/demo/js/app.js' %}"></script>
+<!-- stats.js -->
+<script src="{% static 'genewhisper/particles.js-master/demo/js/lib/stats.js' %}"></script>
+
+
+<!-- JS Global Compulsory -->
+<script src="{% static 'genewhisper/assets_website/vendor/jquery/jquery.min.js' %}"></script>
+
+
+<script src="{% static 'genewhisper/assets_website/vendor/jquery-migrate/jquery-migrate.min.js' %}"></script>
+
+<script src="{% static 'genewhisper/assets_website/vendor/popper.min.js' %}"></script>
+
+<script src="{% static 'genewhisper/assets_website/vendor/bootstrap/bootstrap.min.js' %}"></script>
+
+<!-- JS Implementing Plugins -->
+<script src="{% static 'genewhisper/assets_website/vendor/appear.js' %}"></script>
+
+
+<script src="{% static 'genewhisper/assets_website/vendor/hs-megamenu/src/hs.megamenu.js' %}"></script>
+
+
+<script src="{% static 'genewhisper/assets_website/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+
+<!-- JS Unify -->
+<script src="{% static 'genewhisper/assets_website/js/hs.core.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/helpers/hs.hamburgers.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/components/hs.header.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/components/hs.tabs.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/components/hs.counter.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/components/hs.progress-bar.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/components/hs.rating.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/components/hs.scrollbar.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/components/hs.go-to.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/vendor/jquery.filer/js/jquery.filer.min.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/helpers/hs.focus-state.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/components/hs.file-attachement.js' %}"></script>
+<script src="{% static 'genewhisper/assets_website/js/custom.js' %}"></script>
+<script src= {% static 'genewhisper/assets_profile/js/components/hs.pie-chart.js' %}></script>
+
+
+<!-- JS Customization -->
+
+
+<script src="{% static 'genewhisper/particles.js-master/particles.js' %}"></script>
+
+<script src="{% static 'genewhisper/particles.js-master/demo/js/app.js' %}"></script>
+
+<script src="{% static 'genewhisper/particles.js-master/demo/js/lib/stats.js' %}"></script>
+
+
+<script>
+
+    particlesJS.load('particles-js', 'particles.json', function () {
+        console.log('particles.js loaded - callback');
+    });
+
+
+    $(document).on('ready', function () {
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+
+        // initialization of tabs
+        $.HSCore.components.HSTabs.init('[role="tablist"]');
+
+        // initialization of counters
+        var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
+
+        // initialization of rating
+        $.HSCore.components.HSRating.init($('.js-rating'), {
+            spacing: 2
+        });
+
+        // initialization of HSScrollBar component
+        $.HSCore.components.HSScrollBar.init($('.js-scrollbar'));
+    });
+
+    $(window).on('load', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#js-header'));
+        $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+        // initialization of HSMegaMenu component
+        $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            pageContainer: $('.container'),
+            breakpoint: 991
+        });
+
+        // initialization of horizontal progress bars
+        setTimeout(function () { // important in this case
+            var horizontalProgressBars = $.HSCore.components.HSProgressBar.init('.js-hr-progress-bar', {
+                direction: 'horizontal',
+                indicatorSelector: '.js-hr-progress-bar-indicator'
+            });
+        }, 1);
+    });
+
+    $(window).on('resize', function () {
+        setTimeout(function () {
+            $.HSCore.components.HSTabs.init('[role="tablist"]')
+        }, 200);
+    });
+
+
+    $(document).on('ready', function () {
+        // initialization of forms
+        $.HSCore.components.HSFileAttachment.init('.js-file-attachment');
+        $.HSCore.helpers.HSFocusState.init();
+    });
+
+
+    // initialization of charts
+    $.HSCore.components.HSAreaChart.init('.js-area-chart');
+    $.HSCore.components.HSPieChart.init('.js-pie-chart');
+    $.HSCore.components.HSDonutChart.init('.js-donut-chart');
+    $.HSCore.components.HSBarChart.init('.js-bar-chart');
+
+
+</script>
+
+</body>
+</html>
