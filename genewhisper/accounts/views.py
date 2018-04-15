@@ -37,7 +37,6 @@ def login_company(request):
                     # companyRegistration = CompanyRegistration.objects.get(companyEmail=user.email)
                     print(companyRegistration)
                     if companyRegistration.role == 'company':
-
                         return redirect('/accounts/company-profile')
                     else:
                         return render(request, 'accounts/patient_dashboard.html', {"message": "success"})
