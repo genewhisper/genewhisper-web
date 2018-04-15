@@ -142,4 +142,4 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = '/profile'
-LOGOUT_REDIRECT_URL = 'thanks'
+LOGOUT_REDIRECT_URL = 'landing_page'
